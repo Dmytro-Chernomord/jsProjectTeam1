@@ -1,5 +1,5 @@
 .card-box {
-  padding: 20px 20px 40px 20px;
+  // padding: 20px 20px 40px 20px;
 }
 
 .content-title {
@@ -66,7 +66,7 @@
 @media screen and (min-width: 768px) {
   .card-box {
     display: flex;
-    padding: 60px 75px;
+    // padding: 60px 75px;
   }
   .box-image {
     min-width: 294px;
@@ -81,9 +81,9 @@
 }
 
 @media screen and (min-width: 1024px) {
-  .card-box {
-    padding: 60px 71px;
-  }
+  // .card-box {
+  //   padding: 60px 71px;
+  // }
   .box-image {
     min-width: 426px;
     min-height: 514px;

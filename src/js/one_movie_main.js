@@ -2,6 +2,7 @@ import movie from '../template/one_movie.hbs';
 
 const apiKey = '89b9004c084fb7d0e8ffaadd17cb8254';
 const galleryRef = document.querySelector('.movies-list');
+const containerRef = document.querySelector('.container');
 
 // ---- Собираем инфо по фильму по id --------
 function getOneMovieInfo(movie_id) {
@@ -13,7 +14,7 @@ function getOneMovieInfo(movie_id) {
 
 function generateOneMovieMarkup(id) {
   getOneMovieInfo(id).then(data => {
-    galleryRef.innerHTML = movie([data]);
+    containerRef.innerHTML = movie([data]);
   });
 }
 
