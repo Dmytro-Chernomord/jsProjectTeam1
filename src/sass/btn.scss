@@ -1,6 +1,5 @@
 .btn {
-  margin-right: 15px;
-  min-width: 136px;
+  min-width: 130px;
   height: 44px;
   padding: 13px 10px;
   border: 1px solid $primary-black;
@@ -11,6 +10,10 @@
   line-height: 1.33;
   color: $primary-black;
   text-transform: uppercase;
+}
+
+.btn:first-child {
+  margin-right: 15px;
 }
 
 .btn--header {
