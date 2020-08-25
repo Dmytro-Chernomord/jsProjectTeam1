@@ -14,6 +14,7 @@ function getOneMovieInfo(movie_id) {
 
 function generateOneMovieMarkup(id) {
   getOneMovieInfo(id).then(data => {
+    console.log(data);
     containerRef.innerHTML = movie([data]);
   });
 }

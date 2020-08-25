@@ -7,19 +7,27 @@
         <h2 class="content-title">{{title}}</h2>
         <ul class="content-list">
             <li class="content-item">
-                <p class="item-part">Vote / Votes <span class="item-data">{{vote_average}} / {{vote_count}}</span></p>
+                <p class="item-part">Vote / Votes </p>
+                <span class="item-data item-data--accent">{{vote_average}}</span><span> / </span>
+                <span class="item-data item-data--accent item-data--grey">{{vote_count}}</span>
                 {{!-- <p class="rating"></p> --}}
             </li>
             <li class="content-item">
-                <p class="item-part">Popularity <span class="item-data">{{popularity}}</span></p>
+                <p class="item-part">Popularity</p> <span class="item-data">{{popularity}}</span>
 
             </li>
             <li class="content-item">
-                <p class="item-part">Original Title <span class="item-data">{{original_title}}</span></p>
+                <p class="item-part">Original Title</p> <span class="item-data">{{original_title}}</span>
 
             </li>
             <li class="content-item">
-                <p class="item-part">Genre <span class="item-data">{{genres}}</span></p>
+                <p class="item-part">Genre
+                <ul class="genre-list">
+                    {{#each genres}}
+                    <li class="item-data genre-data">{{this.name}}</li>
+                    {{/each}}
+                </ul>
+                </p>
 
             </li>
         </ul>

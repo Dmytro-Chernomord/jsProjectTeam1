@@ -1,6 +1,5 @@
 .btn {
-  width: 130px;
-
+  min-width: 130px;
   height: 44px;
   padding: 13px 10px;
   border: 1px solid $primary-black;
@@ -23,6 +22,10 @@
   @media screen and (min-width: 768px) {
     margin-right: 15px;
   }
+}
+
+.btn:first-child {
+  margin-right: 15px;
 }
 
 .btn--header {

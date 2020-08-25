@@ -44,6 +44,34 @@
     align-items: center;
     text-transform: uppercase;
   }
+
+  & .item-data--accent {
+    display: inline-block;
+    margin-right: 3px;
+    padding-top: 1px;
+    min-width: 36px;
+    min-height: 16px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 5px;
+    color: $primary-white;
+    background-color: $accent-color;
+  }
+
+  & .item-data--accent.item-data--grey {
+    margin-left: 3px;
+    color: $primary-black;
+    background-color: #f7f7f7;
+  }
+
+  // & .genre-list {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  // }
+
+  & .genre-data {
+    text-transform: none;
+  }
 }
 
 .title-text {
@@ -70,7 +98,7 @@
   }
   .box-image {
     min-width: 294px;
-    min-height: 416px;
+    // min-height: 416px;
     margin-right: 30px;
   }
   .content-title {
@@ -86,7 +114,7 @@
   // }
   .box-image {
     min-width: 426px;
-    min-height: 514px;
+    // min-height: 514px;
   }
   .content-item .item-part {
     margin-right: 83px;
