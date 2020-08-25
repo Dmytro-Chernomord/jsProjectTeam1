@@ -1,10 +1,16 @@
-import myLib from '../template/my_library.hbs';
 import refs from './refs.js';
-console.log(refs.nav);
+import { togglePageToHome, togglePageToLib } from './togglePage.js';
+
 refs.nav.addEventListener('click', event => {
   event.preventDefault();
-  if (event.target === refs.lib) {
-    refs.home.classList.remove('nav-link--curent');
-    refs.lib.classList.add('nav-link--curent');
+  if (event.target === refs.myLib) {
+    togglePageToLib();
+  } else if (event.target === refs.home) {
+    togglePageToHome();
   }
+});
+
+refs.logo.addEventListener('click', event => {
+  event.preventDefault();
+  togglePageToHome();
 });

@@ -54,7 +54,7 @@
       url(../assets/images/bg320px/my_lib_bg320@2x.jpg);
   }
   @media screen and (min-width: 450px) {
-    padding: 60px 71px;
+    padding: 41px 71px;
     background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../assets/images/bg768px/my_lib_bg768@1x.jpg);
 
@@ -169,6 +169,10 @@
   }
 }
 
+.btn-box {
+  display: flex;
+  justify-content: center;
+}
 .notification {
   margin-top: 22px;
   text-align: center;
