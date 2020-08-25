@@ -1,7 +1,7 @@
 {{#each this}}
-<li>
-    <img src="https://image.tmdb.org/t/p/w300/{{poster_path}}" alt="Movie" />
-    <h2>{{title}}</h2>
-    <p>{{genre_ids}} <span>{{release_date}}</span></p>
+<li class="movies-list-item">
+    <img class="list-item-img" src="https://image.tmdb.org/t/p/w300/{{poster_path}}" alt="Movie" />
+    <h2 class="list-item-title">{{title}}</h2>
+    <p class="list-item-descr">{{genre_ids}}<span> {{release_date}}</span></p>
 </li>
 {{/each}}

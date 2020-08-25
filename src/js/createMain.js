@@ -9,10 +9,8 @@ function createMain(search) {
 
 function insertHtml() {
   createMain().then(data => {
-    const year = data.results.release_date;
-    console.log(data.results[0].id);
-    document.querySelector('main').innerHTML = movies(data.results);
-    console.log(year);
+    // console.log(data.results[0].id);
+    document.querySelector('.movies-list').innerHTML = movies(data.results);
   });
 }
 
