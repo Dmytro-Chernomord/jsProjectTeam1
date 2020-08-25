@@ -11,14 +11,26 @@
   </head>
 
   <body>
-    <header>
-      <ul>
-        <li><a href="./index.html"></a>Filmoteka</li>
-        <li><a href="./index.html"></a>Home</li>
-        <li><a href="./my_library.html">my library</a></li>
-      </ul>
-      <button id="watched">Watched</button>
-      <button id="queue">queue</button>
+    <header class="header header-lib">
+      <div class="header-container">
+        <nav class="nav">
+          <a href="./index.html" class="logo">
+            <span class="logo-text">Filmoteka</span>
+          </a>
+          <ul class="menu">
+            <li class="menu-item">
+              <a href="./index.html" class="nav-link">Home</a>
+            </li>
+            <li class="menu-item">
+              <a href="./my_library.html" class="nav-link nav-link--curent"
+                >My library</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <button id="watched">Watched</button>
+        <button id="queue">queue</button>
+      </div>
     </header>
     <main>
       <h1>Список фильмов СКРЫТЬ</h1>
