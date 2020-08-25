@@ -11,6 +11,7 @@ function createMain(search) {
 function insertHtml() {
   createMain().then(data => {
     // console.log(data.results[0].id);
+    // console.log(data.results);
     data.results.forEach(
       element => (element.genre_ids = getGenre(element.genre_ids)),
     );
