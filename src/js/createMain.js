@@ -10,10 +10,10 @@ function createMain(search) {
 function insertHtml() {
   createMain().then(data => {
     // console.log(data.results[0].id);
-    console.log(data.results);
+    // console.log(data.results);
     document.querySelector('.movies-list').innerHTML = movies(data.results);
   });
 }
 
 insertHtml();
-console.log(movies);
+// console.log(movies);
