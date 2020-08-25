@@ -115,7 +115,6 @@
 .logo-icon {
   margin-right: 10px;
 }
-
 .logo-text {
   display: none;
   @media screen and (min-width: 768px) {
@@ -132,12 +131,17 @@
 
   text-transform: uppercase;
 }
-
 .menu-item:not(:last-child) {
   margin-right: 39px;
 }
+
 .nav-link {
   position: relative;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.nav-link:hover,
+.nav-link:focus {
+  color: $accent-color;
 }
 
 .nav-link--curent::after {
