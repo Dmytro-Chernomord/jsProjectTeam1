@@ -1,4 +1,5 @@
 import movies from '../template/movies.hbs';
+import { getGenre } from './genre-parser';
 
 const apiKey = '89b9004c084fb7d0e8ffaadd17cb8254';
 const inputRef = document.querySelector('#input');
@@ -10,6 +11,10 @@ function createMain(search) {
 function insertHtml() {
   createMain().then(data => {
     // console.log(data.results[0].id);
+    // console.log(data.results);
+    data.results.forEach(
+      element => (element.genre_ids = getGenre(element.genre_ids)),
+    );
     document.querySelector('.movies-list').innerHTML = movies(data.results);
   });
 }
