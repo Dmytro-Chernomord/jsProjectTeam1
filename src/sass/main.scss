@@ -17,7 +17,7 @@
     margin-right: 30px;
     margin-bottom: 30px;
     &:nth-child(2n) {
-      margin-right: 0;
+      margin-right: 0px;
     }
     &:nth-last-child(-n + 2) {
       margin-bottom: 0px;
@@ -34,6 +34,10 @@
       margin-bottom: 0px;
     }
   }
+}
+
+.list-item-img {
+  border-radius: 5px;
 }
 
 .list-item-title {

@@ -15,4 +15,4 @@ function insertHtml() {
 }
 
 insertHtml();
-console.log(movies);
+// console.log(movies);
