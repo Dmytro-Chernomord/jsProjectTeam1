@@ -1,34 +1,33 @@
 {{#each this}}
 <div class="card-box">
     <div class="box-image">
-        <img src="{{}}" alt="{{}}">
+        <img src="https://image.tmdb.org/t/p/w300/{{poster_path}}" alt="Poster">
     </div>
     <div class="box-content">
-        <h2 class="content-title">{{}}</h2>
+        <h2 class="content-title">{{title}}</h2>
         <ul class="content-list">
             <li class="content-item">
-                <p class="item-part">Vote / Votes</p>
-                <p class="rating">{{}}</p>
-                / {{}}
+                <p class="item-part">Vote / Votes <span class="item-data">{{vote_average}} / {{vote_count}}</span></p>
+                {{!-- <p class="rating"></p> --}}
             </li>
             <li class="content-item">
-                <p class="item-part">Popularity</p>
-                {{}}
+                <p class="item-part">Popularity <span class="item-data">{{popularity}}</span></p>
+
             </li>
             <li class="content-item">
-                <p class="item-part">Original Title</p>
-                {{}}
+                <p class="item-part">Original Title <span class="item-data">{{original_title}}</span></p>
+
             </li>
             <li class="content-item">
-                <p class="item-part">Genre</p>
-                {{}}
+                <p class="item-part">Genre <span class="item-data">{{genres}}</span></p>
+
             </li>
         </ul>
         <h3 class="title-text">About</h3>
-        <p class="text">{{}}</p>
+        <p class="text">{{overview}}</p>
         <div class="box-btn">
-            <button id="add-watched">add to Watched</button>
-            <button id="add-queue">add to queue</button>
+            <button id="add-watched" class="btn btn--accent">add to Watched</button>
+            <button id="add-queue" class="btn">add to queue</button>
         </div>
     </div>
 </div>
