@@ -1,0 +1,35 @@
+{{#each this}}
+<div class="card-box">
+    <div class="box-image">
+        <img src="{{}}" alt="{{}}">
+    </div>
+    <div class="box-content">
+        <h2 class="content-title">{{}}</h2>
+        <ul class="content-list">
+            <li class="content-item">
+                <p class="item-part">Vote / Votes</p>
+                <p class="rating">{{}}</p>
+                / {{}}
+            </li>
+            <li class="content-item">
+                <p class="item-part">Popularity</p>
+                {{}}
+            </li>
+            <li class="content-item">
+                <p class="item-part">Original Title</p>
+                {{}}
+            </li>
+            <li class="content-item">
+                <p class="item-part">Genre</p>
+                {{}}
+            </li>
+        </ul>
+        <h3 class="title-text">About</h3>
+        <p class="text">{{}}</p>
+        <div class="box-btn">
+            <button id="add-watched">add to Watched</button>
+            <button id="add-queue">add to queue</button>
+        </div>
+    </div>
+</div>
+{{/each}}
