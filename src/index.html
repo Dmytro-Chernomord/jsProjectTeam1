@@ -10,32 +10,144 @@
     />
   </head>
   <body>
-    <header>
-      <ul>
-        <li><a href="./index.html">Filmoteka</a></li>
-        <li><a href="./index.html">Home</a></li>
-        <li><a href="./my_library.html">My library</a></li>
-      </ul>
-      <input id="input" type="text" placeholder="Поиск фильмов" />
-      <span
-        >Search result not successful. Enter the correct movie name and</span
-      >
+    <header class="header header-home">
+      <div class="header-container">
+        <nav class="nav">
+          <a href="./index.html" class="logo">
+            <img
+              src="./assets/images/film.svg"
+              alt=""
+              height="24"
+              class="logo-icon"
+            />
+            <span class="logo-text">Filmoteka</span>
+          </a>
+          <ul class="menu">
+            <li class="menu-item">
+              <a href="./index.html" class="nav-link nav-link--curent">Home</a>
+            </li>
+            <li class="menu-item">
+              <a href="./my_library.html" class="nav-link">My library</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="search-box">
+          <input
+            id="input"
+            type="text"
+            placeholder="Поиск фильмов"
+            class="input"
+          />
+          <p id="notification" class="notification">
+            Search result not successful. Enter the correct movie name and
+          </p>
+        </div>
+      </div>
     </header>
     <main>
-      <h1></h1>
-      <ul>
-        <img src="./assets/images/test.jpg" alt="Movie" />
-        <h2>Movie Name</h2>
-        <p>Movie description</p>
-        <p>test-ihor</p>
-        <p>test-natali</p>
+      <h1 class="visually-hidden">h1</h1>
+      <ul class="movies-list container">
+        <!-- <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li>
+        <li class="movies-list-item">
+          <img
+            class="list-item-img"
+            src="./assets/images/test.jpg"
+            alt="Movie"
+          />
+          <h2 class="list-item-title">Movie Name</h2>
+          <p class="list-item-descr">Movie description</p>
+        </li> -->
       </ul>
     </main>
-    <footer>
-      <p>
-        © 2020 | All Rights Reserved | Developed with<a href=""
-          >by GoIT Students</a
+    <footer class="footer">
+      <p class="footer-text">
+        &copy; 2020 | All Rights Reserved | Developed with
+        <svg
+          class="heart-icon"
+          width="14"
+          height="14"
+          viewBox="0 0 14 14"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
         >
+          <path
+            d="M7 13.188L6.02 12.2177C2.38 9.02961 0 6.88109 0 4.24743C0 2.09891 1.68 0.435547 3.85 0.435547C5.04 0.435547 6.23 0.990002 7 1.89099C7.77 0.990002 8.96 0.435547 10.15 0.435547C12.32 0.435547 14 2.09891 14 4.24743C14 6.88109 11.62 9.02961 7.98 12.2177L7 13.188Z"
+            fill="#FF6B08"
+          />
+        </svg>
+        by
+        <a class="footer-link" href="#">GoIT Students</a>
       </p>
     </footer>
   </body>
