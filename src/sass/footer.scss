@@ -1,0 +1,28 @@
+.footer {
+  background-color: $secondary-bg-color;
+  text-align: center;
+  padding: 29px 0;
+
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+  color: $footer-text-color;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.19;
+  }
+}
+.footer-text {
+  @media screen and (max-width: 767px) {
+    max-width: 240px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+}
+.footer-link {
+  text-decoration: underline;
+}
+.heart-icon {
+  margin: 0 5px -2px 5px;
+}
