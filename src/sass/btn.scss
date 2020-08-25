@@ -11,7 +11,12 @@
   color: $primary-black;
 }
 
-.btn-accent {
+.btn--header {
+  border: 1px solid $primary-white;
+  color: $primary-white;
+}
+
+.btn--accent {
   border: 1px solid $accent-color;
   background-color: $accent-color;
   color: $primary-white;
