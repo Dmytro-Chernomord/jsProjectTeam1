@@ -1,4 +1,5 @@
 .btn {
+  margin-right: 15px;
   min-width: 136px;
   height: 44px;
   padding: 13px 10px;
@@ -9,6 +10,7 @@
   font-size: 12px;
   line-height: 1.33;
   color: $primary-black;
+  text-transform: uppercase;
 }
 
 .btn--header {
