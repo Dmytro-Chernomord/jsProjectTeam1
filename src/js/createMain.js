@@ -3,8 +3,8 @@ import { getGenre } from './genre-parser';
 import apiService from './apiServices.js';
 import refs from './refs.js';
 
-function createStartMain() {
-  apiService.getPopularMovies().then(data => {
+function createStartMain(page) {
+  apiService.getPopularMovies(page).then(data => {
     data.results.forEach(
       element => (element.genre_ids = getGenre(element.genre_ids)),
     );
@@ -44,4 +44,3 @@ function updateMurkupBySearch(event) {
 }
 
 export default createStartMain;
-

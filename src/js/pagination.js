@@ -10,26 +10,24 @@ console.log(container);
 
 const myPagination = new Pagination(container, {
   // Total number of items
-  totalItems: 500,
+  totalItems: 10000,
   // Items per page
   itemsPerPage: 20,
   // Visible pages
   visiblePages: 5,
   // Current page
   page: 1,
-  // center aligned
+  // center number
   centerAlign: true,
-  // default classes
+
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
-  // enable usage statistics
-  usageStatistics: true,
 });
 
 myPagination.getCurrentPage();
 
-container.addEventListener('click', event => {
-  createStartMain(event.target.textContent);
+myPagination.on('afterMove', function (evt) {
+  var currentPage = evt.page;
+  console.log(currentPage);
+  createStartMain(currentPage);
 });
-
-// Нужно вставить правильную функицю вместо createStartMain, которая будет принимать значения текстконтента как номер страницы...
