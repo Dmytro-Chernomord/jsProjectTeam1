@@ -34,8 +34,8 @@ function updateMainMarkup(arr) {
 function updateMurkupBySearch(event) {
   event.preventDefault();
   let query = event.target.value;
-  if(query == false)
-    return
+  if (query == false) return;
+  event.target.value = '';
   spinnerOn();
   apiService
     .getMoviesBySearch(query)
