@@ -15,11 +15,11 @@
   z-index: 1;
 }
 
-.is-hidden .modal {
+.is-hidden .modal-card {
   transform: scale(0, 0);
 }
 
-.modal {
+.modal-card {
   position: relative;
   margin: 0 auto;
   background-color: $primary-white;
