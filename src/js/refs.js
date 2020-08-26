@@ -16,4 +16,6 @@ export default {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   movieCard: document.querySelector('.movie-card'),
   modalLib: document.querySelector('#modal-lib'),
+  watchedBtn: document.querySelector('#watched'),
+  queueBtn: document.querySelector('#queue'),
 };

@@ -4,10 +4,10 @@ import apiService from './apiServices.js';
 import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
 
-function createStartMain() {
+function createStartMain(page) {
   spinnerOn();
   apiService
-    .getPopularMovies()
+    .getPopularMovies(page)
     .then(data => {
       data.results.forEach(
         element => (element.genre_ids = getGenre(element.genre_ids)),
@@ -32,7 +32,10 @@ function updateMainMarkup(arr) {
 }
 
 function updateMurkupBySearch(event) {
+  event.preventDefault();
   let query = event.target.value;
+  if(query == false)
+    return
   spinnerOn();
   apiService
     .getMoviesBySearch(query)

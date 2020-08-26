@@ -7,11 +7,12 @@ import { toggleModal } from './togglePage.js';
 // ----Функция для отрисовки модалки
 function generateOneMovieMarkup(id) {
   spinnerOn();
-  apiService.getOneMovieInfo(id).then(data => {
-    refs.movieCard.innerHTML = movie([data]);
-    onListenerBtn(data.id);
-    console.log(data.id);
-  })
+  apiService
+    .getOneMovieInfo(id)
+    .then(data => {
+      refs.movieCard.innerHTML = movie([data]);
+      onListenerBtn(data.id);
+    })
     .catch(() => errorOn())
     .finally(() => spinnerOff());
 }
