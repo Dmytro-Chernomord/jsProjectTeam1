@@ -1,26 +1,17 @@
 import movie from '../template/one_movie.hbs';
-
-const apiKey = '89b9004c084fb7d0e8ffaadd17cb8254';
-const galleryRef = document.querySelector('.movies-list');
-const containerRef = document.querySelector('.container');
-
-// ---- Собираем инфо по фильму по id --------
-function getOneMovieInfo(movie_id) {
-  const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${apiKey}&language=en-US`;
-  return fetch(url).then(res => res.json());
-}
+import apiService from './apiServices.js';
+import refs from './refs.js';
 
 // ----Функция для перерисовки страницы по клику
 
 function generateOneMovieMarkup(id) {
-  getOneMovieInfo(id).then(data => {
-    console.log(data);
-    containerRef.innerHTML = movie([data]);
+  apiService.getOneMovieInfo(id).then(data => {
+    refs.container.innerHTML = movie([data]);
   });
 }
 
 // ----- Вешаем слушатель на список --------
-galleryRef.addEventListener('click', onMovieCardClick);
+refs.gallery.addEventListener('click', onMovieCardClick);
 
 function onMovieCardClick(event) {
   event.preventDefault();
