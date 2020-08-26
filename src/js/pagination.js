@@ -2,11 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import createStartMain from './createMain.js';
 
-// console.log(Pagination);
-
 const container = document.getElementById('tui-pagination-container');
-
-console.log(container);
 
 const myPagination = new Pagination(container, {
   // Total number of items
@@ -19,15 +15,14 @@ const myPagination = new Pagination(container, {
   page: 1,
   // center number
   centerAlign: true,
-
+  //default class
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
 });
 
-myPagination.getCurrentPage();
+// myPagination.getCurrentPage();
 
 myPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
-  console.log(currentPage);
   createStartMain(currentPage);
 });
