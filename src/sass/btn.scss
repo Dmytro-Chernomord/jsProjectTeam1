@@ -17,6 +17,12 @@
   }
 }
 
+.btn:hover {
+  color: $primary-white;
+  background-color: $accent-color;
+  border-color: $accent-color;
+}
+
 #watched {
   margin-right: 20px;
   @media screen and (min-width: 768px) {
