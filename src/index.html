@@ -51,6 +51,7 @@
             type="text"
             placeholder="Поиск фильмов"
             class="input"
+            onkeyup="this.value = this.value.replace(/[^\\a-zA-Z0-9\\.]/g, '')"
           />
           <p id="notification" class="notification visually-hidden">
             Search result not successful. Enter the correct movie name
