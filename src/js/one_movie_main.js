@@ -1,15 +1,19 @@
 import movie from '../template/one_movie.hbs';
 import apiService from './apiServices.js';
 import refs from './refs.js';
+import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
 import { toggleModal } from './togglePage.js';
 
 // ----Функция для отрисовки модалки
 function generateOneMovieMarkup(id) {
+  spinnerOn();
   apiService.getOneMovieInfo(id).then(data => {
     refs.movieCard.innerHTML = movie([data]);
     onListenerBtn(data.id);
     console.log(data.id);
-  });
+  })
+    .catch(() => errorOn())
+    .finally(() => spinnerOff());
 }
 
 // ----- Вешаем слушатель на список --------
