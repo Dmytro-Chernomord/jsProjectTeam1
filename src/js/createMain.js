@@ -32,6 +32,7 @@ function updateMainMarkup(arr) {
 }
 
 function updateMurkupBySearch(event) {
+  event.preventDefault();
   let query = event.target.value;
   spinnerOn();
   apiService
