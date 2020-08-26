@@ -6,7 +6,7 @@ export const togglePageToHome = function () {
   refs.header.classList.add('header-home');
   refs.header.classList.remove('header-lib');
   refs.btnBox.classList.add('visually-hidden');
-  refs.search.classList.remove('visually-hidden');
+  refs.searchBox.classList.remove('visually-hidden');
 };
 export const togglePageToLib = function () {
   refs.home.classList.remove('nav-link--curent');
@@ -14,5 +14,5 @@ export const togglePageToLib = function () {
   refs.header.classList.remove('header-home');
   refs.header.classList.add('header-lib');
   refs.btnBox.classList.remove('visually-hidden');
-  refs.search.classList.add('visually-hidden');
+  refs.searchBox.classList.add('visually-hidden');
 };
