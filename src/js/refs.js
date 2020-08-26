@@ -10,4 +10,6 @@ export default {
   btnBox: document.querySelector('.btn-box'),
   gallery: document.querySelector('.movies-list'),
   container: document.querySelector('.container'),
+  addWatchedBtn: document.querySelector('#add-watched'),
+  addQueueBtn: document.querySelector('#add-queue'),
 };
