@@ -10,7 +10,7 @@ function createStartMain(page) {
     .getPopularMovies(page)
     .then(data => {
       const moveCards = formattingData(data.results);
-      const smallMoveCards = changeQuantity(moveCards, 4);
+      const smallMoveCards = changeQuantity(moveCards, 7);
       updateMainMarkup(smallMoveCards);
     })
     .catch(() => errorOn())
@@ -38,7 +38,7 @@ function updateMurkupBySearch(event) {
     .then(data => {
       let movies = formattingData(data.results);
       if (movies.length === 20) {
-        movies = changeQuantity(movies, 4);
+        movies = changeQuantity(movies, 7);
       }
       if (movies.length) {
         refs.notification.classList.add('visually-hidden');
