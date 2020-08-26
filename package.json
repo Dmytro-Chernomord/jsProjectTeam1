@@ -50,6 +50,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "handlebars": "^4.7.3"
+    "handlebars": "^4.7.3",
+    "paginationjs": "^2.1.5",
+    "tui-pagination": "^3.4.0"
   }
 }
