@@ -10,4 +10,10 @@ export default {
   btnBox: document.querySelector('.btn-box'),
   gallery: document.querySelector('.movies-list'),
   container: document.querySelector('.container'),
+  spinner: document.querySelector('.spinner-border'),
+  error: document.querySelector('#error'),
+  modal: document.querySelector('[data-modal]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  movieCard: document.querySelector('.movie-card'),
+  modalLib: document.querySelector('#modal-lib'),
 };

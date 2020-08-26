@@ -1,5 +1,5 @@
 {{#each this}}
-<li class="card-box">
+<div class="card-box">
     <div class="box-image">
         <img class="one-movie-image" src="https://image.tmdb.org/t/p/w400/{{poster_path}}" alt="Poster">
     </div>
@@ -34,9 +34,9 @@
         <h3 class="title-text">About</h3>
         <p class="text">{{overview}}</p>
         <div class="box-btn">
-            <button id="add-watched" class="btn btn--accent">add to Watched</button>
-            <button id="add-queue" class="btn">add to queue</button>
+            <button id="add-watched" class="btn btn--accent" data-source='add-watched'>add to Watched</button>
+            <button id="add-queue" class="btn" data-source='add-queue'>add to queue</button>
         </div>
     </div>
-</li>
+</div>
 {{/each}}
