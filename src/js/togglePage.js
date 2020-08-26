@@ -16,3 +16,6 @@ export const togglePageToLib = function () {
   refs.btnBox.classList.remove('visually-hidden');
   refs.searchBox.classList.add('visually-hidden');
 };
+export const toggleModal = function () {
+  refs.modal.classList.toggle('is-hidden');
+};
