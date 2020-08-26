@@ -1,23 +1,44 @@
 import movies from '../template/movies.hbs';
 import { getGenre } from './genre-parser';
+import apiService from './apiServices.js';
+import refs from './refs.js';
 
-const apiKey = '89b9004c084fb7d0e8ffaadd17cb8254';
-const inputRef = document.querySelector('#input');
-function createMain(search) {
-  const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1&query=${search}`;
-  return fetch(url).then(res => res.json());
-}
-
-function insertHtml() {
-  createMain().then(data => {
-    // console.log(data.results[0].id);
-    // console.log(data.results);
+function createStartMain() {
+  apiService.getPopularMovies().then(data => {
     data.results.forEach(
       element => (element.genre_ids = getGenre(element.genre_ids)),
     );
-    document.querySelector('.movies-list').innerHTML = movies(data.results);
+    data.results.forEach(
+      element => (element.release_date = element.release_date.slice(0, 4)),
+    );
+    updateMainMarkup(data.results);
   });
 }
 
-insertHtml();
+createStartMain();
 // console.log(movies);
+
+refs.input.addEventListener('change', updateMurkupBySearch);
+
+function updateMainMarkup(arr) {
+  refs.gallery.innerHTML = movies(arr);
+}
+
+function updateMurkupBySearch(event) {
+  let query = event.target.value;
+  apiService.getMoviesBySearch(query).then(data => {
+    const movies = data.results;
+    movies.forEach(
+      element => (element.genre_ids = getGenre(element.genre_ids)),
+    );
+    movies.forEach(
+      element => (element.release_date = element.release_date.slice(0, 4)),
+    );
+    if (movies.length) {
+      refs.notification.classList.add('visually-hidden');
+      return updateMainMarkup(data.results);
+    } else {
+      refs.notification.classList.remove('visually-hidden');
+    }
+  });
+}
