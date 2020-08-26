@@ -1,5 +1,6 @@
 import refs from './refs.js';
 import { togglePageToHome, togglePageToLib } from './togglePage.js';
+import createStartMain from './createMain.js';
 
 refs.nav.addEventListener('click', event => {
   event.preventDefault();
@@ -13,4 +14,5 @@ refs.nav.addEventListener('click', event => {
 refs.logo.addEventListener('click', event => {
   event.preventDefault();
   togglePageToHome();
+  createStartMain();
 });

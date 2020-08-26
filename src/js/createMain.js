@@ -42,3 +42,5 @@ function updateMurkupBySearch(event) {
     }
   });
 }
+
+export default createStartMain;
