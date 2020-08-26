@@ -6,7 +6,7 @@ import refs from './refs.js';
 
 function generateOneMovieMarkup(id) {
   apiService.getOneMovieInfo(id).then(data => {
-    refs.container.innerHTML = movie([data]);
+    refs.gallery.innerHTML = movie([data]);
   });
 }
 
