@@ -104,15 +104,61 @@
   }
 }
 
+.header-modal {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+    url(../assets/images/bg320px/details_bg320@1x.jpg);
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (-webkit-min-device-pixel-ratio: 2),
+    screen and (-o-min-device-pixel-ratio: 2/1),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../assets/images/bg320px/details_bg320@2x.jpg);
+  }
+  @media screen and (min-width: 450px) {
+    padding: 41px 71px;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../assets/images/bg768px/my_lib_bg768@1x.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../assets/images/bg768px/my_lib_bg768@2x.jpg);
+    }
+  }
+  @media screen and (min-width: 769px) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../assets/images/bg1024px/details_bg1024@1x.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (-webkit-min-device-pixel-ratio: 2),
+      screen and (-o-min-device-pixel-ratio: 2/1),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../assets/images/bg1024px/details_bg1024@2x.jpg);
+    }
+  }
+}
+
 .header-container {
   margin: 0 auto;
-  max-width: 280px;
+  width: 280px;
 
   @media screen and (min-width: 768px) {
-    max-width: 768px;
+    width: 768px;
   }
   @media screen and (min-width: 1024px) {
-    max-width: 1024px;
+    width: 1024px;
   }
 }
 

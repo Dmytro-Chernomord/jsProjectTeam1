@@ -1,12 +1,12 @@
 import movie from '../template/one_movie.hbs';
 import apiService from './apiServices.js';
 import refs from './refs.js';
+import { toggleModal } from './togglePage.js';
 
-// ----Функция для перерисовки страницы по клику
-
+// ----Функция для отрисовки модалки
 function generateOneMovieMarkup(id) {
   apiService.getOneMovieInfo(id).then(data => {
-    document.querySelector('.movie-card').innerHTML = movie([data]);
+    refs.movieCard.innerHTML = movie([data]);
     onListenerBtn(data.id);
     console.log(data.id);
   });
@@ -15,12 +15,13 @@ function generateOneMovieMarkup(id) {
 // ----- Вешаем слушатель на список --------
 refs.gallery.addEventListener('click', onMovieCardClick);
 
+// ----Функция для открытия модалки
 function onMovieCardClick(event) {
-  // event.preventDefault();
+  event.preventDefault();
   let clickedItem = event.target;
 
   if (clickedItem.nodeName === 'UL') return;
-  console.log(clickedItem.dataset.id);
+  refs.modal.classList.toggle('is-hidden');
   generateOneMovieMarkup(clickedItem.dataset.id);
 }
 // -----------------------------------------------------------------
@@ -69,3 +70,6 @@ function addLocalStorage(key, id) {
 //   });
 // }
 // generateMovie();
+
+// ----- Вешаем слушатель на крестик в модалке --------
+refs.closeModalBtn.addEventListener('click', toggleModal);
