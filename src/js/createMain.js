@@ -36,7 +36,10 @@ function updateMurkupBySearch(event) {
   apiService
     .getMoviesBySearch(query)
     .then(data => {
-      const movies = formattingData(data.results);
+      let movies = formattingData(data.results);
+      if (movies.length === 20) {
+        movies = changeQuantity(movies, 4);
+      }
       if (movies.length) {
         refs.notification.classList.add('visually-hidden');
         return updateMainMarkup(data.results);
