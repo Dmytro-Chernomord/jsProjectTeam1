@@ -1,0 +1,40 @@
+.btn {
+  min-width: 130px;
+  height: 44px;
+  padding: 13px 10px;
+  border: 1px solid $primary-black;
+  border-radius: 5px;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: $primary-black;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  @media screen and (min-width: 768px) {
+    width: 136px;
+  }
+}
+
+#watched {
+  margin-right: 20px;
+  @media screen and (min-width: 768px) {
+    margin-right: 15px;
+  }
+}
+
+.btn:first-child {
+  margin-right: 15px;
+}
+
+.btn--header {
+  border: 1px solid $primary-white;
+  color: $primary-white;
+}
+
+.btn--accent {
+  border: 1px solid $accent-color;
+  background-color: $accent-color;
+  color: $primary-white;
+}
