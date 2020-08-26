@@ -8,6 +8,12 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.7.0/modern-normalize.css"
     />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <header class="header header-home">
@@ -55,12 +61,13 @@
       </div>
     </header>
     <main>
-
       <h1 class="visually-hidden">h1</h1>
       <div class="container">
+        <div class="spinner-border visually-hidden" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
         <ul class="movies-list"></ul>
       </div>
-
     </main>
     <footer class="footer">
       <p class="footer-text">

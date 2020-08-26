@@ -10,4 +10,5 @@ export default {
   btnBox: document.querySelector('.btn-box'),
   gallery: document.querySelector('.movies-list'),
   container: document.querySelector('.container'),
+  spinner: document.querySelector('.spinner-border'),
 };

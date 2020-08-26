@@ -4,15 +4,21 @@ import apiService from './apiServices.js';
 import refs from './refs.js';
 
 function createStartMain() {
-  apiService.getPopularMovies().then(data => {
-    data.results.forEach(
-      element => (element.genre_ids = getGenre(element.genre_ids)),
-    );
-    data.results.forEach(
-      element => (element.release_date = element.release_date.slice(0, 4)),
-    );
-    updateMainMarkup(data.results);
-  });
+  refs.spinner.classList.remove('visually-hidden');
+  apiService
+    .getPopularMovies()
+    .then(data => {
+      data.results.forEach(
+        element => (element.genre_ids = getGenre(element.genre_ids)),
+      );
+      data.results.forEach(
+        element => (element.release_date = element.release_date.slice(0, 4)),
+      );
+      updateMainMarkup(data.results);
+    })
+    .finally(() => {
+      refs.spinner.classList.add('visually-hidden');
+    });
 }
 
 createStartMain();
@@ -22,26 +28,32 @@ refs.input.addEventListener('change', updateMurkupBySearch);
 
 function updateMainMarkup(arr) {
   refs.gallery.innerHTML = movies(arr);
+  // refs.spinner.classList.add('visually-hidden');
 }
 
 function updateMurkupBySearch(event) {
   let query = event.target.value;
-  apiService.getMoviesBySearch(query).then(data => {
-    const movies = data.results;
-    movies.forEach(
-      element => (element.genre_ids = getGenre(element.genre_ids)),
-    );
-    movies.forEach(
-      element => (element.release_date = element.release_date.slice(0, 4)),
-    );
-    if (movies.length) {
-      refs.notification.classList.add('visually-hidden');
-      return updateMainMarkup(data.results);
-    } else {
-      refs.notification.classList.remove('visually-hidden');
-    }
-  });
+  refs.spinner.classList.remove('visually-hidden');
+  apiService
+    .getMoviesBySearch(query)
+    .then(data => {
+      const movies = data.results;
+      movies.forEach(
+        element => (element.genre_ids = getGenre(element.genre_ids)),
+      );
+      movies.forEach(
+        element => (element.release_date = element.release_date.slice(0, 4)),
+      );
+      if (movies.length) {
+        refs.notification.classList.add('visually-hidden');
+        return updateMainMarkup(data.results);
+      } else {
+        refs.notification.classList.remove('visually-hidden');
+      }
+    })
+    .finally(() => {
+      refs.spinner.classList.add('visually-hidden');
+    });
 }
 
 export default createStartMain;
-
