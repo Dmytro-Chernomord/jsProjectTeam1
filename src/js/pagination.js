@@ -1,9 +1,12 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import createStartMain from './createMain.js';
 
-console.log(Pagination);
+// console.log(Pagination);
 
 const container = document.getElementById('tui-pagination-container');
+
+console.log(container);
 
 const myPagination = new Pagination(container, {
   // Total number of items
@@ -21,24 +24,12 @@ const myPagination = new Pagination(container, {
   lastItemClassName: 'tui-last-child',
   // enable usage statistics
   usageStatistics: true,
-  //test
-  template: {
-    page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-    currentPage:
-      '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-    moveButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</a>',
-    disabledMoveButton:
-      '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-      '<span class="tui-ico-{{type}}">{{type}}</span>' +
-      '</span>',
-    moreButton:
-      '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-      '<span class="tui-ico-ellip">...</span>' +
-      '</a>',
-  },
 });
 
 myPagination.getCurrentPage();
+
+container.addEventListener('click', event => {
+  createStartMain(event.target.textContent);
+});
+
+// Нужно вставить правильную функицю вместо createStartMain, которая будет принимать значения текстконтента как номер страницы...
