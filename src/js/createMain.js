@@ -15,6 +15,9 @@ function insertHtml() {
     data.results.forEach(
       element => (element.genre_ids = getGenre(element.genre_ids)),
     );
+    data.results.forEach(
+      element => (element.release_date = element.release_date.slice(0, 4)),
+    );
     document.querySelector('.movies-list').innerHTML = movies(data.results);
   });
 }
