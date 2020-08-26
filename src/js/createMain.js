@@ -2,9 +2,10 @@ import movies from '../template/movies.hbs';
 import { getGenre } from './genre-parser';
 import apiService from './apiServices.js';
 import refs from './refs.js';
+import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
 
 function createStartMain() {
-  refs.spinner.classList.remove('visually-hidden');
+  spinnerOn();
   apiService
     .getPopularMovies()
     .then(data => {
@@ -16,9 +17,8 @@ function createStartMain() {
       );
       updateMainMarkup(data.results);
     })
-    .finally(() => {
-      refs.spinner.classList.add('visually-hidden');
-    });
+    .catch(() => errorOn())
+    .finally(() => spinnerOff());
 }
 
 createStartMain();
@@ -33,7 +33,7 @@ function updateMainMarkup(arr) {
 
 function updateMurkupBySearch(event) {
   let query = event.target.value;
-  refs.spinner.classList.remove('visually-hidden');
+  spinnerOn();
   apiService
     .getMoviesBySearch(query)
     .then(data => {
@@ -51,9 +51,8 @@ function updateMurkupBySearch(event) {
         refs.notification.classList.remove('visually-hidden');
       }
     })
-    .finally(() => {
-      refs.spinner.classList.add('visually-hidden');
-    });
+    .catch(() => errorOn())
+    .finally(() => spinnerOff());
 }
 
 export default createStartMain;

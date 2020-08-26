@@ -11,4 +11,5 @@ export default {
   gallery: document.querySelector('.movies-list'),
   container: document.querySelector('.container'),
   spinner: document.querySelector('.spinner-border'),
+  error: document.querySelector('#error'),
 };
