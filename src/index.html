@@ -47,7 +47,13 @@
         </nav>
         <div class="search-box">
           <div class="search">
-            <input id="input" type="text" placeholder="Поиск фильмов" class="input" />
+            <input
+              id="input"
+              type="text"
+              placeholder="Поиск фильмов"
+              class="input"
+              onkeyup="this.value = this.value.replace(/[^\\a-zA-Z0-9\\.]/g, '')"
+            />
             <button class="button-search" type="submit"></button>
           </div>
           <p id="notification" class="notification visually-hidden">
