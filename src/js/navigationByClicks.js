@@ -27,3 +27,9 @@ refs.modalLib.addEventListener('click', event => {
   toggleModal();
   togglePageToLib();
 });
+function escCloseModal() {
+  if (event.key === "Escape") { 
+    toggleModal();
+   }
+};
+window.addEventListener('keyup' , escCloseModal)

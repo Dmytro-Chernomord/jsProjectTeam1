@@ -8,8 +8,8 @@ export default {
     const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${this.apiKey}&language=en-US`;
     return fetch(url).then(res => res.json());
   },
-  getPopularMovies() {
-    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=en-US&page=1&`;
+  getPopularMovies(page) {
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${this.apiKey}&language=en-US&page=${page}&`;
     return fetch(url).then(res => res.json());
   },
   getMoviesBySearch(search) {
