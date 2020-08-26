@@ -12,6 +12,7 @@ refs.nav.addEventListener('click', event => {
     togglePageToLib();
   } else if (event.target === refs.home) {
     togglePageToHome();
+    createStartMain();
   }
 });
 
@@ -28,8 +29,8 @@ refs.modalLib.addEventListener('click', event => {
   togglePageToLib();
 });
 function escCloseModal() {
-  if (event.key === "Escape") { 
+  if (event.key === 'Escape') {
     toggleModal();
-   }
-};
-window.addEventListener('keyup' , escCloseModal)
+  }
+}
+window.addEventListener('keyup', escCloseModal);
