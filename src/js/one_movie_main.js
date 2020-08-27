@@ -37,16 +37,34 @@ function onListenerBtn(id) {
     if (event.target.nodeName !== 'BUTTON') {
       return;
     }
+  
     let addWatched = event.target.dataset.source;
+    console.log(addWatched);
     // console.log(event.target);
     if (addWatched === 'add-watched') {
       addLocalStorage('add-watched', id);
     } else if (addWatched === 'add-queue') {
       addLocalStorage('add-queue', id);
     }
+    else if (addWatched = 'trailer') {
+      const URL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
+      fetch(URL)
+        .then(res => res.json())
+        .then((data) => {
+          console.log(data.results);
+          const videos = data.results;
+          const video = videos[0];
+          const videoKey = video.key;
+          console.log(video);
+          console.log(videoKey);
+          const youTubeUrl = `https://www.youtube.com/embed/${videoKey}`;
+        })
+    }
     checkLocalStorage(id);
   });
 }
+
+
 
 function addLocalStorage(key, id) {
   let list = [];
