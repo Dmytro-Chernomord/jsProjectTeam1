@@ -13,4 +13,9 @@ function spinnerOn() {
 function infoShow() {
   refs.info.classList.remove('visually-hidden');
 }
-export { errorOn, spinnerOff, spinnerOn, infoShow };
+
+function infoHide() {
+  refs.info.classList.add('visually-hidden');
+}
+
+export { errorOn, spinnerOff, spinnerOn, infoShow, infoHide };
