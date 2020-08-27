@@ -149,7 +149,7 @@
 .nav {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin-bottom: 38px;
   line-height: 1.17;
 }
@@ -276,8 +276,12 @@
   background-color: transparent;
   color: transparent;
   border: none;
+  border-radius: 50%;
   &:focus {
     outline: none;
+  }
+  &:hover {
+    background-color: $accent-color;
   }
 }
 
