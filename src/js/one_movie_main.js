@@ -19,6 +19,17 @@ function generateOneMovieMarkup(id) {
     .catch(() => errorOn())
     .finally(() => spinnerOff());
 }
+// ---- Функция для проверки наличия трейлера и если нет - кнопки для трейлера не отрисует
+function checkTrailerKey(idValue) {
+  const URL = `https://api.themoviedb.org/3/movie/${idValue}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
+  fetch(URL)
+    .then(res => res.json())
+    .then(data => {
+      if (data.results.length === 0) {
+        document.querySelector('.trailer-btn').style.display = 'none';
+      }
+    });
+}
 
 // ----- Вешаем слушатель на список --------
 refs.gallery.addEventListener('click', onMovieCardClick);
@@ -32,13 +43,16 @@ function onMovieCardClick(event) {
   toggleModal();
   generateOneMovieMarkup(clickedItem.dataset.id);
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
+  checkTrailerKey(clickedItem.dataset.id);
+
+  // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);
 }
 ////---------трейлер----------/////////////
 let trailerBtn = document.querySelector('.movie-card');
 trailerBtn.addEventListener('click', event => {
+  if (event.target.dataset.source !== 'trailer') return;
   const trailerId = event.srcElement.dataset.id;
   const URL = `https://api.themoviedb.org/3/movie/${trailerId}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
-  console.log(URL);
   fetch(URL)
     .then(res => res.json())
     .then(data => {
@@ -51,7 +65,7 @@ trailerBtn.addEventListener('click', event => {
       instance.show();
     });
 });
-
+// Эта функция ничего не делает. Можно удалить наверное:
 function addLocalStorage(key, id) {
   let list = [];
   let parseLocalStorage = JSON.parse(localStorage.getItem(key));
