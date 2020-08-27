@@ -44,3 +44,10 @@
   background-color: $accent-color;
   color: $primary-white;
 }
+
+.box-btn {
+  display: flex;
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+  }
+}
