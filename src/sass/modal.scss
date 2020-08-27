@@ -46,6 +46,7 @@
 .close:hover,
 .close:focus {
   background-color: $secondary-bg-color;
+  outline: none;
 }
 
 .is-hidden-btn {
