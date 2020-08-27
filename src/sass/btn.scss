@@ -1,6 +1,7 @@
 .btn {
   min-width: 130px;
   height: 44px;
+  margin: 7px;
   padding: 13px 10px;
   border: 1px solid $accent-color;
   border-radius: 5px;
@@ -30,9 +31,9 @@
   }
 }
 
-.btn:first-child {
-  margin-right: 15px;
-}
+// .btn:first-child {
+//   margin-right: 15px;
+// }
 
 .btn--header {
   border: 1px solid $primary-white;
@@ -47,6 +48,8 @@
 
 .box-btn {
   display: flex;
+  flex-wrap: wrap;
+  margin: -15px;
   @media screen and (max-width: 767px) {
     justify-content: center;
   }
