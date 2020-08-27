@@ -233,7 +233,7 @@
   &::-webkit-input-placeholder {
     color: #ffffff;
 
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
@@ -241,7 +241,7 @@
   &:-ms-input-placeholder {
     color: #ffffff;
 
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
@@ -249,7 +249,7 @@
   &::-ms-input-placeholder {
     color: #ffffff;
 
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
@@ -257,7 +257,7 @@
   &::placeholder {
     color: #ffffff;
 
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 500;
     font-size: 14px;
     line-height: 1.14;
@@ -276,6 +276,9 @@
   background-color: transparent;
   color: transparent;
   border: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .btn-box {

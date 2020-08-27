@@ -20,6 +20,9 @@ refs.logo.addEventListener('click', event => {
   event.preventDefault();
   togglePageToHome();
   createStartMain();
+  // --------При выходе из library accent-color возвращается на кнопку watched------
+  refs.watchedBtn.classList.add('btn--accent');
+  refs.queueBtn.classList.remove('btn--accent');
 });
 console.log(refs.modalLib);
 
