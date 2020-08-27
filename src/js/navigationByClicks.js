@@ -34,5 +34,10 @@ function escCloseModal() {
   if (event.key === 'Escape') {
     toggleModal();
   }
-}
+};
+
+
+
+
+
 window.addEventListener('keyup', escCloseModal);

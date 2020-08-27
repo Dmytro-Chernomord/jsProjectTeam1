@@ -11,7 +11,6 @@ function generateOneMovieMarkup(id) {
     .getOneMovieInfo(id)
     .then(data => {
       refs.movieCard.innerHTML = movie([data]);
-      console.log('data.id', data.id);
       onListenerBtn(data.id);
     })
     .catch(() => errorOn())
@@ -31,6 +30,58 @@ function onMovieCardClick(event) {
   generateOneMovieMarkup(clickedItem.dataset.id);
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
 }
+
+// -----------------------------------------------------------------
+// function onListenerBtn(id) {
+//   document.querySelector('.movie-card').addEventListener('click', event => {
+//     if (event.target.nodeName !== 'BUTTON') {
+//       return;
+//     }
+
+//     let addWatched = event.target.dataset.source;
+//     console.log(addWatched);
+//     // console.log(event.target);
+//     if (addWatched === 'add-watched') {
+//       addLocalStorage('add-watched', id);
+//     } else if (addWatched === 'add-queue') {
+//       addLocalStorage('add-queue', id);
+//     }
+//     else if (addWatched = 'trailer') {
+//       const URL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
+//       fetch(URL)
+//         .then(res => res.json())
+//         .then((data) => {
+//           console.log(data.results);
+//           const videos = data.results;
+//           const video = videos[0];
+//           const videoKey = video.key;
+//           console.log(video);
+//           console.log(videoKey);
+//           const youTubeUrl = `https://www.youtube.com/embed/${videoKey}`;
+//         })
+//     }
+//     checkLocalStorage(id);
+//   });
+// }
+
+// function addLocalStorage(key, id) {
+//   let list = [];
+//   let parseLocalStorage = JSON.parse(localStorage.getItem(key));
+//   if (parseLocalStorage === null) {
+//     list.push(id);
+//     localStorage.setItem(key, JSON.stringify(list));
+//   } else {
+//     if (parseLocalStorage.includes(id)) {
+//       list = parseLocalStorage;
+//       list.splice(list.indexOf(id), 1);
+//       localStorage.setItem(key, JSON.stringify(list));
+//     } else {
+//       list = parseLocalStorage;
+//       list.push(id);
+//       localStorage.setItem(key, JSON.stringify(list));
+//     }
+//   }
+// }
 
 // ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
 refs.closeModalBtn.addEventListener('click', toggleModal);
@@ -67,7 +118,6 @@ function checkLocalStorage(id) {
       watchBtn.textContent = 'add to watched';
     }
   }
-
   if (arrQueue !== null && arrQueue.includes(Number(id))) {
     queueBtn.textContent = 'remove  "queue"';
   } else {
@@ -120,20 +170,3 @@ function onListenerBtn(id) {
     }
   });
 }
-
-//
-// ------ не юзалось  ------ Функция для
-
-// let all = [];
-// function generateMovie() {
-//   let obj = JSON.parse(localStorage.getItem('add-watched'));
-//   obj.forEach(function (el) {
-//     apiService.getOneMovieInfo(el).then(data => {
-//       all.push(data);
-//       console.log(all);
-//       refs.gallery.innerHTML = '';
-//       refs.gallery.insertAdjacentHTML('beforeend', movies(all));
-//     });
-//   });
-// }
-// generateMovie();

@@ -18,4 +18,5 @@ export default {
   modalLib: document.querySelector('#modal-lib'),
   watchedBtn: document.querySelector('#watched'),
   queueBtn: document.querySelector('#queue'),
+  info: document.querySelector('#info'),
 };

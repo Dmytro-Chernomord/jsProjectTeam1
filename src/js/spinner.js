@@ -10,4 +10,12 @@ function spinnerOn() {
   refs.spinner.classList.remove('visually-hidden');
   refs.error.classList.add('visually-hidden');
 }
-export { errorOn, spinnerOff, spinnerOn };
+function infoShow() {
+  refs.info.classList.remove('visually-hidden');
+}
+
+function infoHide() {
+  refs.info.classList.add('visually-hidden');
+}
+
+export { errorOn, spinnerOff, spinnerOn, infoShow, infoHide };
