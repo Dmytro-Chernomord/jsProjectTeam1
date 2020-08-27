@@ -27,7 +27,6 @@ refs.logo.addEventListener('click', event => {
   refs.watchedBtn.classList.add('btn--accent');
   refs.queueBtn.classList.remove('btn--accent');
 });
-console.log(refs.modalLib);
 
 refs.modalLib.addEventListener('click', event => {
   event.preventDefault();
