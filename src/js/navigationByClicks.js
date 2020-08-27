@@ -15,6 +15,9 @@ refs.nav.addEventListener('click', event => {
     togglePageToHome();
     createStartMain();
     mainPagination.movePageTo(1);
+    // --------При выходе из library accent-color возвращается на кнопку watched------
+    refs.watchedBtn.classList.add('btn--accent');
+    refs.queueBtn.classList.remove('btn--accent');
   }
 });
 
@@ -27,7 +30,6 @@ refs.logo.addEventListener('click', event => {
   refs.watchedBtn.classList.add('btn--accent');
   refs.queueBtn.classList.remove('btn--accent');
 });
-console.log(refs.modalLib);
 
 refs.modalLib.addEventListener('click', event => {
   event.preventDefault();
@@ -38,10 +40,6 @@ function escCloseModal() {
   if (event.key === 'Escape') {
     toggleModal();
   }
-};
-
-
-
-
+}
 
 window.addEventListener('keyup', escCloseModal);
