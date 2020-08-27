@@ -34,26 +34,23 @@ function onMovieCardClick(event) {
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
 }
 ////---------трейлер----------/////////////
-  let trailerBtn = document.querySelector('.movie-card');
-  trailerBtn.addEventListener('click', event => {
-    const trailerId = event.srcElement.dataset.id;
-    const URL = `https://api.themoviedb.org/3/movie/${trailerId}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
-    console.log(URL);
-    fetch(URL)
-      .then(res => res.json())
-      .then(data => {
-        const videos = data.results;
-        const video = videos[0];
-        const videoKey = video.key;
-                const instance = basicLightbox.create(`
-            <iframe src="https://www.youtube.com/embed/${videoKey}" width="560" height="315" frameborder="0"></iframe>
+let trailerBtn = document.querySelector('.movie-card');
+trailerBtn.addEventListener('click', event => {
+  const trailerId = event.srcElement.dataset.id;
+  const URL = `https://api.themoviedb.org/3/movie/${trailerId}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
+  console.log(URL);
+  fetch(URL)
+    .then(res => res.json())
+    .then(data => {
+      const videos = data.results;
+      const video = videos[0];
+      const videoKey = video.key;
+      const instance = basicLightbox.create(`
+            <iframe allowFullScreen='allowFullScreen' src="https://www.youtube.com/embed/${videoKey}" width="560" height="315" frameborder="0"></iframe>
         `);
-        instance.show();
-      })
-      });
-  
-
-
+      instance.show();
+    });
+});
 
 function addLocalStorage(key, id) {
   let list = [];
