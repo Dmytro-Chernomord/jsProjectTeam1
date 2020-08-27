@@ -33,6 +33,7 @@ function updateMurkupBySearch(event) {
   if (query == false) return;
   event.target.value = '';
   spinnerOn();
+  refs.mainPaginationContainer.classList.add('is-none-pagination');
   apiService
     .getMoviesBySearch(query)
     .then(data => {

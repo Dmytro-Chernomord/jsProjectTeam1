@@ -18,4 +18,8 @@ export default {
   modalLib: document.querySelector('#modal-lib'),
   watchedBtn: document.querySelector('#watched'),
   queueBtn: document.querySelector('#queue'),
+  mainPaginationContainer: document.getElementById('tui-pagination-container'),
+  watchedPaginationContainer: document.getElementById(
+    'tui-pagination-container-watched',
+  ),
 };

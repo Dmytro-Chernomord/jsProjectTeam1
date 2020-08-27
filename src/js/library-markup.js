@@ -31,3 +31,5 @@ refs.watchedBtn.addEventListener('click', () => {
   refs.watchedBtn.classList.add('btn--accent');
   refs.queueBtn.classList.remove('btn--accent');
 });
+
+export { updateMarkup, generateMovieLibrary };
