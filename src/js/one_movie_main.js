@@ -19,6 +19,17 @@ function generateOneMovieMarkup(id) {
     .catch(() => errorOn())
     .finally(() => spinnerOff());
 }
+// ---- Функция для проверки наличия трейлера и если нет - кнопки для трейлера не отрисует
+function checkTrailerKey(idValue) {
+  const URL = `https://api.themoviedb.org/3/movie/${idValue}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
+  fetch(URL)
+    .then(res => res.json())
+    .then(data => {
+      if (data.results.length === 0) {
+        document.querySelector('.trailer-btn').style.display = 'none';
+      }
+    });
+}
 
 // ----- Вешаем слушатель на список --------
 refs.gallery.addEventListener('click', onMovieCardClick);
@@ -32,96 +43,29 @@ function onMovieCardClick(event) {
   toggleModal();
   generateOneMovieMarkup(clickedItem.dataset.id);
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
+  checkTrailerKey(clickedItem.dataset.id);
+
+  // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);
 }
-
-// -----------------------------------------------------------------
-// function onListenerBtn(id) {
-//   document.querySelector('.movie-card').addEventListener('click', event => {
-//     if (event.target.nodeName !== 'BUTTON') {
-//       return;
-//     }
-
-//     let addWatched = event.target.dataset.source;
-//     console.log(addWatched);
-//     // console.log(event.target);
-//     if (addWatched === 'add-watched') {
-//       addLocalStorage('add-watched', id);
-//     } else if (addWatched === 'add-queue') {
-//       addLocalStorage('add-queue', id);
-//     }
-//     else if (addWatched = 'trailer') {
-//       const URL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
-//       fetch(URL)
-//         .then(res => res.json())
-//         .then((data) => {
-//           console.log(data.results);
-//           const videos = data.results;
-//           const video = videos[0];
-//           const videoKey = video.key;
-//           console.log(video);
-//           console.log(videoKey);
-//           const youTubeUrl = `https://www.youtube.com/embed/${videoKey}`;
-//         })
-//     }
-//     checkLocalStorage(id);
-//   });
-// }
-
-// function addLocalStorage(key, id) {
-//   let list = [];
-//   let parseLocalStorage = JSON.parse(localStorage.getItem(key));
-//   if (parseLocalStorage === null) {
-//     list.push(id);
-//     localStorage.setItem(key, JSON.stringify(list));
-//   } else {
-//     if (parseLocalStorage.includes(id)) {
-//       list = parseLocalStorage;
-//       list.splice(list.indexOf(id), 1);
-//       localStorage.setItem(key, JSON.stringify(list));
-//     } else {
-//       list = parseLocalStorage;
-//       list.push(id);
-//       localStorage.setItem(key, JSON.stringify(list));
-//     }
-//   }
-// }
-
-// -----------------------------------------------------------------
-// function onListenerBtn(id) {
-//   document.querySelector('.movie-card').addEventListener('click', event => {
-//     if (event.target.nodeName !== 'BUTTON') {
-//       return;
-//     }
-
-//     let addWatched = event.target.dataset.source;
-//     // console.log(addWatched);
-//     // console.log(event.target);
-//     if (addWatched === 'add-watched') {
-//       addLocalStorage('add-watched', id);
-//     } else if (addWatched === 'add-queue') {
-//       addLocalStorage('add-queue', id);
-//     } else if ((addWatched = 'trailer')) {
-//       const URL = `https://api.themoviedb.org/3/movie/${id}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
-//       fetch(URL)
-//         .then(res => res.json())
-//         .then(data => {
-//           // console.log(data.results);
-//           const videos = data.results;
-//           const video = videos[0];
-//           const videoKey = video.key;
-//           // console.log(video);
-//           // console.log(videoKey);
-//           // const youTubeUrl = `https://www.youtube.com/embed/${videoKey}`;
-//           const instance = basicLightbox.create(`
-//     <iframe src="https://www.youtube.com/embed/${videoKey}" width="560" height="315" frameborder="0"></iframe>
-// `);
-//           instance.show();
-//         });
-//     }
-//     checkLocalStorage(id);
-//   });
-// }
-
+////---------трейлер----------/////////////
+let trailerBtn = document.querySelector('.movie-card');
+trailerBtn.addEventListener('click', event => {
+  if (event.target.dataset.source !== 'trailer') return;
+  const trailerId = event.srcElement.dataset.id;
+  const URL = `https://api.themoviedb.org/3/movie/${trailerId}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
+  fetch(URL)
+    .then(res => res.json())
+    .then(data => {
+      const videos = data.results;
+      const video = videos[0];
+      const videoKey = video.key;
+      const instance = basicLightbox.create(`
+            <iframe allowFullScreen='allowFullScreen' src="https://www.youtube.com/embed/${videoKey}" width="560" height="315" frameborder="0"></iframe>
+        `);
+      instance.show();
+    });
+});
+// Эта функция ничего не делает. Можно удалить наверное:
 function addLocalStorage(key, id) {
   let list = [];
   let parseLocalStorage = JSON.parse(localStorage.getItem(key));
