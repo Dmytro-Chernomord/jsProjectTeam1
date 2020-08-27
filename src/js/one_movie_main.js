@@ -6,6 +6,7 @@ import apiService from './apiServices.js';
 import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
 import { toggleModal } from './togglePage.js';
+import libraryClick from './library-markup.js';
 
 // ----Функция для отрисовки модалки
 function generateOneMovieMarkup(id) {
@@ -143,6 +144,7 @@ function addLocalStorage(key, id) {
 
 // ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
 refs.closeModalBtn.addEventListener('click', toggleModal);
+refs.libraryBtnClose.addEventListener('click', toggleModal);
 
 // ------  инициализируем в localStorage массив для хранения id фильмов, если localStorage таких ключей не содержит
 
@@ -182,6 +184,10 @@ function checkLocalStorage(id) {
     queueBtn.textContent = 'add to queue';
   }
 }
+// function onListenerBtn(id) {
+//   fn1(id)
+//   fn2(id)
+// }
 
 function onListenerBtn(id) {
   let arrWatched = JSON.parse(localStorage.getItem('add-watched'));
@@ -206,6 +212,7 @@ function onListenerBtn(id) {
       watchedArr.splice(watchedArr.indexOf(id), 1);
       localStorage.setItem('add-watched', JSON.stringify(watchedArr));
       checkLocalStorage(id);
+      addNewObjInLibrary('add-watched');
     }
   });
 
@@ -225,6 +232,13 @@ function onListenerBtn(id) {
       queueArr.splice(queueArr.indexOf(id), 1);
       localStorage.setItem('add-queue', JSON.stringify(queueArr));
       checkLocalStorage(id);
+      addNewObjInLibrary('add-queue');
     }
+  });
+}
+// ---------При закрытии модалки создается новый список в library--------
+function addNewObjInLibrary(str) {
+  refs.libraryBtnClose.addEventListener('click', () => {
+    libraryClick.updateMarkup(str);
   });
 }
