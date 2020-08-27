@@ -55,7 +55,7 @@
               type="text"
               placeholder="Поиск фильмов"
               class="input"
-              onkeyup="this.value = this.value.replace(/[^\\a-zA-Z0-9а-яА-Я/ \\]/g, '')"
+              onkeyup="this.value = this.value.replace(/[^A-Za-z0-9\s]/g, '')"
             />
             <button class="button-search" type="submit"></button>
           </div>
@@ -80,8 +80,14 @@
         <div id="error" class="visually-hidden notify">
           Что то пошло не так =(
         </div>
-        <div class="spinner-border visually-hidden" role="status">
-          <span class="sr-only">Loading...</span>
+        <div class="d-flex justify-content-center">
+          <div
+            class="spinner-border text-warning visually-hidden spinner"
+            style="width: 3rem; height: 3rem; margin-top: 20px"
+            role="status"
+          >
+            <span class="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
       <div class="container">
