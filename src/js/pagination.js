@@ -2,7 +2,6 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 import createStartMain from './createMain.js';
-import { updateMarkup, generateMovieLibrary } from './library-markup.js';
 
 const mainPagination = new Pagination(refs.mainPaginationContainer, {
   // Total number of items
@@ -25,37 +24,20 @@ mainPagination.on('afterMove', function (evt) {
   createStartMain(currentPage);
 });
 
-// myPagination.getCurrentPage();
-
-// function checkTotalItems() {
-//   const watchedQuantity = localStorage.getItem('add-watched');
-//   const parsedWatchedQuantity = JSON.parse(watchedQuantity);
-//   let itemsQuantity;
-
-//   if (parsedWatchedQuantity === null) {
-//     itemsQuantity = 0;
-//   } else {
-//     itemsQuantity = parsedWatchedQuantity.length;
-//   }
-//   return itemsQuantity;
-// }
-
-function checkTotalItems(value) {
-  let itemsQuantity;
-
-  if (value === null) {
-    itemsQuantity = 0;
-  } else {
-    itemsQuantity = value.length;
+function checkTotalItems(obj) {
+  if (obj === null) {
+    return;
   }
-  return itemsQuantity;
+
+  watchedPagination.setTotalItems(obj.length);
+  watchedPagination.reset();
 }
 
 const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
   // Total number of items
-  totalItems: checkTotalItems(),
+  totalItems: 1,
   // Items per page
-  itemsPerPage: 3,
+  itemsPerPage: 12,
   // Visible pages
   visiblePages: 5,
   // Current page
@@ -76,4 +58,4 @@ watchedPagination.on('afterMove', function (evt) {
   );
 });
 
-export { mainPagination };
+export { mainPagination, checkTotalItems };

@@ -1,6 +1,7 @@
 import movies from '../template/movies.hbs';
 import refs from './refs.js';
 import apiService from './apiServices.js';
+import { checkTotalItems } from './pagination.js';
 
 refs.myLib.addEventListener('click', () => updateMarkup('add-watched'));
 refs.watchedBtn.addEventListener('click', () => updateMarkup('add-watched'));
@@ -13,11 +14,11 @@ function updateMarkup(str) {
 
 function generateMovieLibrary(str) {
   let obj = JSON.parse(localStorage.getItem(str));
+  checkTotalItems(obj);
   for (let el of obj) {
     let allMovies = [];
     apiService.getOneMovieInfo(el).then(data => {
       allMovies.push(data);
-      //func
       refs.gallery.insertAdjacentHTML('beforeend', movies(allMovies));
     });
   }
