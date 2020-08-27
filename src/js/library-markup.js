@@ -2,6 +2,7 @@ import movies from '../template/movies.hbs';
 import refs from './refs.js';
 import apiService from './apiServices.js';
 import { checkTotalItems } from './pagination.js';
+import { infoShow, infoHide } from './spinner.js';
 
 refs.myLib.addEventListener('click', () => updateMarkup('add-watched'));
 refs.watchedBtn.addEventListener('click', () => updateMarkup('add-watched'));
@@ -11,9 +12,17 @@ function updateMarkup(str) {
   refs.gallery.innerHTML = '';
   generateMovieLibrary(str);
 }
+function checkLSlength(el) {
+  if (el.length === 0) {
+    infoShow();
+  }
+}
 
 function generateMovieLibrary(str) {
+  infoHide();
   let obj = JSON.parse(localStorage.getItem(str));
+  checkLSlength(obj);
+  console.log(obj);
   checkTotalItems(obj);
   for (let el of obj) {
     let allMovies = [];
