@@ -82,12 +82,12 @@ function checkLocalStorage(id) {
   //   console.log(id);
   //   console.log(arrWatched);
   //   console.log(arrQueue);
-  if (arrWatched.includes(Number(id))) {
+  if (arrWatched !== null && arrWatched.includes(Number(id))) {
     watchBtn.textContent = 'remove  "watched"';
   } else {
     watchBtn.textContent = 'add to watched';
   }
-  if (arrQueue.includes(Number(id))) {
+  if (arrQueue !== null && arrQueue.includes(Number(id))) {
     queueBtn.textContent = 'remove  "queue"';
   } else {
     queueBtn.textContent = 'add to queue';

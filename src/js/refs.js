@@ -22,4 +22,5 @@ export default {
   watchedPaginationContainer: document.getElementById(
     'tui-pagination-container-watched',
   ),
+  info: document.querySelector('#info'),
 };

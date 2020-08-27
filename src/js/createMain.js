@@ -1,10 +1,11 @@
 import movies from '../template/movies.hbs';
 import apiService from './apiServices.js';
 import refs from './refs.js';
-import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
+import { errorOn, spinnerOff, spinnerOn, infoHide } from './spinner.js';
 import { changeQuantity, formattingData } from './services';
 
 function createStartMain(page) {
+  infoHide();
   spinnerOn();
   apiService
     .getPopularMovies(page)
