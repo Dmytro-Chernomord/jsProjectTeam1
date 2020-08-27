@@ -4,14 +4,6 @@ import refs from './refs.js';
 import createStartMain from './createMain.js';
 import { updateMarkup, generateMovieLibrary } from './library-markup.js';
 
-// const mainPaginationContainer = document.getElementById(
-//   'tui-pagination-container',
-// );
-
-// const watchedPaginationContainer = document.getElementById(
-//   'tui-pagination-container-watched',
-// );
-
 const mainPagination = new Pagination(refs.mainPaginationContainer, {
   // Total number of items
   totalItems: 10000,
