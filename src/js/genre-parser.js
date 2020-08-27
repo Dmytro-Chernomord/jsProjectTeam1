@@ -27,4 +27,6 @@ function getGenre(idGenre) {
   return answer;
 }
 
+
+
 export { getGenre };
