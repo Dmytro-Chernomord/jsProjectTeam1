@@ -21,3 +21,13 @@ function generateMovieLibrary(str) {
     });
   }
 }
+
+// ----------------Переключатель цвета между кнопоками library -----
+refs.queueBtn.addEventListener('click', () => {
+  refs.watchedBtn.classList.remove('btn--accent');
+  refs.queueBtn.classList.add('btn--accent');
+});
+refs.watchedBtn.addEventListener('click', () => {
+  refs.watchedBtn.classList.add('btn--accent');
+  refs.queueBtn.classList.remove('btn--accent');
+});
