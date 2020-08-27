@@ -1,10 +1,9 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import refs from './refs.js';
 import createStartMain from './createMain.js';
 
-const container = document.getElementById('tui-pagination-container');
-
-const myPagination = new Pagination(container, {
+const mainPagination = new Pagination(refs.mainPaginationContainer, {
   // Total number of items
   totalItems: 10000,
   // Items per page
@@ -20,9 +19,43 @@ const myPagination = new Pagination(container, {
   lastItemClassName: 'tui-last-child',
 });
 
-// myPagination.getCurrentPage();
-
-myPagination.on('afterMove', function (evt) {
+mainPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
   createStartMain(currentPage);
 });
+
+function checkTotalItems(obj) {
+  if (obj === null) {
+    return;
+  }
+
+  watchedPagination.setTotalItems(obj.length);
+  watchedPagination.reset();
+}
+
+const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
+  // Total number of items
+  totalItems: 1,
+  // Items per page
+  itemsPerPage: 12,
+  // Visible pages
+  visiblePages: 5,
+  // Current page
+  page: 1,
+  // center number
+  centerAlign: true,
+  //default class
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+});
+
+watchedPagination.on('afterMove', function (evt) {
+  var currentPage = evt.page;
+  // Функция внизу не создана
+  console.log(
+    'Я сообщаю текущую страницу пагинации для перерисовки следующего page в my library',
+    currentPage,
+  );
+});
+
+export { mainPagination, checkTotalItems };
