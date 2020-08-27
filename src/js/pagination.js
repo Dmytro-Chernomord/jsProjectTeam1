@@ -58,8 +58,11 @@ const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
 
 watchedPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
-  // Функция внизу не подходит
-  generateMovieLibrary(currentPage);
+  // Функция внизу не создана
+  console.log(
+    'Я сообщаю текущую страницу пагинации для перерисовки следующего page в my library',
+    currentPage,
+  );
 });
 
 export { mainPagination };
