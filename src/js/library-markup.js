@@ -17,6 +17,7 @@ function generateMovieLibrary(str) {
     let allMovies = [];
     apiService.getOneMovieInfo(el).then(data => {
       allMovies.push(data);
+      //func
       refs.gallery.insertAdjacentHTML('beforeend', movies(allMovies));
     });
   }

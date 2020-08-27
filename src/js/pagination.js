@@ -27,15 +27,26 @@ mainPagination.on('afterMove', function (evt) {
 
 // myPagination.getCurrentPage();
 
-function checkTotalItems() {
-  const watchedQuantity = localStorage.getItem('add-watched');
-  const parsedWatchedQuantity = JSON.parse(watchedQuantity);
+// function checkTotalItems() {
+//   const watchedQuantity = localStorage.getItem('add-watched');
+//   const parsedWatchedQuantity = JSON.parse(watchedQuantity);
+//   let itemsQuantity;
+
+//   if (parsedWatchedQuantity === null) {
+//     itemsQuantity = 0;
+//   } else {
+//     itemsQuantity = parsedWatchedQuantity.length;
+//   }
+//   return itemsQuantity;
+// }
+
+function checkTotalItems(value) {
   let itemsQuantity;
 
-  if (parsedWatchedQuantity === null) {
+  if (value === null) {
     itemsQuantity = 0;
   } else {
-    itemsQuantity = parsedWatchedQuantity.length;
+    itemsQuantity = value.length;
   }
   return itemsQuantity;
 }
