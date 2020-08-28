@@ -32,7 +32,6 @@ function generateMovieLibrary(str, page) {
   infoHide();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
-  console.log(obj);
   checkTotalItems(obj);
 
   let iterator = (page - 1) * 12;
