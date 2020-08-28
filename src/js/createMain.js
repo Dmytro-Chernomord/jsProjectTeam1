@@ -42,9 +42,9 @@ function updateMurkupBySearch(event) {
     .getMoviesBySearch(query)
     .then(data => {
       let movies = formattingData(data.results);
-      if (movies.length === 20) {
-        movies = changeQuantity(movies, 7);
-      }
+      // if (movies.length === 20) {
+      //   movies = changeQuantity(movies, 7);
+      // }
       if (movies.length) {
         refs.notification.classList.add('visually-hidden');
         return updateMainMarkup(data.results);

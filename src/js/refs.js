@@ -1,5 +1,5 @@
 export default {
-  body: document.querySelector ('body'),
+  body: document.querySelector('body'),
   header: document.querySelector('.header'),
   nav: document.querySelector('.nav'),
   logo: document.querySelector('.logo'),
@@ -25,4 +25,8 @@ export default {
   ),
   info: document.querySelector('#info'),
   libraryBtnClose: document.querySelector('#btn-library'),
+  butType: document.querySelector('#butType'),
+  butTypePopular: document.querySelector('#popular'),
+  butTypeTop_rated: document.querySelector('#top_rated'),
+  butTypeUpcoming: document.querySelector('#upcoming'),
 };
