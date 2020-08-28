@@ -68,8 +68,6 @@ function replaseBtnModal() {
 }
 
 export default {
-  updateAccentBtn,
-  updateMarkup,
   replaseBtnModal,
 };
 
