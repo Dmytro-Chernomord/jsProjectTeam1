@@ -62,4 +62,7 @@ function onMovieCardClick(event) {
 
 // ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
 refs.closeModalBtn.addEventListener('click', onCloseModal);
-refs.libraryBtnClose.addEventListener('click', onCloseModal);
+refs.libraryBtnClose.addEventListener('click', () => {
+  libraryClick.updateMarkup('add-watched');
+  onCloseModal();
+});

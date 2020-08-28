@@ -19,8 +19,7 @@ export const generateOneMovieMarkup = function generateOneMovieMarkup(id) {
     })
     .catch(() => errorOn())
     .finally(() => spinnerOff());
- 
-}
+};
 // ---- Функция для проверки наличия трейлера и если нет - кнопки для трейлера не отрисует
 export const checkTrailerKey = function checkTrailerKey(idValue) {
   const URL = `https://api.themoviedb.org/3/movie/${idValue}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
@@ -31,7 +30,7 @@ export const checkTrailerKey = function checkTrailerKey(idValue) {
         document.querySelector('.trailer-btn').style.display = 'none';
       }
     });
-}
+};
 ////---------трейлер----------/////////////
 let trailerBtn = document.querySelector('.movie-card');
 trailerBtn.addEventListener('click', event => {
@@ -70,8 +69,6 @@ function addLocalStorage(key, id) {
   }
 }
 
-
-
 // ------  инициализируем в localStorage массив для хранения id фильмов, если localStorage таких ключей не содержит
 
 (function initLSmyLib() {
@@ -109,7 +106,7 @@ export const checkLocalStorage = function checkLocalStorage(id) {
   } else {
     queueBtn.textContent = 'add to queue';
   }
-}
+};
 // function onListenerBtn(id) {
 //   fn1(id)
 //   fn2(id)
@@ -138,7 +135,6 @@ function onListenerBtn(id) {
       watchedArr.splice(watchedArr.indexOf(id), 1);
       localStorage.setItem('add-watched', JSON.stringify(watchedArr));
       checkLocalStorage(id);
-      addNewObjInLibrary('add-watched');
     }
   });
 
@@ -158,13 +154,6 @@ function onListenerBtn(id) {
       queueArr.splice(queueArr.indexOf(id), 1);
       localStorage.setItem('add-queue', JSON.stringify(queueArr));
       checkLocalStorage(id);
-      addNewObjInLibrary('add-queue');
     }
-  });
-}
-// ---------При закрытии модалки создается новый список в library--------
-function addNewObjInLibrary(str) {
-  refs.libraryBtnClose.addEventListener('click', () => {
-    libraryClick.updateMarkup(str);
   });
 }
