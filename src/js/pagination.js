@@ -30,7 +30,7 @@ const mainPagination = new Pagination(refs.mainPaginationContainer, {
 });
 
 mainPagination.on('afterMove', function (evt) {
-  var currentPage = evt.page;
+  let currentPage = evt.page;
   createStartMain(currentPage);
   scroll(0);
 });
@@ -61,7 +61,7 @@ const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
 });
 
 watchedPagination.on('afterMove', function (evt) {
-  var currentPage = evt.page;
+  let currentPage = evt.page;
   // Функция внизу не создана
   let str = '';
   if (refs.watchedBtn.classList.contains('btn--accent')) {
