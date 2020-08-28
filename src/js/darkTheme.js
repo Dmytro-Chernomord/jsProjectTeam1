@@ -5,7 +5,7 @@ const refs = {
   labbel: document.querySelector('#popular'),
   labbel1: document.querySelector('#top_rated'),
   labbel2: document.querySelector('#upcoming'),
-  modalText: document.querySelector('.item-data.content-item'),
+  modalText: document.querySelector('.modal-card'),
 };
 console.log(refs.modalText);
 
