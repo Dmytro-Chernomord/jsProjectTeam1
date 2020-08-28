@@ -44,7 +44,6 @@ function onMovieCardClick(event) {
   if (clickedItem.nodeName === 'UL') return;
   toggleModal();
   generateOneMovieMarkup(clickedItem.dataset.id);
-  refs.body.classList.add ('scroll-hidden');
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
   checkTrailerKey(clickedItem.dataset.id);
   
