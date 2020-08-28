@@ -4,10 +4,10 @@ import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn, infoHide } from './spinner.js';
 import { changeQuantity, formattingData } from './services';
 
-async function createStartMain(page) {
+function createStartMain(page) {
   infoHide();
   spinnerOn();
-  await apiService
+  apiService
     .getPopularMovies(page)
     .then(data => {
       const moveCards = formattingData(data.results);
