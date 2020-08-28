@@ -28,14 +28,21 @@
                     {{/each}}
                 </ul>
                 </p>
-
             </li>
         </ul>
         <h3 class="title-text">About</h3>
         <p class="text">{{overview}}</p>
         <div class="box-btn">
-            <button id="add-watched" class="btn watch-btn" data-source='add-watched'>add to Watched</button>
-            <button id="add-queue" class="btn queue-btn" data-source='add-queue'>add to queue</button>
+            <button id="add-watched" class="btn watch-btn" data-source='add-watched'>
+                <div class="spinner-border text-warning spinner" style="width: 20px; height: 20px" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </button>
+            <button id="add-queue" class="btn queue-btn" data-source='add-queue'>
+                <div class="spinner-border text-warning spinner" style="width: 20px; height: 20px" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
+            </button>
             <button id="trailer" data-id="{{id}}" class="btn trailer-btn" data-source='trailer'>watch trailer</button>
         </div>
     </div>
