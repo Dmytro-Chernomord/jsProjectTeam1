@@ -4,10 +4,10 @@ import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn, infoHide } from './spinner.js';
 import { changeQuantity, formattingData } from './services';
 
-function createStartMain(page) {
+(async function createStartMain(page) {
   infoHide();
   spinnerOn();
-  apiService
+  await apiService
     .getPopularMovies(page)
     .then(data => {
       const moveCards = formattingData(data.results);
@@ -16,9 +16,8 @@ function createStartMain(page) {
     })
     .catch(() => errorOn())
     .finally(() => spinnerOff());
-}
+})();
 
-createStartMain();
 // console.log(movies);
 
 refs.input.addEventListener('change', updateMurkupBySearch);
