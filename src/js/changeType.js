@@ -1,6 +1,7 @@
 import refs from './refs.js';
 import apiService from './apiServices.js';
-import createStartMain from './createMain.js';
+// import createStartMain from './createMain.js';
+import { createStartMain } from './createMain.js';
 import { togglePageToHome } from './togglePage.js';
 import { mainPagination } from './pagination.js';
 

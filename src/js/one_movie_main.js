@@ -8,6 +8,7 @@ import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
 import { toggleModal } from './togglePage.js';
 
 import { scroll } from './pagination';
+
 // ----Функция для отрисовки модалки
 export const generateOneMovieMarkup = function generateOneMovieMarkup(id) {
   spinnerOn();
@@ -49,25 +50,6 @@ trailerBtn.addEventListener('click', event => {
       instance.show();
     });
 });
-// Эта функция ничего не делает. Можно удалить наверное:
-function addLocalStorage(key, id) {
-  let list = [];
-  let parseLocalStorage = JSON.parse(localStorage.getItem(key));
-  if (parseLocalStorage === null) {
-    list.push(id);
-    localStorage.setItem(key, JSON.stringify(list));
-  } else {
-    if (parseLocalStorage.includes(id)) {
-      list = parseLocalStorage;
-      list.splice(list.indexOf(id), 1);
-      localStorage.setItem(key, JSON.stringify(list));
-    } else {
-      list = parseLocalStorage;
-      list.push(id);
-      localStorage.setItem(key, JSON.stringify(list));
-    }
-  }
-}
 
 // ------  инициализируем в localStorage массив для хранения id фильмов, если localStorage таких ключей не содержит
 

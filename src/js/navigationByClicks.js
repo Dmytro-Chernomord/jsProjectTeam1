@@ -7,7 +7,7 @@ import {
   onOpenModal,
   onCloseModal,
 } from './togglePage.js';
-import createStartMain from './createMain.js';
+import { definitionBtn } from './services.js';
 import { mainPagination } from './pagination.js';
 import {
   replaseBtnModal,
@@ -19,6 +19,7 @@ import {
   checkTrailerKey,
   checkLocalStorage,
 } from './one_movie_main.js';
+import { createStartMain } from './createMain.js';
 
 refs.nav.addEventListener('click', event => {
   event.preventDefault();
@@ -72,6 +73,7 @@ function onMovieCardClick(event) {
 // ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.libraryBtnClose.addEventListener('click', () => {
-  updateMarkup('add-watched');
   onCloseModal();
+  let str = definitionBtn();
+  updateMarkup(str);
 });

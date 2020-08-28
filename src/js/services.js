@@ -1,4 +1,5 @@
 import { getGenre } from './genre-parser';
+import refs from './refs.js';
 
 function formattingData(arr) {
   arr.forEach(element => (element.genre_ids = getGenre(element.genre_ids)));
@@ -15,4 +16,15 @@ function changeQuantity(arr, value) {
   return arr;
 }
 
-export { changeQuantity, formattingData };
+function definitionBtn() {
+  let str = '';
+  console.log(refs.watchedBtn.classList.contains('btn--accent'));
+  if (refs.watchedBtn.classList.contains('btn--accent')) {
+    str = 'add-watched';
+  } else {
+    str = 'add-queue';
+  }
+  return str;
+}
+
+export { changeQuantity, formattingData, definitionBtn };
