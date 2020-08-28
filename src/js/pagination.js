@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 import createStartMain from './createMain.js';
+
 function scroll(height) {
   setTimeout(() => {
     window.scrollTo({
