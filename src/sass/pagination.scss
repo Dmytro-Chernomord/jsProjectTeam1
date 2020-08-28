@@ -52,6 +52,11 @@ strong.tui-page-btn.tui-is-selected {
   }
 }
 
+//Скрывает пагинацию на главной странице
 .is-none-pagination {
+  display: none;
+}
+//Скрывает пагинацию на странце MyLibrary при пустом списке
+.is-none-pagination-library {
   display: none;
 }
