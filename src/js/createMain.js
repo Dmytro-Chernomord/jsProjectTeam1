@@ -56,5 +56,5 @@ function updateMurkupBySearch(event) {
     .finally(() => spinnerOff());
 }
 
-export default createStartMain;
-export { updateMainMarkup };
+// export default createStartMain;
+export { createStartMain, updateMainMarkup };
