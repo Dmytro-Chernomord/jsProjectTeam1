@@ -50,4 +50,6 @@ export const toggleModaltoLib = function () {
   refs.btnBox.classList.remove('visually-hidden');
   refs.header.classList.remove('header-home');
   refs.searchBox.classList.add('visually-hidden');
+  refs.myLib.classList.add('menu-link--curent');
+  refs.home.classList.remove('menu-link--curent');
 };
