@@ -57,3 +57,4 @@ function updateMurkupBySearch(event) {
 }
 
 export default createStartMain;
+export { updateMainMarkup };
