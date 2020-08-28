@@ -1,0 +1,62 @@
+.tui-pagination .tui-page-btn.tui-is-selected {
+  background-color: $accent-color;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+}
+.tui-pagination .tui-page-btn.tui-is-selected:hover {
+  background-color: $accent-color;
+  font-weight: 500;
+  border-radius: 5px;
+  border: none;
+}
+.tui-pagination.specificity .tui-page-btn {
+  border-width: 0;
+  font-weight: 500;
+  @media screen and (max-width: 767px) {
+    width: 22px;
+  }
+}
+strong.tui-page-btn.tui-is-selected {
+  @media screen and (max-width: 767px) {
+    width: 22px;
+    padding: 5px 0 5px;
+    margin-right: 9px;
+    margin-left: 9px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 40px;
+    padding: 14px 0 14px;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+}
+.tui-pagination.specificity .tui-page-btn:hover {
+  border-radius: 5px;
+}
+
+.tui-pagination.specificity .tui-first-child.tui-is-selected {
+  border: none;
+}
+
+.tui-pagination.specificity .tui-last-child.tui-is-selected {
+  border: none;
+}
+
+.tui-pagination.specificity {
+  margin: 0;
+  margin-top: 40px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 50px;
+  }
+}
+
+//Скрывает пагинацию на главной странице
+.is-none-pagination {
+  display: none;
+}
+//Скрывает пагинацию на странце MyLibrary при пустом списке
+.is-none-pagination-library {
+  display: none;
+}
