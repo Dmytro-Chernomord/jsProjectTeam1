@@ -5,7 +5,6 @@ import {
   toggleModal,
   onOpenModal,
   onCloseModal,
-
 } from './togglePage.js';
 import createStartMain from './createMain.js';
 import { mainPagination } from './pagination.js';
@@ -45,7 +44,6 @@ refs.modalLib.addEventListener('click', event => {
   togglePageToLib();
 });
 
-
 // ----- Вешаем слушатель на список --------
 refs.gallery.addEventListener('click', onMovieCardClick);
 
@@ -58,13 +56,10 @@ function onMovieCardClick(event) {
   generateOneMovieMarkup(clickedItem.dataset.id);
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
   checkTrailerKey(clickedItem.dataset.id);
-  
 
   // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);
-};
+}
 
 // ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.libraryBtnClose.addEventListener('click', onCloseModal);
-
-
