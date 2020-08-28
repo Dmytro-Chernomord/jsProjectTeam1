@@ -3,6 +3,7 @@ import apiService from './apiServices.js';
 import { checkTotalItems } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
+// import { watchedPagination } from './pagination.js';
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
   updateAccentBtn();
@@ -43,7 +44,7 @@ function generateMovieLibrary(str, page) {
   console.log(iterator);
   console.log(counter);
   console.log(obj.length);
-  for (let i = iterator; i < counter; i++) {
+  for (let i = iterator; i < counter + iterator; i++) {
     let allMovies = [];
     console.log(allMovies);
     apiService.getOneMovieInfo(obj[i]).then(data => {

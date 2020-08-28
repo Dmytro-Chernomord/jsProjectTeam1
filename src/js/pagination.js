@@ -3,6 +3,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 import createStartMain from './createMain.js';
 import { updateMarkup } from './library-markup.js';
+
 function scroll(height) {
   setTimeout(() => {
     window.scrollTo({
@@ -72,10 +73,12 @@ watchedPagination.on('afterMove', function (evt) {
   console.log(str);
   console.log(currentPage);
   updateMarkup(str, currentPage);
-  console.log(updateMarkup(str, currentPage));
+  // watchedPagination.reset();
+  // watchedPagination.movePageTo(currentPage);
+  // console.log(updateMarkup(str, currentPage));
   console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
 
 // function checkActualAccent() {}
 
-export { mainPagination, checkTotalItems };
+export { mainPagination, checkTotalItems, watchedPagination };
