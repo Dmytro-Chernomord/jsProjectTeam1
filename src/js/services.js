@@ -26,7 +26,6 @@ function changeQuantity(arr, value) {
   return arr;
 }
 
-
 function definitionBtn() {
   let str = '';
   console.log(refs.watchedBtn.classList.contains('btn--accent'));
@@ -38,5 +37,9 @@ function definitionBtn() {
   return str;
 }
 
-export { changeQuantity, formattingData, definitionBtn };
-
+export {
+  changeQuantity,
+  formattingData,
+  definitionBtn,
+  formattingDataOneMovie,
+};
