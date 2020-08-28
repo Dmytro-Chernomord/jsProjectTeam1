@@ -6,6 +6,7 @@ export default {
   type: 'popular',
   language: 'en-US',
 
+
   async getOneMovieInfo(movie_id) {
     const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${this.apiKey}&language=${this.language}`;
     const res = await fetch(url);
@@ -26,6 +27,7 @@ export default {
     const res = await fetch(url);
     const gen = await res.json();
     return gen.genres;
+
   },
   changeType(type) {
     if (type === 'popular') {

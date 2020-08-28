@@ -17,7 +17,7 @@ export default {
   closeModalBtn: document.querySelector('[data-modal-close]'),
   movieCard: document.querySelector('.movie-card'),
   modalLib: document.querySelector('#modal-lib'),
-  headerModal:document.querySelector('.header-modal'),
+  headerModal: document.querySelector('.header-modal'),
   watchedBtn: document.querySelector('#watched'),
   queueBtn: document.querySelector('#queue'),
   mainPaginationContainer: document.getElementById('tui-pagination-container'),
