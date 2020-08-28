@@ -25,9 +25,7 @@ export default {
   ),
   info: document.querySelector('#info'),
   libraryBtnClose: document.querySelector('#btn-library'),
-  headerModal: document.querySelector('.header-modal')
   butTypePopular: document.querySelector('#popular'),
   butTypeTop_rated: document.querySelector('#top_rated'),
   butTypeUpcoming: document.querySelector('#upcoming'),
-
 };

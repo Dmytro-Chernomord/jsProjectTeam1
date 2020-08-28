@@ -7,7 +7,6 @@ import { infoShow, infoHide } from './spinner.js';
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
   updateAccentBtn();
-  updateAccentBtn();
   updateMarkup('add-watched');
   // замена кнопки close в modal при переходе в library
   refs.libraryBtnClose.classList.remove('is-hidden-btn');
@@ -18,6 +17,7 @@ refs.queueBtn.addEventListener('click', () => updateMarkup('add-queue'));
 
 // -------------------------------обновляет разметку
 function updateMarkup(str) {
+  refs.gallery.innerHTML = '';
   generateMovieLibrary(str);
 }
 
@@ -29,15 +29,16 @@ function checkLSlength(el) {
 
 // --------------------------парсит localStorage и генерит список карточек
 function generateMovieLibrary(str) {
-  const allMovies = [];
   infoHide();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
+  console.log(obj);
   checkTotalItems(obj);
   for (let el of obj) {
+    let allMovies = [];
     apiService.getOneMovieInfo(el).then(data => {
       allMovies.push(data);
-      refs.gallery.innerHTML = movies(allMovies);
+      refs.gallery.insertAdjacentHTML('beforeend', movies(allMovies));
     });
   }
 }
@@ -61,10 +62,7 @@ function replaseBtnModal() {
 }
 
 export default {
+  updateAccentBtn,
+  updateMarkup,
   replaseBtnModal,
-  generateMovieLibrary,
 };
-
-
-export {updateMarkup}
-export {updateAccentBtn}
