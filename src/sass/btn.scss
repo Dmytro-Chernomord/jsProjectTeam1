@@ -54,3 +54,8 @@
     justify-content: center;
   }
 }
+
+.btn.btn-secondary.active.needcolor {
+  background-color: $accent-color;
+  border-radius: 7px;
+}
