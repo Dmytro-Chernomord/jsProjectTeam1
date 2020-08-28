@@ -34,37 +34,21 @@ function generateMovieLibrary(str, page) {
   // getWatchedArr(obj);
   console.log(obj);
   checkTotalItems(obj);
-  for (let el of obj) {
-    // if (page === 1) {
-    //   for (let i = 0; i < 12; i++) {
-    //     let allMovies = [];
-    //     apiService.getOneMovieInfo(el).then(data => {
-    //       allMovies.push(data);
-    //       createCardMovie(allMovies);
-    //     });
-    //   }
-    // }
-    if (page * 12 > checkLSlength(obj)) {
-      for (let i = (page - 1) * 12; i < page * 12; i++) {
-        let allMovies = [];
-        apiService.getOneMovieInfo(el).then(data => {
-          allMovies.push(data);
-          createCardMovie(allMovies);
-        });
-      }
-    }
-    //   if (page === 2) {
-    //     for (let i = checkLSlength(obj); i < 12; i++) {
-    //       let allMovies = [];
-    //       apiService.getOneMovieInfo(el).then(data => {
-    //         allMovies.push(data);
-    //         createCardMovie(allMovies);
-    //       });
-    //     }
-    //   }
+  // for (const el in obj) {
+
+  let iterator = (page - 1) * 12;
+  let counter = obj.length - iterator;
+  if (counter > 12) {
+    counter = 12;
+  }
+  for (let i = iterator; i < counter; i++) {
+    let allMovies = [];
+    apiService.getOneMovieInfo(obj[i]).then(data => {
+      allMovies.push(data);
+      createCardMovie(allMovies);
+    });
   }
 }
-// refs.gallery.insertAdjacentHTML('beforeend', movies(allMovies));
 
 // ----------------Переключатель цвета между кнопоками library
 refs.queueBtn.addEventListener('click', () => {
