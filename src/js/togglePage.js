@@ -22,4 +22,5 @@ export const togglePageToLib = function () {
 };
 export const toggleModal = function () {
   refs.modal.classList.toggle('is-hidden');
+  refs.body.classList.toggle('scroll-hidden');
 };
