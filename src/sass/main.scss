@@ -49,7 +49,7 @@
 }
 
 .list-item-container {
-  padding: 20px 24px;
+  padding: 15px 15px;
 }
 
 .list-item-img {
@@ -67,7 +67,7 @@
   text-transform: uppercase;
   color: $primary-black;
 
-  margin-top: 10px;
+  margin-bottom: 10px;
 
   @media screen and (min-width: 768px) {
     line-height: 1.13;
@@ -79,8 +79,6 @@
   font-size: 12px;
   line-height: 1.17;
   color: $accent-color;
-
-  margin-top: 5px;
 
   @media screen and (min-width: 768px) {
     line-height: 1.13;

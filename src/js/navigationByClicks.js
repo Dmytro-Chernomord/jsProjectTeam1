@@ -14,7 +14,7 @@ refs.nav.addEventListener('click', event => {
     togglePageToLib();
   } else if (event.target === refs.home) {
     togglePageToHome();
-    createStartMain();
+    createStartMain(1);
     mainPagination.movePageTo(1);
     // ------При выходе из library accent-color возвращается на кнопку watched
     libraryClick.updateAccentBtn();
@@ -25,7 +25,7 @@ refs.nav.addEventListener('click', event => {
 refs.logo.addEventListener('click', event => {
   event.preventDefault();
   togglePageToHome();
-  createStartMain();
+  createStartMain(1);
   mainPagination.movePageTo(1);
   // ------При выходе из library accent-color возвращается на кнопку watched
   libraryClick.updateAccentBtn();
