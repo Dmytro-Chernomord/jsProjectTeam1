@@ -1,4 +1,5 @@
 export default {
+  body: document.querySelector ('body'),
   header: document.querySelector('.header'),
   nav: document.querySelector('.nav'),
   logo: document.querySelector('.logo'),
