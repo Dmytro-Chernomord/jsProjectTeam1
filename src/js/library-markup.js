@@ -3,6 +3,7 @@ import apiService from './apiServices.js';
 import { checkTotalItems } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
+import { formattingDataOneMovie } from './services';
 
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
@@ -43,6 +44,7 @@ function generateMovieLibrary(str, page) {
     let allMovies = [];
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
+      allMovies = formattingDataOneMovie(allMovies);
       createCardMovie(allMovies);
     });
   }
