@@ -1,0 +1,41 @@
+.back_to_top {
+  @media screen and (max-width: 429px) {
+    bottom: 80px;
+    right: 5px;
+  }
+  @media screen and (min-width: 430px) and (max-width: 1199px) {
+    bottom: 120px;
+    right: 20px;
+  }
+  @media screen and (min-width: 1200px) {
+    bottom: 120px;
+    right: 80px;
+  }
+
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+
+  position: fixed;
+  z-index: 9999;
+  text-align: center;
+
+  background-color: rgba(255, 107, 8, 0.9);
+  color: $primary-black;
+  cursor: pointer;
+  border-radius: 5px;
+  display: none;
+
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+    -webkit-transform 500ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.back_to_top:hover {
+  background-color: $accent-color;
+  transform: scale(1.1);
+}
+
+.back_to_top-show {
+  display: block;
+}
