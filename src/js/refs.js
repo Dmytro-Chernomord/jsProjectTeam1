@@ -23,4 +23,5 @@ export default {
     'tui-pagination-container-watched',
   ),
   info: document.querySelector('#info'),
+  libraryBtnClose: document.querySelector('#btn-library'),
 };

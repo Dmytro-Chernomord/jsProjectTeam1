@@ -4,20 +4,30 @@ import apiService from './apiServices.js';
 import { checkTotalItems } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 
-refs.myLib.addEventListener('click', () => updateMarkup('add-watched'));
+// -----------------слушалель на myLibrary, btn watched, btn queue
+refs.myLib.addEventListener('click', () => {
+  updateAccentBtn();
+  updateMarkup('add-watched');
+  // замена кнопки close в modal при переходе в library
+  refs.libraryBtnClose.classList.remove('is-hidden-btn');
+  refs.closeModalBtn.classList.add('is-hidden-btn');
+});
 refs.watchedBtn.addEventListener('click', () => updateMarkup('add-watched'));
 refs.queueBtn.addEventListener('click', () => updateMarkup('add-queue'));
 
+// -------------------------------обновляет разметку
 function updateMarkup(str) {
   refs.gallery.innerHTML = '';
   generateMovieLibrary(str);
 }
+
 function checkLSlength(el) {
   if (el.length === 0) {
     infoShow();
   }
 }
 
+// --------------------------парсит localStorage и генерит список карточек
 function generateMovieLibrary(str) {
   infoHide();
   let obj = JSON.parse(localStorage.getItem(str));
@@ -33,12 +43,26 @@ function generateMovieLibrary(str) {
   }
 }
 
-// ----------------Переключатель цвета между кнопоками library -----
+// ----------------Переключатель цвета между кнопоками library
 refs.queueBtn.addEventListener('click', () => {
   refs.watchedBtn.classList.remove('btn--accent');
   refs.queueBtn.classList.add('btn--accent');
 });
 refs.watchedBtn.addEventListener('click', () => {
+  updateAccentBtn();
+});
+function updateAccentBtn() {
   refs.watchedBtn.classList.add('btn--accent');
   refs.queueBtn.classList.remove('btn--accent');
-});
+}
+// -----------замена кнопки close в modal при переходе из library
+function replaseBtnModal() {
+  refs.libraryBtnClose.classList.add('is-hidden-btn');
+  refs.closeModalBtn.classList.remove('is-hidden-btn');
+}
+
+export default {
+  updateAccentBtn,
+  updateMarkup,
+  replaseBtnModal,
+};

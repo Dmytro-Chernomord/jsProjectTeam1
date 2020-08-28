@@ -6,6 +6,7 @@ import {
 } from './togglePage.js';
 import createStartMain from './createMain.js';
 import { mainPagination } from './pagination.js';
+import libraryClick from './library-markup.js';
 
 refs.nav.addEventListener('click', event => {
   event.preventDefault();
@@ -15,9 +16,9 @@ refs.nav.addEventListener('click', event => {
     togglePageToHome();
     createStartMain();
     mainPagination.movePageTo(1);
-    // --------При выходе из library accent-color возвращается на кнопку watched------
-    refs.watchedBtn.classList.add('btn--accent');
-    refs.queueBtn.classList.remove('btn--accent');
+    // ------При выходе из library accent-color возвращается на кнопку watched
+    libraryClick.updateAccentBtn();
+    libraryClick.replaseBtnModal();
   }
 });
 
@@ -26,9 +27,9 @@ refs.logo.addEventListener('click', event => {
   togglePageToHome();
   createStartMain();
   mainPagination.movePageTo(1);
-  // --------При выходе из library accent-color возвращается на кнопку watched------
-  refs.watchedBtn.classList.add('btn--accent');
-  refs.queueBtn.classList.remove('btn--accent');
+  // ------При выходе из library accent-color возвращается на кнопку watched
+  libraryClick.updateAccentBtn();
+  libraryClick.replaseBtnModal();
 });
 
 refs.modalLib.addEventListener('click', event => {
