@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 import createStartMain from './createMain.js';
+import updateMarkup from './library-markup.js';
 function scroll(height) {
   setTimeout(() => {
     window.scrollTo({
@@ -61,10 +62,27 @@ const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
 watchedPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
   // Функция внизу не создана
-  console.log(
-    'Я сообщаю текущую страницу пагинации для перерисовки следующего page в my library',
-    currentPage,
-  );
+  // getWatchedArr();
+  updateMarkup('add-watched', currentPage);
+  console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
+
+// function createWatchedMain(page) {
+// spinnerOn();
+// apiService.getPopularMovies(page).then(data => {
+// const moveCards = formattingData(data.results);
+// const smallMoveCards = changeQuantity(moveCards, 7);
+// const watchedArr = getWatchedArr();
+// console.log(watchedArr);
+// updateMainMarkup(watchedArr);
+// }
+
+// function getWatchedArr(actualArr) {
+//   // const result = {
+//   //   // имитируемый объект с ответом
+//   // };
+//   updateMainMarkup(actualArr);
+//   // return actualArr;
+// }
 
 export { mainPagination, checkTotalItems };

@@ -1,9 +1,8 @@
-import movies from '../template/movies.hbs';
 import refs from './refs.js';
 import apiService from './apiServices.js';
 import { checkTotalItems } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
-
+import { createCardMovie } from './createGallery.js';
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
   updateAccentBtn();
@@ -16,9 +15,9 @@ refs.watchedBtn.addEventListener('click', () => updateMarkup('add-watched'));
 refs.queueBtn.addEventListener('click', () => updateMarkup('add-queue'));
 
 // -------------------------------обновляет разметку
-function updateMarkup(str) {
+function updateMarkup(str, page = 1) {
   refs.gallery.innerHTML = '';
-  generateMovieLibrary(str);
+  generateMovieLibrary(str, page);
 }
 
 function checkLSlength(el) {
@@ -28,20 +27,44 @@ function checkLSlength(el) {
 }
 
 // --------------------------парсит localStorage и генерит список карточек
-function generateMovieLibrary(str) {
+function generateMovieLibrary(str, page) {
   infoHide();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
+  // getWatchedArr(obj);
   console.log(obj);
   checkTotalItems(obj);
   for (let el of obj) {
-    let allMovies = [];
-    apiService.getOneMovieInfo(el).then(data => {
-      allMovies.push(data);
-      refs.gallery.insertAdjacentHTML('beforeend', movies(allMovies));
-    });
+    // if (page === 1) {
+    //   for (let i = 0; i < 12; i++) {
+    //     let allMovies = [];
+    //     apiService.getOneMovieInfo(el).then(data => {
+    //       allMovies.push(data);
+    //       createCardMovie(allMovies);
+    //     });
+    //   }
+    // }
+    if (page * 12 > checkLSlength(obj)) {
+      for (let i = (page - 1) * 12; i < page * 12; i++) {
+        let allMovies = [];
+        apiService.getOneMovieInfo(el).then(data => {
+          allMovies.push(data);
+          createCardMovie(allMovies);
+        });
+      }
+    }
+    //   if (page === 2) {
+    //     for (let i = checkLSlength(obj); i < 12; i++) {
+    //       let allMovies = [];
+    //       apiService.getOneMovieInfo(el).then(data => {
+    //         allMovies.push(data);
+    //         createCardMovie(allMovies);
+    //       });
+    //     }
+    //   }
   }
 }
+// refs.gallery.insertAdjacentHTML('beforeend', movies(allMovies));
 
 // ----------------Переключатель цвета между кнопоками library
 refs.queueBtn.addEventListener('click', () => {
