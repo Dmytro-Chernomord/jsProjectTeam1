@@ -9,7 +9,11 @@ import {
 } from './togglePage.js';
 import createStartMain from './createMain.js';
 import { mainPagination } from './pagination.js';
-import { updateAccentBtn, updateMarkup } from './library-markup.js';
+import {
+  replaseBtnModal,
+  updateAccentBtn,
+  updateMarkup,
+} from './library-markup.js';
 import {
   generateOneMovieMarkup,
   checkTrailerKey,
