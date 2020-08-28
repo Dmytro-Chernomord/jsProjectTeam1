@@ -2,6 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 import createStartMain from './createMain.js';
+import { updateMarkup } from './library-markup.js';
 
 function scroll(height) {
   setTimeout(() => {
@@ -62,10 +63,15 @@ const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
 watchedPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
   // Функция внизу не создана
-  console.log(
-    'Я сообщаю текущую страницу пагинации для перерисовки следующего page в my library',
-    currentPage,
-  );
+  let str = '';
+  if (refs.watchedBtn.classList.contains('btn--accent')) {
+    str = 'add-watched';
+  } else {
+    str = 'add-queue';
+  }
+  updateMarkup(str, currentPage);
+  // watchedPagination.movePageTo(currentPage);//команда для смены страницы(не работает здесь/зацикливает в бесконечность)
+  console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
 
 export { mainPagination, checkTotalItems, scroll };
