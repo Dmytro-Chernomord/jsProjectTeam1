@@ -67,8 +67,4 @@ function replaseBtnModal() {
   refs.closeModalBtn.classList.remove('is-hidden-btn');
 }
 
-export default {
-  replaseBtnModal,
-};
-
-export { updateAccentBtn, updateMarkup };
+export { replaseBtnModal, updateAccentBtn, updateMarkup };

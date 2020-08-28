@@ -6,7 +6,7 @@ import apiService from './apiServices.js';
 import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
 import { toggleModal } from './togglePage.js';
-import libraryClick from './library-markup.js';
+
 import { scroll } from './pagination';
 // ----Функция для отрисовки модалки
 export const generateOneMovieMarkup = function generateOneMovieMarkup(id) {

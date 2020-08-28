@@ -9,7 +9,7 @@ import {
 } from './togglePage.js';
 import createStartMain from './createMain.js';
 import { mainPagination } from './pagination.js';
-import {libraryClick, updateAccentBtn, updateMarkup} from './library-markup.js';
+import { updateAccentBtn, updateMarkup } from './library-markup.js';
 import {
   generateOneMovieMarkup,
   checkTrailerKey,
@@ -25,8 +25,8 @@ refs.nav.addEventListener('click', event => {
     createStartMain(1);
     mainPagination.movePageTo(1);
     // ------При выходе из library accent-color возвращается на кнопку watched
-    libraryClick.updateAccentBtn();
-    libraryClick.replaseBtnModal();
+    updateAccentBtn();
+    replaseBtnModal();
   }
 });
 refs.logo.addEventListener('click', event => {
@@ -35,8 +35,8 @@ refs.logo.addEventListener('click', event => {
   createStartMain(1);
   mainPagination.movePageTo(1);
   // ------При выходе из library accent-color возвращается на кнопку watched
-  libraryClick.updateAccentBtn();
-  libraryClick.replaseBtnModal();
+  updateAccentBtn();
+  replaseBtnModal();
 });
 
 refs.modalLib.addEventListener('click', event => {
@@ -47,7 +47,6 @@ refs.modalLib.addEventListener('click', event => {
   // замена кнопки close в modal при переходе в library
   refs.libraryBtnClose.classList.remove('is-hidden-btn');
   refs.closeModalBtn.classList.add('is-hidden-btn');
- 
 });
 
 // ----- Вешаем слушатель на список --------
@@ -69,6 +68,6 @@ function onMovieCardClick(event) {
 // ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.libraryBtnClose.addEventListener('click', () => {
-  libraryClick.updateMarkup('add-watched');
+  updateMarkup('add-watched');
   onCloseModal();
 });
