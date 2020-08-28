@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 import createStartMain from './createMain.js';
-import updateMarkup from './library-markup.js';
+import { updateMarkup } from './library-markup.js';
 function scroll(height) {
   setTimeout(() => {
     window.scrollTo({
@@ -62,8 +62,20 @@ const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
 watchedPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
   // Функция внизу не создана
-  updateMarkup('add-watched', currentPage);
+  let str = '';
+  if (refs.watchedBtn.classList.contains('btn--accent')) {
+    str = 'add-watched';
+  } else {
+    str = 'add-queue';
+  }
+  // console.log(refs.watchedBtn.classList.contains('btn--accent'));
+  console.log(str);
+  console.log(currentPage);
+  updateMarkup(str, currentPage);
+  console.log(updateMarkup(str, currentPage));
   console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
+
+// function checkActualAccent() {}
 
 export { mainPagination, checkTotalItems };

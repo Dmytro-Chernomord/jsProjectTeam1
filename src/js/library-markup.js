@@ -34,15 +34,18 @@ function generateMovieLibrary(str, page) {
   // getWatchedArr(obj);
   console.log(obj);
   checkTotalItems(obj);
-  // for (const el in obj) {
 
   let iterator = (page - 1) * 12;
   let counter = obj.length - iterator;
   if (counter > 12) {
     counter = 12;
   }
+  console.log(iterator);
+  console.log(counter);
+  console.log(obj.length);
   for (let i = iterator; i < counter; i++) {
     let allMovies = [];
+    console.log(allMovies);
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
       createCardMovie(allMovies);
@@ -73,3 +76,5 @@ export default {
   updateMarkup,
   replaseBtnModal,
 };
+
+export { updateMarkup };
