@@ -1,6 +1,7 @@
 import refs from './refs.js';
+import libraryClick from './library-markup.js';
 
-const escCloseModal =(event) => {
+const escCloseModal = event => {
   if (event.code === 'Escape') {
     onCloseModal();
   }
