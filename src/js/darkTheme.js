@@ -6,6 +6,7 @@ const refs = {
   labbel1: document.querySelector('#top_rated'),
   labbel2: document.querySelector('#upcoming'),
   modalText: document.querySelector('.modal-card'),
+  modalCross: document.querySelector('.close'),
 };
 console.log(refs.modalText);
 
@@ -33,6 +34,7 @@ function darkTheme() {
   refs.labbel1.classList.toggle('darkTheme');
   refs.labbel2.classList.toggle('darkTheme');
   refs.modalText.classList.toggle('darkTheme');
+  refs.modalCross.classList.toggle('darkTheme');
 
   //   refs.main.classList.remove('light-theme');
   refs.buttonTheme.checked = true;

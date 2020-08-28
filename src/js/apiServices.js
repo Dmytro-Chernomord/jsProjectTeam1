@@ -3,7 +3,7 @@ export default {
   page: 1,
   apiKey: '89b9004c084fb7d0e8ffaadd17cb8254',
   total: 0,
-  type: "popular",
+  type: 'popular',
 
   getOneMovieInfo(movie_id) {
     const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${this.apiKey}&language=en-US`;
@@ -24,16 +24,16 @@ export default {
       .then(gen => gen.genres);
   },
   changeType(type) {
-    if (type === "popular") {
-      this.type = "popular";
+    if (type === 'popular') {
+      this.type = 'popular';
     }
-    if (type === "top_rated") {
-      this.type = "top_rated";
+    if (type === 'top_rated') {
+      this.type = 'top_rated';
     }
-    if (type === "upcoming") {
-      this.type = "upcoming";
+    if (type === 'upcoming') {
+      this.type = 'upcoming';
     }
-  }
+  },
   //   resetPage() {
   //     this.page = 1;
   //   },
