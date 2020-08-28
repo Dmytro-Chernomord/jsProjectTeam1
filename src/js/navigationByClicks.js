@@ -45,14 +45,4 @@ function escCloseModal() {
 
 window.addEventListener('keyup', escCloseModal);
 
-refs.butType.addEventListener('click', event => {
-  event.preventDefault();
-  // refs.butTypeTop_rated.classList;
-  console.dir(event.target);
 
-  if (event.target.tagName === 'LABEL') {
-    console.log(event.target);
-  } else {
-    console.log('нето');
-  }
-});
