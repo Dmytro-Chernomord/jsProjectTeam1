@@ -68,4 +68,4 @@ watchedPagination.on('afterMove', function (evt) {
   );
 });
 
-export { mainPagination, checkTotalItems };
+export { mainPagination, checkTotalItems, scroll };

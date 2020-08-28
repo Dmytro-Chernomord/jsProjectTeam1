@@ -7,7 +7,7 @@ import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
 import { toggleModal } from './togglePage.js';
 import libraryClick from './library-markup.js';
-
+import { scroll } from './pagination';
 // ----Функция для отрисовки модалки
 function generateOneMovieMarkup(id) {
   spinnerOn();
@@ -19,6 +19,7 @@ function generateOneMovieMarkup(id) {
     })
     .catch(() => errorOn())
     .finally(() => spinnerOff());
+ 
 }
 // ---- Функция для проверки наличия трейлера и если нет - кнопки для трейлера не отрисует
 function checkTrailerKey(idValue) {
@@ -43,8 +44,10 @@ function onMovieCardClick(event) {
   if (clickedItem.nodeName === 'UL') return;
   toggleModal();
   generateOneMovieMarkup(clickedItem.dataset.id);
+  refs.body.classList.add ('scroll-hidden');
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
   checkTrailerKey(clickedItem.dataset.id);
+  
 
   // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);
 }
