@@ -12,10 +12,14 @@ function spinnerOn() {
 }
 function infoShow() {
   refs.info.classList.remove('visually-hidden');
+  refs.watchedPaginationContainer.classList.add('is-none-pagination-library');
 }
 
 function infoHide() {
   refs.info.classList.add('visually-hidden');
+  refs.watchedPaginationContainer.classList.remove(
+    'is-none-pagination-library',
+  );
 }
 
 export { errorOn, spinnerOff, spinnerOn, infoShow, infoHide };

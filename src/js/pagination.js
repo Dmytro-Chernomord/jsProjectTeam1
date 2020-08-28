@@ -32,7 +32,7 @@ const mainPagination = new Pagination(refs.mainPaginationContainer, {
 mainPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
   createStartMain(currentPage);
-  scroll(250);
+  scroll(0);
 });
 
 function checkTotalItems(obj) {
@@ -69,16 +69,9 @@ watchedPagination.on('afterMove', function (evt) {
   } else {
     str = 'add-queue';
   }
-  // console.log(refs.watchedBtn.classList.contains('btn--accent'));
-  console.log(str);
-  console.log(currentPage);
   updateMarkup(str, currentPage);
-  // watchedPagination.reset();
-  // watchedPagination.movePageTo(currentPage);
-  // console.log(updateMarkup(str, currentPage));
+  // watchedPagination.movePageTo(currentPage);//команда для смены страницы(не работает здесь/зацикливает в бесконечность)
   console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
 
-// function checkActualAccent() {}
-
-export { mainPagination, checkTotalItems, watchedPagination };
+export { mainPagination, checkTotalItems, scroll };

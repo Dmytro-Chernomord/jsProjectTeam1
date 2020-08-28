@@ -21,6 +21,7 @@
       type="image/x-icon"
     />
   </head>
+
   <body>
     <header class="header header-home">
       <div class="header-container">
@@ -71,8 +72,24 @@
         </div>
       </div>
     </header>
-    <main>
-      <h1 class="visually-hidden">h1</h1>
+    <main class="main-content">
+      <h1 class="visually-hidden">Filmoteka</h1>
+      <div
+        class="btn-group btn-group-toggle"
+        id="butType"
+        data-toggle="buttons"
+      >
+        <label class="btn btn-secondary active" id="popular">
+          <input type="radio" name="options" autocomplete="off" checked />
+          Popular
+        </label>
+        <label class="btn btn-secondary" id="top_rated">
+          <input type="radio" name="options" autocomplete="off" /> Top rated
+        </label>
+        <label class="btn btn-secondary" id="upcoming">
+          <input type="radio" name="options" autocomplete="off" /> Upcoming
+        </label>
+      </div>
       <div class="spinner-task">
         <div id="info" class="visually-hidden notify">
           This list is still empty! Try to add something in it! ;)
@@ -185,7 +202,7 @@
             </button>
           </div>
         </div>
-        <div class="movie-card"></div>
+        <div class="movie-card container"></div>
         <footer class="footer">
           <p class="footer-text">
             &copy; 2020 | All Rights Reserved | Developed with
@@ -214,5 +231,6 @@
         </footer>
       </div>
     </div>
+    <a class="back_to_top" title="Наверх"><span class="arrow-color">↑</span></a>
   </body>
 </html>

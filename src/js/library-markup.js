@@ -3,7 +3,7 @@ import apiService from './apiServices.js';
 import { checkTotalItems } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
-// import { watchedPagination } from './pagination.js';
+
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
   updateAccentBtn();
@@ -32,7 +32,6 @@ function generateMovieLibrary(str, page) {
   infoHide();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
-  // getWatchedArr(obj);
   console.log(obj);
   checkTotalItems(obj);
 
@@ -41,12 +40,8 @@ function generateMovieLibrary(str, page) {
   if (counter > 12) {
     counter = 12;
   }
-  console.log(iterator);
-  console.log(counter);
-  console.log(obj.length);
   for (let i = iterator; i < counter + iterator; i++) {
     let allMovies = [];
-    console.log(allMovies);
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
       createCardMovie(allMovies);
@@ -78,4 +73,4 @@ export default {
   replaseBtnModal,
 };
 
-export { updateMarkup };
+export { updateAccentBtn, updateMarkup };

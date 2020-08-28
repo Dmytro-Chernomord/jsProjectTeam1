@@ -1,5 +1,10 @@
 import refs from './refs.js';
 
+const escCloseModal =(event) => {
+  if (event.code === 'Escape') {
+    onCloseModal();
+  }
+};
 export const togglePageToHome = function () {
   refs.home.classList.add('menu-link--curent');
   refs.myLib.classList.remove('menu-link--curent');
@@ -22,4 +27,29 @@ export const togglePageToLib = function () {
 };
 export const toggleModal = function () {
   refs.modal.classList.toggle('is-hidden');
+  refs.body.classList.toggle('scroll-hidden');
+};
+
+export const onOpenModal = function () {
+  refs.modal.classList.remove('is-hidden');
+  refs.body.classList.add('scroll-hidden');
+  window.addEventListener('keyup', escCloseModal);
+};
+export const onCloseModal = function () {
+  refs.modal.classList.add('is-hidden');
+  refs.body.classList.remove('scroll-hidden');
+  window.removeEventListener('keyup', escCloseModal);
+};
+
+export const toggleModaltoLib = function () {
+  refs.modal.classList.toggle('is-hidden');
+  refs.body.classList.toggle('scroll-hidden');
+  window.removeEventListener('keyup', escCloseModal);
+  refs.headerModal.classList.remove('.header-modal');
+  refs.header.classList.add('header-lib');
+  refs.btnBox.classList.remove('visually-hidden');
+  refs.header.classList.remove('header-home');
+  refs.searchBox.classList.add('visually-hidden');
+  refs.myLib.classList.add('menu-link--curent');
+  refs.home.classList.remove('menu-link--curent');
 };
