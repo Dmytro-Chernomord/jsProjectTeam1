@@ -1,4 +1,9 @@
 .footer {
+  &-modal {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
   background-color: $secondary-bg-color;
   text-align: center;
   padding: 29px 0;
@@ -13,6 +18,7 @@
     line-height: 1.19;
   }
 }
+
 .footer-text {
   @media screen and (max-width: 767px) {
     max-width: 240px;

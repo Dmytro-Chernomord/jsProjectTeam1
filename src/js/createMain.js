@@ -35,7 +35,7 @@ function updateMurkupBySearch(event) {
   event.preventDefault();
   let query = event.target.value;
   if (query == false) return;
-  event.target.value = '';
+  // event.target.value = '';
   spinnerOn();
   refs.mainPaginationContainer.classList.add('is-none-pagination');
   apiService
