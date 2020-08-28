@@ -7,6 +7,7 @@ import { formattingDataOneMovie } from './services';
 
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
+  infoHide();
   updateAccentBtn();
   updateMarkup('add-watched');
   // замена кнопки close в modal при переходе в library

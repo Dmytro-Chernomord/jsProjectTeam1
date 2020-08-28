@@ -15,8 +15,8 @@ export default function renameAllText(languege) {
     refs.butTypeUpcoming.textContent = 'Уже скоро';
 
     refs.error.textContent = 'Что то пошло не так =(';
-    refs.info.textContent =
-      'Этот список пока пуст! Попробуй что-нибудь добавить! ;)';
+    refs.infoText.textContent =
+      'Судя по всему, Вы ещё ничего не добавили в этот список. Самое время начать!';
   }
   if (languege === 'en-US') {
     refs.home.textContent = 'Home';
@@ -31,8 +31,8 @@ export default function renameAllText(languege) {
     refs.butTypeTop_rated.textContent = 'Top rated';
     refs.butTypeUpcoming.textContent = 'Upcoming';
 
-    refs.info.textContent = 'Something went wrong = (';
-    refs.info.textContent =
-      'This list is still empty! Try to add something in it! ;)';
+    refs.error.textContent = 'Something went wrong = (';
+    refs.infoText.textContent =
+      'Seems like you haven`t add anything in this list yet. Right about time to start! ';
   }
 }

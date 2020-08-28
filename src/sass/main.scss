@@ -101,3 +101,20 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.display-none {
+  display: none;
+}
+
+.info-text {
+  font-size: 32px;
+  line-height: 2;
+  text-align: center;
+  max-width: 500px;
+  color: $primary-white;
+  position: absolute;
+  z-index: 99;
+  top: 200px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
