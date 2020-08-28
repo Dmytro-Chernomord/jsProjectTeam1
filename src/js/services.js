@@ -1,5 +1,6 @@
 import { getGenre } from './genre-parser';
 import refs from './refs.js';
+import { createStartMain } from './createMain';
 
 function formattingData(arr) {
   arr.forEach(element => (element.genre_ids = getGenre(element.genre_ids)));
@@ -28,7 +29,7 @@ function changeQuantity(arr, value) {
 
 function definitionBtn() {
   let str = '';
-  console.log(refs.watchedBtn.classList.contains('btn--accent'));
+  // console.log(refs.watchedBtn.classList.contains('btn--accent'));
   if (refs.watchedBtn.classList.contains('btn--accent')) {
     str = 'add-watched';
   } else {
@@ -37,9 +38,28 @@ function definitionBtn() {
   return str;
 }
 
+function definitionPage() {
+  let code = '';
+  // определить что сейчас в каком состоянии страница
+  // home или library
+  // какая кнопка нажата(активна)
+  // в каком состоянии пагинатор
+  return code;
+}
+
+function callMarkup() {
+  let state = definitionPage();
+  // с имитировать вызов на этом месте с учетом состояния страницы
+  //
+
+  // заглушка
+  createStartMain();
+}
+
 export {
   changeQuantity,
   formattingData,
   definitionBtn,
   formattingDataOneMovie,
+  callMarkup,
 };
