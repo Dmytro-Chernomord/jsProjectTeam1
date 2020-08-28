@@ -31,7 +31,7 @@ const mainPagination = new Pagination(refs.mainPaginationContainer, {
 mainPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
   createStartMain(currentPage);
-  scroll(250);
+  scroll(0);
 });
 
 function checkTotalItems(obj) {
