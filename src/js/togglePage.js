@@ -23,3 +23,10 @@ export const togglePageToLib = function () {
 export const toggleModal = function () {
   refs.modal.classList.toggle('is-hidden');
 };
+export const onOpenModal = function () {
+  refs.modal.classList.remove('is-hidden');
+};
+export const onCloseModal = function () {
+  refs.modal.classList.add('is-hidden');
+};
+//toggleModal надо удалить, заменяем на две функции "открыть" и "закрыть"
