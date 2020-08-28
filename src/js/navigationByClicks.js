@@ -3,10 +3,17 @@ import {
   togglePageToHome,
   togglePageToLib,
   toggleModal,
+  onOpenModal,
+  onCloseModal,
 } from './togglePage.js';
 import createStartMain from './createMain.js';
 import { mainPagination } from './pagination.js';
 import libraryClick from './library-markup.js';
+import {
+  generateOneMovieMarkup,
+  checkTrailerKey,
+  checkLocalStorage,
+} from './one_movie_main.js';
 
 refs.nav.addEventListener('click', event => {
   event.preventDefault();
@@ -21,7 +28,6 @@ refs.nav.addEventListener('click', event => {
     libraryClick.replaseBtnModal();
   }
 });
-
 refs.logo.addEventListener('click', event => {
   event.preventDefault();
   togglePageToHome();
@@ -37,12 +43,23 @@ refs.modalLib.addEventListener('click', event => {
   toggleModal();
   togglePageToLib();
 });
-function escCloseModal() {
-  if (event.key === 'Escape') {
-    toggleModal();
-  }
+
+// ----- Вешаем слушатель на список --------
+refs.gallery.addEventListener('click', onMovieCardClick);
+
+// ----Функция для открытия модалки
+function onMovieCardClick(event) {
+  event.preventDefault();
+  let clickedItem = event.target;
+  if (clickedItem.nodeName === 'UL') return;
+  onOpenModal();
+  generateOneMovieMarkup(clickedItem.dataset.id);
+  setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
+  checkTrailerKey(clickedItem.dataset.id);
+
+  // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);
 }
 
-window.addEventListener('keyup', escCloseModal);
-
-
+// ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
+refs.closeModalBtn.addEventListener('click', onCloseModal);
+refs.libraryBtnClose.addEventListener('click', onCloseModal);

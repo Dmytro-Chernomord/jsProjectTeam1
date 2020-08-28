@@ -9,7 +9,7 @@ import { toggleModal } from './togglePage.js';
 import libraryClick from './library-markup.js';
 import { scroll } from './pagination';
 // ----Функция для отрисовки модалки
-function generateOneMovieMarkup(id) {
+export const generateOneMovieMarkup = function generateOneMovieMarkup(id) {
   spinnerOn();
   apiService
     .getOneMovieInfo(id)
@@ -22,7 +22,7 @@ function generateOneMovieMarkup(id) {
  
 }
 // ---- Функция для проверки наличия трейлера и если нет - кнопки для трейлера не отрисует
-function checkTrailerKey(idValue) {
+export const checkTrailerKey = function checkTrailerKey(idValue) {
   const URL = `https://api.themoviedb.org/3/movie/${idValue}/videos?api_key=89b9004c084fb7d0e8ffaadd17cb8254&language=en-US`;
   fetch(URL)
     .then(res => res.json())
@@ -31,24 +31,6 @@ function checkTrailerKey(idValue) {
         document.querySelector('.trailer-btn').style.display = 'none';
       }
     });
-}
-
-// ----- Вешаем слушатель на список --------
-refs.gallery.addEventListener('click', onMovieCardClick);
-
-// ----Функция для открытия модалки
-function onMovieCardClick(event) {
-  event.preventDefault();
-  let clickedItem = event.target;
-
-  if (clickedItem.nodeName === 'UL') return;
-  toggleModal();
-  generateOneMovieMarkup(clickedItem.dataset.id);
-  setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
-  checkTrailerKey(clickedItem.dataset.id);
-  
-
-  // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);
 }
 ////---------трейлер----------/////////////
 let trailerBtn = document.querySelector('.movie-card');
@@ -88,9 +70,7 @@ function addLocalStorage(key, id) {
   }
 }
 
-// ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
-refs.closeModalBtn.addEventListener('click', toggleModal);
-refs.libraryBtnClose.addEventListener('click', toggleModal);
+
 
 // ------  инициализируем в localStorage массив для хранения id фильмов, если localStorage таких ключей не содержит
 
@@ -106,7 +86,7 @@ refs.libraryBtnClose.addEventListener('click', toggleModal);
 //
 // ------ Функция для проверки наличия id фильма в local storage
 
-function checkLocalStorage(id) {
+export const checkLocalStorage = function checkLocalStorage(id) {
   let arrWatched = JSON.parse(localStorage.getItem('add-watched'));
   let arrQueue = JSON.parse(localStorage.getItem('add-queue'));
   let watchBtn = document.querySelector('.watch-btn');
