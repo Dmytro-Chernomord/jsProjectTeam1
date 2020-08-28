@@ -25,4 +25,5 @@ export default {
   ),
   info: document.querySelector('#info'),
   libraryBtnClose: document.querySelector('#btn-library'),
+  headerModal: document.querySelector('.header-modal')
 };

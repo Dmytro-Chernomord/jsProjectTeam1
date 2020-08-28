@@ -5,15 +5,17 @@ import {
   toggleModal,
   onOpenModal,
   onCloseModal,
+  toggleModaltoLib,
 
 } from './togglePage.js';
 import createStartMain from './createMain.js';
 import { mainPagination } from './pagination.js';
-import libraryClick from './library-markup.js';
+import {libraryClick , updateMarkup, updateAccentBtn} from './library-markup.js';
 import {
   generateOneMovieMarkup,
   checkTrailerKey,
   checkLocalStorage,
+  generateMovieLibrary,
 } from './one_movie_main.js';
 
 refs.nav.addEventListener('click', event => {
@@ -39,10 +41,13 @@ refs.logo.addEventListener('click', event => {
   libraryClick.replaseBtnModal();
 });
 
-refs.modalLib.addEventListener('click', event => {
-  event.preventDefault();
-  toggleModal();
-  togglePageToLib();
+refs.modalLib.addEventListener('click', ()=> {
+updateAccentBtn();
+toggleModaltoLib();
+ updateMarkup('add-watched');
+// замена кнопки close в modal при переходе в library
+refs.libraryBtnClose.classList.remove('is-hidden-btn');
+refs.closeModalBtn.classList.add('is-hidden-btn');
 });
 
 

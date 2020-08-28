@@ -40,3 +40,14 @@ export const onCloseModal = function () {
   refs.body.classList.remove('scroll-hidden');
   window.removeEventListener('keyup', escCloseModal);
 };
+
+export const toggleModaltoLib = function () {
+  refs.modal.classList.toggle('is-hidden');
+  refs.body.classList.toggle('scroll-hidden');
+  window.removeEventListener('keyup', escCloseModal);
+  refs.headerModal.classList.remove('.header-modal');
+  refs.header.classList.add('header-lib');
+  refs.btnBox.classList.remove('visually-hidden');
+  refs.header.classList.remove('header-home');
+  refs.searchBox.classList.add('visually-hidden');
+};
