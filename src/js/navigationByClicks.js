@@ -1,5 +1,6 @@
 import refs from './refs.js';
 import {
+  toggleModaltoLib,
   togglePageToHome,
   togglePageToLib,
   toggleModal,
@@ -8,7 +9,7 @@ import {
 } from './togglePage.js';
 import createStartMain from './createMain.js';
 import { mainPagination } from './pagination.js';
-import libraryClick from './library-markup.js';
+import {libraryClick, updateAccentBtn, updateMarkup} from './library-markup.js';
 import {
   generateOneMovieMarkup,
   checkTrailerKey,
@@ -40,8 +41,13 @@ refs.logo.addEventListener('click', event => {
 
 refs.modalLib.addEventListener('click', event => {
   event.preventDefault();
-  toggleModal();
-  togglePageToLib();
+  toggleModaltoLib();
+  updateAccentBtn();
+  updateMarkup('add-watched');
+  // замена кнопки close в modal при переходе в library
+  refs.libraryBtnClose.classList.remove('is-hidden-btn');
+  refs.closeModalBtn.classList.add('is-hidden-btn');
+ 
 });
 
 // ----- Вешаем слушатель на список --------

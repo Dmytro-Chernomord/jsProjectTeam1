@@ -68,3 +68,4 @@ export default {
 };
 
 // export { updateMarkup}
+export { updateAccentBtn, updateMarkup };
