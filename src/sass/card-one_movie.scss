@@ -87,6 +87,12 @@
   margin-bottom: 40px;
 }
 
+.one-movie-image {
+  border-radius: 5px;
+  max-width: 294px;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 768px) {
   .card-box {
     display: flex;
@@ -111,8 +117,7 @@
   .content-item .item-part {
     margin-right: 83px;
   }
-}
-.one-movie-image {
-  border-radius: 5px;
-  margin: 0 auto;
+  .one-movie-image {
+    max-width: 426px;
+  }
 }
