@@ -9,8 +9,10 @@
       data-id="{{id}}" />
     {{/if}}
   </div>
-  <h2 class="list-item-title" data-id="{{id}}">{{title}}</h2>
-  <p class="list-item-descr" data-id="{{id}}">{{genre_ids}} | {{release_date}} <span class="list-item-vote_average">
-      {{vote_average}} </span></p>
+  <div class="list-item-container">
+    <h2 class="list-item-title" data-id="{{id}}">{{title}}</h2>
+    <p class="list-item-descr" data-id="{{id}}">{{genre_ids}} | {{release_date}} </p>
+  </div>
+  <p class="list-item-vote_average">{{vote_average}} </p>
 </li>
 {{/each}}

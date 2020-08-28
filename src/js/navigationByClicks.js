@@ -24,7 +24,7 @@ refs.nav.addEventListener('click', event => {
     togglePageToLib();
   } else if (event.target === refs.home) {
     togglePageToHome();
-    createStartMain();
+    createStartMain(1);
     mainPagination.movePageTo(1);
     // ------При выходе из library accent-color возвращается на кнопку watched
     libraryClick.updateAccentBtn();
@@ -34,7 +34,7 @@ refs.nav.addEventListener('click', event => {
 refs.logo.addEventListener('click', event => {
   event.preventDefault();
   togglePageToHome();
-  createStartMain();
+  createStartMain(1);
   mainPagination.movePageTo(1);
   // ------При выходе из library accent-color возвращается на кнопку watched
   libraryClick.updateAccentBtn();
@@ -50,7 +50,6 @@ refs.libraryBtnClose.classList.remove('is-hidden-btn');
 refs.closeModalBtn.classList.add('is-hidden-btn');
 });
 
-
 // ----- Вешаем слушатель на список --------
 refs.gallery.addEventListener('click', onMovieCardClick);
 
@@ -63,13 +62,10 @@ function onMovieCardClick(event) {
   generateOneMovieMarkup(clickedItem.dataset.id);
   setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
   checkTrailerKey(clickedItem.dataset.id);
-  
 
   // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);
-};
+}
 
 // ----- Закрытие модалки - Вешаем слушатель на крестик в модалке, тоглим класс is-hidden --------
 refs.closeModalBtn.addEventListener('click', onCloseModal);
 refs.libraryBtnClose.addEventListener('click', onCloseModal);
-
-

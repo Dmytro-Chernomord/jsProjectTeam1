@@ -1,218 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.7.0/modern-normalize.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-    <link
-      id="page_favicon"
-      href="data:image/x-icon;base64,R0lGODlhEAAQAPAAAAAAAAAAACH5BAkKAAEAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAAC50wQAAAAAAIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAQRAEQQAIAAKBQAAQAAQCgUAgAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAQRAEQQAEQBAEARAAQRAEQQAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAAAAAAAAAIAAKBQAAQAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQQAghhAAEQBAEARAAQRAEQQAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAAAAAAAAAACAACgUAAEAAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQQQAghhAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAAAAAAAAAgAAoFAABAAAAAAAAAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAAAAAAAAIAAKBQAAQAAAAAAAAAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAQCgUAgABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAAAAAAAAEQBAEARAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAEAoFAIAAIAAKBQAAQAAQCgUAgABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQAAAAAAAEQBAEARAAAAAAAAAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAABAKBQCAACAACgUAAEAAEAoFAIAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQAAAAAAIIIQQQAAAAAAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAQCgUAgAAgAAoFAABAABAKBQCAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQAAAAAAIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAQRAEQQAIAAKBQAAQAAQCgUAgAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAQRAEQQAEQBAEARAAQRAEQQAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAAAAAAAAAIAAKBQAAQAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQQAghhAAEQBAEARAAQRAEQQAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAAAAAAAAAACAACgUAAEAAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQQQAghhAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAAAAAAAAAgAAoFAABAAAAAAAAAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAAAAAAAAIAAKBQAAQAAAAAAAAAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAQCgUAgABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAAAAAAAAEQBAEARAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAEAoFAIAAIAAKBQAAQAAQCgUAgABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQAAAAAAAEQBAEARAAAAAAAAAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAABAKBQCAACAACgUAAEAAEAoFAIAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQAAAAAAIIIQQQAAAAAAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAQCgUAgAAgAAoFAABAABAKBQCAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAA7"
-      rel="icon"
-      type="image/x-icon"
-    />
-  </head>
-  <body>
-    <header class="header header-home">
-      <div class="header-container">
-        <nav class="nav">
-          <a href="./index.html" class="link logo">
-            <img
-              src="./assets/images/film.svg"
-              alt=""
-              height="24"
-              class="logo-icon"
-            />
-            <span class="logo-text">Filmoteka</span>
-          </a>
-          <ul class="menu">
-            <li class="menu-item">
-              <a
-                href="./index.html"
-                class="link menu-link menu-link--curent"
-                id="home"
-                >Home</a
-              >
-            </li>
-            <li class="menu-item">
-              <a href="#" class="link menu-link" id="lib">My library</a>
-            </li>
-          </ul>
-        </nav>
-        <div class="search-box">
-          <div class="search">
-            <input
-              id="input"
-              type="text"
-              placeholder="Поиск фильмов"
-              class="input"
-              onkeyup="this.value = this.value.replace(/[^A-Za-z0-9\s]/g, '')"
-            />
-            <button class="button-search" type="submit"></button>
-          </div>
-          <p id="notification" class="notification visually-hidden">
-            Search result not successful. Enter the correct movie name
-          </p>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.7.0/modern-normalize.css" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+  <link id="page_favicon"
+    href="data:image/x-icon;base64,R0lGODlhEAAQAPAAAAAAAAAAACH5BAkKAAEAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAAC50wQAAAAAAIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAQRAEQQAIAAKBQAAQAAQCgUAgAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAQRAEQQAEQBAEARAAQRAEQQAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAAAAAAAAAIAAKBQAAQAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQQAghhAAEQBAEARAAQRAEQQAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAAAAAAAAAACAACgUAAEAAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQQQAghhAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAAAAAAAAAgAAoFAABAAAAAAAAAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAAAAAAAAIAAKBQAAQAAAAAAAAAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAQCgUAgABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAAAAAAAAEQBAEARAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAEAoFAIAAIAAKBQAAQAAQCgUAgABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQAAAAAAAEQBAEARAAAAAAAAAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAABAKBQCAACAACgUAAEAAEAoFAIAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQAAAAAAIIIQQQAAAAAAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAQCgUAgAAgAAoFAABAABAKBQCAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQAAAAAAIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAQRAEQQAIAAKBQAAQAAQCgUAgAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAQRAEQQAEQBAEARAAQRAEQQAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAAAAAAAAAIAAKBQAAQAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQQAghhAAEQBAEARAAQRAEQQAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAAAAAAAAAACAACgUAAEAAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQQQAghhAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAAAAAAAAAgAAoFAABAAAAAAAAAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQEBERAQIIIQQAQAghhAAAQBAEAQAAQRAEQQAAQBAEARAAAAAAAAAIAAKBQAAQAAAAAAAAAAgAAoFAAAAABAKBQCAAAAACgUAAAAAEAoFAIAAAAAKBQAAQAAQCgUAgABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQAQAghhAAAQBAEARAAAAAAAAAEQBAEARAAAAAAAAAIAAKBQAAAAAQCgUAgAAAAAoFAAAAABAKBQCAAAAACgUAAEAAEAoFAIAAIAAKBQAAQAAQCgUAgABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAAAAAAAAAABAAEBAQEAAQAAAAAAAAAAAQABAQEBAAAAAQEBAQEBAAAAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAQABAQEBAQEAAQABAQEBAAEAAQEBAQEBAAIACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wAEBERAQAIIQQQAAAAAAAEQBAEARAAAAAAAAAEQBAEAQAAQRAEQQAAAAKBQAAAAAQCgUAgAAAAAoFAABAABAKBQCAACAACgUAAEAAEAoFAIAAIAAKBQAAAAAQCgUAgAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAAAAAAAAAAEAAQEBAQABAAAAAAAAAAABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAAAQEBAQABAAEBAQEBAQABAAEBAQEAAQABAQEBAQEAAQABAQEBAAAAAQEBAQEBAAAACAAAEKAAAh+QQJCgABACwAAAAAEAAQAAAC50wQAAAAAAIIIQQQAAAAAAAEQBAEAQAAQRAEQQAAQBAEAQAAQRAEQQAAAAKBQAAQAAQCgUAgAAgAAoFAABAABAKBQCAACAACgUAAAAAEAoFAIAAAAAKBQAAAAAQCgUAgAAAAEBAQEAAQAAAAAAAAAAAQABAQEBAAEAAAAAAAAAAAEAAQEBAQAAAAEBAQEBAQAAAAEBAQEAAAABAQEBAQEAAAABAQEBAAEAAQEBAQEBAAEAAQEBAQABAAEBAQEBAQABAAEBAQEAAAABAQEBAQEAAAABAQEBAAAAAQEBAQEBAAAACAAAEKAAA7"
+    rel="icon" type="image/x-icon" />
+</head>
+
+<body>
+  <header class="header header-home">
+    <div class="header-container">
+      <nav class="nav">
+        <a href="./index.html" class="link logo">
+          <img src="./assets/images/film.svg" alt="" height="24" class="logo-icon" />
+          <span class="logo-text">Filmoteka</span>
+        </a>
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="./index.html" class="link menu-link menu-link--curent" id="home">Home</a>
+          </li>
+          <li class="menu-item">
+            <a href="#" class="link menu-link" id="lib">My library</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="search-box">
+        <div class="search">
+          <input id="input" type="text" placeholder="Поиск фильмов" class="input"
+            onkeyup="this.value = this.value.replace(/[^A-Za-z0-9\s]/g, '')" />
+          <button class="button-search" type="submit"></button>
         </div>
-        <div class="btn-box visually-hidden">
-          <button id="watched" class="btn btn--header btn--accent">
-            Watched
-          </button>
-          <button id="queue" class="btn btn--header">queue</button>
-        </div>
+        <p id="notification" class="notification visually-hidden">
+          Search result not successful. Enter the correct movie name
+        </p>
       </div>
-    </header>
-    <main>
-      <h1 class="visually-hidden">h1</h1>
-      <div class="spinner-task">
-        <div id="info" class="visually-hidden notify">
-          This list is still empty! Try to add something in it! ;)
-        </div>
-        <div id="error" class="visually-hidden notify">
-          Что то пошло не так =(
-        </div>
-        <div class="d-flex justify-content-center">
-          <div
-            class="spinner-border text-warning visually-hidden spinner"
-            style="width: 3rem; height: 3rem; margin-top: 20px"
-            role="status"
-          >
-            <span class="sr-only">Loading...</span>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <ul class="movies-list"></ul>
-        <div
-          id="tui-pagination-container"
-          class="tui-pagination specificity"
-        ></div>
-        <div
-          id="tui-pagination-container-watched"
-          class="tui-pagination specificity is-none-pagination"
-        ></div>
-      </div>
-    </main>
-    <footer class="footer">
-      <p class="footer-text">
-        &copy; 2020 | All Rights Reserved | Developed with
-        <svg
-          class="heart-icon"
-          width="14"
-          height="14"
-          viewBox="0 0 14 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7 13.188L6.02 12.2177C2.38 9.02961 0 6.88109 0 4.24743C0 2.09891 1.68 0.435547 3.85 0.435547C5.04 0.435547 6.23 0.990002 7 1.89099C7.77 0.990002 8.96 0.435547 10.15 0.435547C12.32 0.435547 14 2.09891 14 4.24743C14 6.88109 11.62 9.02961 7.98 12.2177L7 13.188Z"
-            fill="#FF6B08"
-          />
-        </svg>
-        by
-        <a
-          class="footer-link"
-          href="https://goit.ua/"
-          target="_blank"
-          rel="noopener noreferrer"
-          >GoIT Students</a
-        >
-      </p>
-    </footer>
-    <div data-modal class="backdrop is-hidden">
-      <div class="modal-card">
-        <div class="header header-modal">
-          <div class="header-container header-container-modal">
-            <nav class="nav">
-              <a href="./index.html" class="link logo">
-                <img
-                  src="./assets/images/film.svg"
-                  alt=""
-                  height="24"
-                  class="logo-icon"
-                />
-                <span class="logo-text">Filmoteka</span>
-              </a>
-              <ul class="menu">
-                <li class="menu-item">
-                  <a href="./index.html" class="link menu-link" id="modal-home"
-                    >Home</a
-                  >
-                </li>
-                <li class="menu-item">
-                  <a href="#" class="link menu-link" id="modal-lib"
-                    >My library</a
-                  >
-                </li>
-              </ul>
-            </nav>
-            <button data-modal-close type="button" class="close">
-              <svg
-                width="11"
-                height="11"
-                viewBox="0 0 11 11"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z"
-                  fill="black"
-                />
-              </svg>
-            </button>
-            <button id="btn-library" type="button" class="close is-hidden-btn">
-              <svg
-                width="11"
-                height="11"
-                viewBox="0 0 11 11"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z"
-                  fill="black"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-        <div class="movie-card"></div>
-        <footer class="footer">
-          <p class="footer-text">
-            &copy; 2020 | All Rights Reserved | Developed with
-            <svg
-              class="heart-icon"
-              width="14"
-              height="14"
-              viewBox="0 0 14 14"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M7 13.188L6.02 12.2177C2.38 9.02961 0 6.88109 0 4.24743C0 2.09891 1.68 0.435547 3.85 0.435547C5.04 0.435547 6.23 0.990002 7 1.89099C7.77 0.990002 8.96 0.435547 10.15 0.435547C12.32 0.435547 14 2.09891 14 4.24743C14 6.88109 11.62 9.02961 7.98 12.2177L7 13.188Z"
-                fill="#FF6B08"
-              />
-            </svg>
-            by
-            <a
-              class="footer-link"
-              href="https://goit.ua/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >GoIT Students</a
-            >
-          </p>
-        </footer>
+      <div class="btn-box visually-hidden">
+        <button id="watched" class="btn btn--header btn--accent">
+          Watched
+        </button>
+        <button id="queue" class="btn btn--header">queue</button>
       </div>
     </div>
+  </header>
+  <main class="main-content">
+    <h1 class="visually-hidden">Filmoteka</h1>
+    <div class="btn-group btn-group-toggle" id="butType" data-toggle="buttons">
+      <label class="btn btn-secondary active" id="popular">
+        <input type="radio" name="options" autocomplete="off" checked> Popular
+      </label>
+      <label class="btn btn-secondary" id="top_rated">
+        <input type="radio" name="options" autocomplete="off"> Top rated
+      </label>
+      <label class="btn btn-secondary" id="upcoming">
+        <input type="radio" name="options" autocomplete="off"> Upcoming
+      </label>
+    </div>
+    <div class="spinner-task">
+      <div id="info" class="visually-hidden notify">
+        This list is still empty! Try to add something in it! ;)
+      </div>
+      <div id="error" class="visually-hidden notify">
+        Что то пошло не так =(
+      </div>
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border text-warning visually-hidden spinner"
+          style="width: 3rem; height: 3rem; margin-top: 20px" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <ul class="movies-list"></ul>
+      <div id="tui-pagination-container" class="tui-pagination specificity"></div>
+      <div id="tui-pagination-container-watched" class="tui-pagination specificity is-none-pagination"></div>
+    </div>
+  </main>
+  <footer class="footer">
+    <p class="footer-text">
+      &copy; 2020 | All Rights Reserved | Developed with
+      <svg class="heart-icon" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M7 13.188L6.02 12.2177C2.38 9.02961 0 6.88109 0 4.24743C0 2.09891 1.68 0.435547 3.85 0.435547C5.04 0.435547 6.23 0.990002 7 1.89099C7.77 0.990002 8.96 0.435547 10.15 0.435547C12.32 0.435547 14 2.09891 14 4.24743C14 6.88109 11.62 9.02961 7.98 12.2177L7 13.188Z"
+          fill="#FF6B08" />
+      </svg>
+      by
+      <a class="footer-link" href="https://goit.ua/" target="_blank" rel="noopener noreferrer">GoIT Students</a>
+    </p>
+  </footer>
+  <div data-modal class="backdrop is-hidden">
+    <div class="modal-card">
+      <div class="header header-modal">
+        <div class="header-container header-container-modal">
+          <nav class="nav">
+            <a href="./index.html" class="link logo">
+              <img src="./assets/images/film.svg" alt="" height="24" class="logo-icon" />
+              <span class="logo-text">Filmoteka</span>
+            </a>
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="./index.html" class="link menu-link" id="modal-home">Home</a>
+              </li>
+              <li class="menu-item">
+                <a href="#" class="link menu-link" id="modal-lib">My library</a>
+              </li>
+            </ul>
+          </nav>
+          <button data-modal-close type="button" class="close">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z"
+                fill="black" />
+            </svg>
+          </button>
+          <button id="btn-library" type="button" class="close is-hidden-btn">
+            <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M11 1.10786L9.89214 0L5.5 4.39214L1.10786 0L0 1.10786L4.39214 5.5L0 9.89214L1.10786 11L5.5 6.60786L9.89214 11L11 9.89214L6.60786 5.5L11 1.10786Z"
+                fill="black" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="movie-card container"></div>
+      <footer class="footer">
+        <p class="footer-text">
+          &copy; 2020 | All Rights Reserved | Developed with
+          <svg class="heart-icon" width="14" height="14" viewBox="0 0 14 14" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M7 13.188L6.02 12.2177C2.38 9.02961 0 6.88109 0 4.24743C0 2.09891 1.68 0.435547 3.85 0.435547C5.04 0.435547 6.23 0.990002 7 1.89099C7.77 0.990002 8.96 0.435547 10.15 0.435547C12.32 0.435547 14 2.09891 14 4.24743C14 6.88109 11.62 9.02961 7.98 12.2177L7 13.188Z"
+              fill="#FF6B08" />
+          </svg>
+          by
+          <a class="footer-link" href="https://goit.ua/" target="_blank" rel="noopener noreferrer">GoIT Students</a>
+        </p>
+      </footer>
+    </div>
+
+    <a class="back_to_top" title="Наверх"><span class="arrow-color">↑</span></a>
   </body>
 </html>
+
