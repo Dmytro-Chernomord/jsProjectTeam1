@@ -2,6 +2,14 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 import createStartMain from './createMain.js';
+function scroll(height) {
+  setTimeout(() => {
+    window.scrollTo({
+      top: height + refs.searchBox.clientHeight,
+      behavior: 'smooth',
+    });
+  }, 500);
+}
 
 const mainPagination = new Pagination(refs.mainPaginationContainer, {
   // Total number of items
@@ -22,6 +30,7 @@ const mainPagination = new Pagination(refs.mainPaginationContainer, {
 mainPagination.on('afterMove', function (evt) {
   var currentPage = evt.page;
   createStartMain(currentPage);
+  scroll(250);
 });
 
 function checkTotalItems(obj) {
