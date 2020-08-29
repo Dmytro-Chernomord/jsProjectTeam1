@@ -7,5 +7,6 @@ import './js/library-markup.js';
 import './js/pagination.js';
 import './js/changeType';
 import './js/upScrollBtn.js';
+import './js/darkTheme.js';
 import './js/change-languege';
 import './js/renameAllText';
