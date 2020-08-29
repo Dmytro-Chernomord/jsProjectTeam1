@@ -48,6 +48,11 @@ trailerBtn.addEventListener('click', event => {
             <iframe allowFullScreen='allowFullScreen' src="https://www.youtube.com/embed/${videoKey}" width="560" height="315" frameborder="0"></iframe>
         `);
       instance.show();
+      refs.body.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          instance.close();
+        }
+      });
     });
 });
 
