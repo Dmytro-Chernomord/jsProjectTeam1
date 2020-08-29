@@ -63,13 +63,48 @@
   box-shadow: 0 0 0 3px rgb(0, 0, 0);
 }
 
-.checkbox {
-  left: 80%;
-}
-
 .text-content {
   margin-left: 20px;
   font-weight: 500;
   font-size: 12px;
   text-transform: uppercase;
+}
+// .switch-buttons {
+//   max-width: 119px;
+//   position: absolute;
+//   right: 320px;
+//   top: 88px;
+// }
+
+.theme-checkbox {
+  position: absolute;
+  right: 0px;
+  bottom: -14px;
+  @media screen and (max-width: 767px) {
+    bottom: -100px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    bottom: -70px;
+  }
+}
+
+.language-checkbox {
+  position: absolute;
+  left: 0;
+  bottom: -14px;
+  @media screen and (max-width: 767px) {
+    bottom: -100px;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    bottom: -70px;
+  }
+}
+
+.moon-icon {
+  margin-bottom: 6px;
+  margin-left: 3px;
+}
+.sun-icon {
+  margin-bottom: 3px;
 }
