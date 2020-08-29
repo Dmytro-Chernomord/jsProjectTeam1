@@ -71,7 +71,13 @@
           <button id="queue" class="btn btn--header">queue</button>
         </div>
       </div>
-      <input type="checkbox" class="dark-theme" id="btn-theme">Switch</input>
+      <label class="checkbox">
+        <!-- <span class="">DARK</span> -->
+        <input type="checkbox" id="btn-theme" checked />
+        <span class="text-content">LIGHT</span>
+      </label>
+
+      <!-- <input type="checkbox" class="dark-theme" id="btn-theme">Switch</input> -->
     </header>
     <main class="main-content">
       <h1 class="visually-hidden">Filmoteka</h1>
@@ -174,7 +180,7 @@
                 </li>
               </ul>
             </nav>
-            <button  data-modal-close type="button" class="close">
+            <button data-modal-close type="button" class="close">
               <svg
                 width="11"
                 height="11"
