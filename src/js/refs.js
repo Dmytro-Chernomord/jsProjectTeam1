@@ -31,4 +31,8 @@ export default {
   butTypeTop_rated: document.querySelector('#top_rated'),
   butTypeUpcoming: document.querySelector('#upcoming'),
   sortBtns: document.querySelector('#butType'),
+  buttonTheme: document.querySelector('#btn-theme'),
+  main: document.querySelector('main'),
+  modalText: document.querySelector('.modal-card'),
+  modalBG: document.querySelector('.backdrop'),
 };
