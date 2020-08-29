@@ -7,8 +7,8 @@ const refs = {
   labbel2: document.querySelector('#upcoming'),
   modalText: document.querySelector('.modal-card'),
   modalCross: document.querySelector('.close'),
+  modalBG: document.querySelector('.backdrop'),
 };
-console.log(refs.modalText);
 
 const Theme = {
   LIGHT: 'light-theme',
@@ -21,7 +21,7 @@ function getStorage() {
   const themeCheck = localStorage.getItem('Theme:');
   if (themeCheck === null || themeCheck === 'light-theme') {
     setLocalStorage(Theme.LIGHT);
-    darkTheme();
+    lightTheme();
   } else if (themeCheck === 'dark-theme') {
     darkTheme();
   }
@@ -35,15 +35,23 @@ function darkTheme() {
   refs.labbel2.classList.toggle('darkTheme');
   refs.modalText.classList.toggle('darkTheme');
   refs.modalCross.classList.toggle('darkTheme');
+  refs.modalBG.classList.toggle('darkTheme');
 
   //   refs.main.classList.remove('light-theme');
   refs.buttonTheme.checked = true;
 }
 
-// function lightTheme() {
-//   refs.main.classList.remove('darkTheme');
-//   //   refs.main.classList.add('light-theme');
-// }
+function lightTheme() {
+  refs.main.classList.toggle('darkTheme');
+  refs.divtheme.classList.toggle('darkTheme');
+  refs.labbel.classList.toggle('darkTheme');
+  refs.labbel1.classList.toggle('darkTheme');
+  refs.labbel2.classList.toggle('darkTheme');
+  refs.modalText.classList.toggle('darkTheme');
+  refs.modalCross.classList.toggle('darkTheme');
+  refs.modalBG.classList.toggle('darkTheme');
+  refs.buttonTheme.checked = false;
+}
 
 function themeChange() {
   if (refs.buttonTheme.checked) {
