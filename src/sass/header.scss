@@ -261,6 +261,9 @@
     font-size: 14px;
     line-height: 1.14;
   }
+  &:invalid {
+    border-bottom: 2px solid red;
+  }
 }
 
 .button-search {

@@ -4,24 +4,28 @@ export default {
   apiKey: '89b9004c084fb7d0e8ffaadd17cb8254',
   total: 0,
   type: 'popular',
+  language: 'en-US',
 
-  getOneMovieInfo(movie_id) {
-    const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${this.apiKey}&language=en-US`;
-    return fetch(url).then(res => res.json());
+  async getOneMovieInfo(movie_id) {
+    const url = `https://api.themoviedb.org/3/movie/${movie_id}?api_key=${this.apiKey}&language=${this.language}`;
+    const res = await fetch(url);
+    return await res.json();
   },
-  getPopularMovies(page) {
-    const url = `https://api.themoviedb.org/3/movie/${this.type}?api_key=${this.apiKey}&language=en-US&page=${page}&`;
-    return fetch(url).then(res => res.json());
+  async getPopularMovies(page) {
+    const url = `https://api.themoviedb.org/3/movie/${this.type}?api_key=${this.apiKey}&language=${this.language}&page=${page}&`;
+    const res = await fetch(url);
+    return await res.json();
   },
-  getMoviesBySearch(search) {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=en-US&query=${search}&page=1`;
-    return fetch(url).then(res => res.json());
+  async getMoviesBySearch(search) {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=${this.language}&query=${search}&page=1`;
+    const res = await fetch(url);
+    return await res.json();
   },
-  getGenre() {
-    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=en-US`;
-    return fetch(url)
-      .then(res => res.json())
-      .then(gen => gen.genres);
+  async getGenre() {
+    const url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${this.apiKey}&language=${this.language}`;
+    const res = await fetch(url);
+    const gen = await res.json();
+    return gen.genres;
   },
   changeType(type) {
     if (type === 'popular') {
