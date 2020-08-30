@@ -35,4 +35,6 @@ export default {
   main: document.querySelector('main'),
   modalText: document.querySelector('.modal-card'),
   modalBG: document.querySelector('.backdrop'),
+  iframe: document.querySelector('iframe'),
+  swiperWrapper: document.querySelector('.swiper-wrapper'),
 };
