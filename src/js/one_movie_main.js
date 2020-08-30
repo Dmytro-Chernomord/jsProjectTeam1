@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 
 import movie from '../template/one_movie.hbs';
+import movieRu from '../template/one_movie_ru.hbs';
 import apiService from './apiServices.js';
 import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn } from './spinner.js';
@@ -15,7 +16,12 @@ export const generateOneMovieMarkup = function generateOneMovieMarkup(id) {
   apiService
     .getOneMovieInfo(id)
     .then(data => {
-      refs.movieCard.innerHTML = movie([data]);
+      let currentPageLanguage = localStorage.getItem('languege');
+      if (currentPageLanguage === 'en-US') {
+        refs.movieCard.innerHTML = movie([data]);
+      } else if (currentPageLanguage === 'ru-RU') {
+        refs.movieCard.innerHTML = movieRu([data]);
+      }
       onListenerBtn(data.id);
     })
     .catch(() => errorOn())
