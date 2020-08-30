@@ -10,3 +10,4 @@ import './js/upScrollBtn.js';
 import './js/darkTheme.js';
 import './js/change-languege';
 import './js/renameAllText';
+import './js/videoSlider.js';
