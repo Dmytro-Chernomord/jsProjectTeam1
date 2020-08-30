@@ -3,10 +3,12 @@ import apiService from './apiServices.js';
 import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn, infoHide } from './spinner.js';
 import { changeQuantity, formattingData } from './services';
-
+import { videoSlider, popularSlider } from './videoSlider.js';
 function createStartMain(page) {
   infoHide();
   spinnerOn();
+  //начинает отрисовку популярногоSLIDER
+  popularSlider();
   apiService
     .getPopularMovies(page)
     .then(data => {

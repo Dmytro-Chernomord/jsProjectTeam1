@@ -20,6 +20,8 @@
       rel="icon"
       type="image/x-icon"
     />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css" />
+
   </head>
 
   <body>
@@ -146,57 +148,17 @@
           <button id="queue" class="btn btn--header">queue</button>
         </div>
       </div>
-      <div class="switch-buttons">
-      <!-- <label for="btn-theme" class="checkbox">
-        <input type="checkbox" id="btn-theme" checked />
-        <span class="text-content">LIGHT</span>
-      </label> -->
-      <!-- <label class="checkbox">
-      
-        <input type="checkbox" class="js-switch-input" id="language-switch-control" checked />
-        <span class="text-content">LIGHT</span>
-      </label> -->
-      </div>
-
-  <!-- <div class="language-switch">
-    <span>EN</span>
-  
-    <div class="switch">
-      <input class="switch__input js-switch-input" type="checkbox" name="language" id="language-switch-control" />
-      <label aria-hidden="true" class="switch__label checkbox" for="language-switch-control">On</label>
-      <div aria-hidden="true" class="switch__marker"></div>
-    </div>
-  
-    <span>RU</span>
-  </div> -->
-      <!-- <input type="checkbox" class="dark-theme" id="btn-theme">Switch</input> -->
     </header>
     <main class="main-content">
       <h1 class="visually-hidden">Filmoteka</h1>
-      <!-- Разметка переключателя темы -->
-      <!-- <div class="language-switch">
-        <span>EN</span>
-
-        <div class="switch">
-          <input
-            class="switch__input js-switch-input"
-            type="checkbox"
-            name="language"
-            id="language-switch-control"
-          />
-          <label
-            aria-hidden="true"
-            class="switch__label"
-            for="language-switch-control"
-            >On</label
-          >
-          <div aria-hidden="true" class="switch__marker"></div>
-        </div>
-
-        <span>RU</span>
-      </div> -->
     </header>
     <main class="main-content">
+      <div class="swiper-container">
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-wrapper"></div>
+        <div class="swiper-button-next"></div>
+
+      </div>
       <h1 class="visually-hidden">Filmoteka</h1>
       <div id="info" class="display-none">
         <div class="iframe" style="padding: 56.25% 0 0 0; position: relative">
@@ -378,5 +340,7 @@
       </div>
     </div>
     <a class="back_to_top" title="Наверх"><span class="arrow-color">↑</span></a>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+
   </body>
 </html>
