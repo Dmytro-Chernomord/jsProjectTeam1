@@ -37,4 +37,5 @@ export default {
   modalBG: document.querySelector('.backdrop'),
   iframe: document.querySelector('iframe'),
   swiperWrapper: document.querySelector('.swiper-wrapper'),
+  modalHome: document.querySelector('#modal-home'),
 };

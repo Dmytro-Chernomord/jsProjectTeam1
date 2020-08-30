@@ -2,21 +2,23 @@ import refs from './refs';
 
 export default function renameAllText(languege) {
   if (languege === 'ru-RU') {
-    refs.home.textContent = 'Дом';
-    refs.myLib.textContent = 'Библиотека';
-    refs.input.setAttribute('placeholder', 'Найди свой фильм!');
+    refs.home.textContent = 'Главная';
+    refs.myLib.textContent = 'Избранное';
+    refs.input.setAttribute('placeholder', 'Введите Ваш запрос');
     refs.notification.textContent =
-      'Результат поиска не удался. Введите правильное название фильма';
-    refs.watchedBtn.textContent = 'Посмотрел';
-    refs.queueBtn.textContent = 'Очередь';
+      'Нет результатов по Вашему запросу. Введите корректное название фильма';
+    refs.watchedBtn.textContent = 'Просмотренное';
+    refs.queueBtn.textContent = 'Отложенные';
 
     refs.butTypePopular.textContent = 'Популярное';
     refs.butTypeTop_rated.textContent = 'Рейтинговое';
-    refs.butTypeUpcoming.textContent = 'Уже скоро';
+    refs.butTypeUpcoming.textContent = 'Скоро в прокате';
 
     refs.error.textContent = 'Что то пошло не так =(';
     refs.infoText.textContent =
       'Судя по всему, Вы ещё ничего не добавили в этот список. Самое время начать!';
+    refs.modalLib.textContent = 'Избранное';
+    refs.modalHome.textContent = 'Главная';
   }
   if (languege === 'en-US') {
     refs.home.textContent = 'Home';

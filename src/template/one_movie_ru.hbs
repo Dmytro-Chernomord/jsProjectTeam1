@@ -1,0 +1,50 @@
+{{#each this}}
+<div class="card-box">
+    <div class="box-image">
+        <img class="one-movie-image" src="https://image.tmdb.org/t/p/w400/{{poster_path}}" alt="Poster">
+    </div>
+    <div class="box-content">
+        <h2 class="content-title">{{title}}</h2>
+        <ul class="content-list">
+            <li class="content-item">
+                <p class="item-part">Оценка / Голосов </p>
+                <span class="item-data item-data--accent">{{vote_average}}</span><span> / </span>
+                <span class="item-data item-data--accent item-data--grey">{{vote_count}}</span>
+                {{!-- <p class="rating"></p> --}}
+            </li>
+            <li class="content-item">
+                <p class="item-part">Рейтинг</p> <span class="item-data">{{popularity}}</span>
+
+            </li>
+            <li class="content-item">
+                <p class="item-part">Оригинальное название</p> <span class="item-data">{{original_title}}</span>
+
+            </li>
+            <li class="content-item">
+                <p class="item-part">Жанр
+                <ul class="genre-list">
+                    {{#each genres}}
+                    <li class="item-data genre-data">{{this.name}}</li>
+                    {{/each}}
+                </ul>
+                </p>
+            </li>
+        </ul>
+        <h3 class="title-text">Описание</h3>
+        <p class="text">{{overview}}</p>
+        <div class="box-btn">
+            <button id="add-watched" class="btn watch-btn" data-source='add-watched'>
+                <div class="spinner-border text-warning spinner" style="width: 20px; height: 20px" role="status">
+                    <span class="sr-only">Загрузка...</span>
+                </div>
+            </button>
+            <button id="add-queue" class="btn queue-btn" data-source='add-queue'>
+                <div class="spinner-border text-warning spinner" style="width: 20px; height: 20px" role="status">
+                    <span class="sr-only">Загрузка...</span>
+                </div>
+            </button>
+            <button id="trailer" data-id="{{id}}" class="btn trailer-btn" data-source='trailer'>trailer</button>
+        </div>
+    </div>
+</div>
+{{/each}}
