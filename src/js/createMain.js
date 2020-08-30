@@ -4,10 +4,10 @@ import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn, infoHide } from './spinner.js';
 import { changeQuantity, formattingData } from './services';
 
-async function createStartMain(page) {
+function createStartMain(page) {
   infoHide();
   spinnerOn();
-  await apiService
+  apiService
     .getPopularMovies(page)
     .then(data => {
       const moveCards = formattingData(data.results);
@@ -35,7 +35,7 @@ function updateMurkupBySearch(event) {
   event.preventDefault();
   let query = event.target.value;
   if (query == false) return;
-  event.target.value = '';
+  // event.target.value = '';
   spinnerOn();
   refs.mainPaginationContainer.classList.add('is-none-pagination');
   apiService
