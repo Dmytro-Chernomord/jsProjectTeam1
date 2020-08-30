@@ -4,6 +4,7 @@ import { checkTotalItems } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
 import { formattingDataOneMovie } from './services';
+import { librarySlider } from './videoSlider.js';
 
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
@@ -32,6 +33,9 @@ function checkLSlength(el) {
 // --------------------------парсит localStorage и генерит список карточек
 function generateMovieLibrary(str, page) {
   infoHide();
+
+  //начинает отрисовку в очереди если там 3 и более фильмов, либо популярного
+  librarySlider();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
   checkTotalItems(obj);
