@@ -4,11 +4,10 @@
   margin-left: auto;
   margin-right: auto;
 }
-
 .swiper-slide {
   text-align: center;
   font-size: 18px;
-  background: grey;
+  background: transparent;
   height: 200px;
   /* Center slide text vertically */
   display: -webkit-box;
@@ -25,7 +24,7 @@
   align-items: center;
   //   transform: scale(1.4);
 }
-iframe {
+.iframe {
   width: 100%;
   height: 100%;
   transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
