@@ -35,4 +35,5 @@ export default {
   main: document.querySelector('main'),
   modalText: document.querySelector('.modal-card'),
   modalBG: document.querySelector('.backdrop'),
+  modalHome: document.querySelector('#modal-home'),
 };
