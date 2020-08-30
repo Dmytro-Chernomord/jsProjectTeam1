@@ -5,6 +5,7 @@ import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
 import { formattingDataOneMovie } from './services';
 import { librarySlider } from './videoSlider.js';
+import { showSortBtns, hideSortBtns } from './createMain.js';
 
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
@@ -33,6 +34,7 @@ function checkLSlength(el) {
 // --------------------------парсит localStorage и генерит список карточек
 function generateMovieLibrary(str, page) {
   infoHide();
+  hideSortBtns();
 
   //начинает отрисовку в очереди если там 3 и более фильмов, либо популярного
   librarySlider();

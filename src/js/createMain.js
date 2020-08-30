@@ -35,6 +35,7 @@ function updateMainMarkup(arr) {
 
 function updateMurkupBySearch(event) {
   event.preventDefault();
+  showSortBtns();
   let query = event.target.value;
   if (query == false) return;
   // event.target.value = '';
@@ -48,6 +49,7 @@ function updateMurkupBySearch(event) {
       //   movies = changeQuantity(movies, 7);
       // }
       if (movies.length) {
+        hideSortBtns();
         refs.notification.classList.add('visually-hidden');
         return updateMainMarkup(data.results);
       } else {
@@ -55,8 +57,18 @@ function updateMurkupBySearch(event) {
       }
     })
     .catch(() => errorOn())
-    .finally(() => spinnerOff());
+    .finally(() => {
+      spinnerOff();
+    });
+}
+
+function hideSortBtns() {
+  refs.sortBtns.classList.add('visually-hidden');
+}
+
+function showSortBtns() {
+  refs.sortBtns.classList.remove('visually-hidden');
 }
 
 // export default createStartMain;
-export { createStartMain, updateMainMarkup };
+export { createStartMain, updateMainMarkup, hideSortBtns, showSortBtns };
