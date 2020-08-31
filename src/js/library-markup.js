@@ -1,11 +1,10 @@
 import refs from './refs.js';
 import apiService from './apiServices.js';
-import { checkTotalItems } from './pagination.js';
+import { checkTotalItems, watchedPagination } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
 import { formattingDataOneMovie } from './services';
-import { watchedPagination } from './pagination.js';
-import { librarySlider } from './videoSlider.js';
+import { librarySlider, popularSlider } from './videoSlider.js';
 import { showSortBtns, hideSortBtns } from './createMain.js';
 
 // -----------------слушалель на myLibrary, btn watched, btn queue
@@ -23,6 +22,7 @@ refs.queueBtn.addEventListener('click', () => updateMarkup('add-queue'));
 // -------------------------------обновляет разметку
 function updateMarkup(str, page = 1) {
   refs.gallery.innerHTML = '';
+  librarySlider();
   generateMovieLibrary(str, page);
 }
 
@@ -36,9 +36,8 @@ function checkLSlength(el) {
 function generateMovieLibrary(str, page) {
   infoHide();
   hideSortBtns();
-
   //начинает отрисовку в очереди если там 3 и более фильмов, либо популярного
-  librarySlider();
+  // librarySlider();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
   if (page === 1) {
@@ -71,6 +70,14 @@ refs.watchedBtn.addEventListener('click', () => {
   updateAccentBtn();
 });
 function updateAccentBtn() {
+  const test = localStorage.getItem('add-watched');
+  const testJson = JSON.parse(test);
+  const test2 = localStorage.getItem('add-watched');
+  const testJson2 = JSON.parse(test);
+  console.log(test);
+  if (testJson.length === testJson2.length) {
+    // popularSlider();
+  }
   refs.watchedBtn.classList.add('btn--accent');
   refs.queueBtn.classList.remove('btn--accent');
 }

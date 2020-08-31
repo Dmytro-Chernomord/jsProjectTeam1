@@ -11,6 +11,7 @@ function spinnerOn() {
   refs.error.classList.add('visually-hidden');
 }
 function infoShow() {
+  refs.swiperWrapper.classList.add('display-none');
   refs.info.classList.remove('display-none');
   document
     .querySelector('#iframe')
@@ -21,10 +22,14 @@ function infoShow() {
   refs.watchedPaginationContainer.classList.add('is-none-pagination-library');
   refs.sortBtns.classList.add('visually-hidden');
   refs.container.classList.remove('container');
+  refs.footer.classList.add('footer-min-library');
 }
 
 function infoHide() {
+  refs.swiperWrapper.classList.remove('display-none');
+
   refs.info.classList.add('display-none');
+
   document
     .querySelector('#iframe')
     .setAttribute(
@@ -35,6 +40,7 @@ function infoHide() {
     'is-none-pagination-library',
   );
   refs.sortBtns.classList.remove('visually-hidden');
+  refs.footer.classList.remove('footer-min-library');
   document.querySelector('#container').classList.add('container');
 }
 
