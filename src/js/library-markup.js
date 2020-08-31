@@ -4,6 +4,7 @@ import { checkTotalItems } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
 import { formattingDataOneMovie } from './services';
+import { watchedPagination } from './pagination.js';
 
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
@@ -40,11 +41,13 @@ function generateMovieLibrary(str, page) {
   let counter = obj.length - iterator;
   if (counter > 12) {
     counter = 12;
+    // watchedPagination.reset();
   }
   for (let i = iterator; i < counter + iterator; i++) {
     let allMovies = [];
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
+      console.log(allMovies);
       allMovies = formattingDataOneMovie(allMovies);
       createCardMovie(allMovies);
     });
