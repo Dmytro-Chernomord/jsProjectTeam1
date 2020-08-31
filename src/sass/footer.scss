@@ -58,3 +58,11 @@ footer {
   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
   flex: 0 0 auto;
 }
+
+.footer-min-library {
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+}
