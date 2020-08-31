@@ -16,7 +16,7 @@ checkboxLanguegeRef.addEventListener('click', chengaLanguege);
 (function initLanguege() {
   if (localStorage.getItem('languege') === null) {
     apiService.language = Languege.en;
-    localStorage.setItem('languege', languege);
+    localStorage.setItem('languege', apiService.language);
   } else {
     apiService.language = localStorage.getItem('languege');
   }
