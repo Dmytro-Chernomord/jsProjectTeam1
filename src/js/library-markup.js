@@ -1,6 +1,6 @@
 import refs from './refs.js';
 import apiService from './apiServices.js';
-import { checkTotalItems } from './pagination.js';
+import { checkTotalItems, watchedPagination } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
 import { formattingDataOneMovie } from './services';
@@ -48,11 +48,13 @@ function generateMovieLibrary(str, page) {
   let counter = obj.length - iterator;
   if (counter > 12) {
     counter = 12;
+    // watchedPagination.reset();
   }
   for (let i = iterator; i < counter + iterator; i++) {
     let allMovies = [];
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
+      console.log(allMovies);
       allMovies = formattingDataOneMovie(allMovies);
       createCardMovie(allMovies);
     });

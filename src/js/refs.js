@@ -24,6 +24,9 @@ export default {
   watchedPaginationContainer: document.getElementById(
     'tui-pagination-container-watched',
   ),
+  searchPaginationContainer: document.getElementById(
+    'tui-pagination-container-search',
+  ),
   infoText: document.querySelector('.info-text'),
   info: document.querySelector('#info'),
   libraryBtnClose: document.querySelector('#btn-library'),
