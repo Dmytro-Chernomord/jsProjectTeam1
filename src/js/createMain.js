@@ -3,7 +3,7 @@ import apiService from './apiServices.js';
 import refs from './refs.js';
 import { errorOn, spinnerOff, spinnerOn, infoHide } from './spinner.js';
 import { changeQuantity, formattingData } from './services';
-import { searchPagination } from './pagination.js';
+import { searchPagination, scroll } from './pagination.js';
 
 function createStartMain(page) {
   infoHide();
@@ -44,21 +44,22 @@ refs.input.addEventListener('change', evt => {
   apiService.getMoviesBySearch(searchQuery, page).then(data => {
     console.log(data);
     searchPagination.setTotalItems(
-      data.total_results - (data.total_pages * 7 + 1),
+      data.total_results - (data.total_pages * 7 + 7),
     );
-    searchPagination.setItemsPerPage(12);
-    // let movies = formattingData(data.results);
-    // if (movies.length === 20) {
-    //   movies = changeQuantity(movies, 7);
-    // }
+    // searchPagination.setItemsPerPage(12);
+    searchPagination.movePageTo(1);
+    let movies = formattingData(data.results);
+    if (movies.length === 20) {
+      movies = changeQuantity(movies, 7);
+    }
     console.log(movies);
     updateMainMarkup(data.results);
-    // if (movies.length) {
-    //   refs.notification.classList.add('visually-hidden');
-    //   return updateMainMarkup(data.results);
-    // } else {
-    //   refs.notification.classList.remove('visually-hidden');
-    // }
+    if (movies.length) {
+      refs.notification.classList.add('visually-hidden');
+      return updateMainMarkup(data.results);
+    } else {
+      refs.notification.classList.remove('visually-hidden');
+    }
   });
 });
 
@@ -66,27 +67,25 @@ searchPagination.on('afterMove', function (evt) {
   let currentPage = evt.page;
   apiService.getMoviesBySearch(searchQuery, currentPage).then(data => {
     console.log(data);
-    let itemCount = data.total_results;
-    // searchPagination.setTotalItems(
-    //   data.total_results - (data.total_pages * 7 + 7),
-    // );
-    searchPagination.setItemsPerPage(12);
-    // let movies = formattingData(data.results);
+    // let itemCount = data.total_results;
+    searchPagination.setTotalItems(
+      data.total_results - (data.total_pages * 7 + 7),
+    );
+    // searchPagination.setItemsPerPage(12);
+    let movies = formattingData(data.results);
     console.log(movies);
-    // if (movies.length === 20) {
-    //   movies = changeQuantity(movies, 7);
-    // }
+    if (movies.length === 20) {
+      movies = changeQuantity(movies, 7);
+    }
     updateMainMarkup(data.results);
-    // if (movies.length) {
-    //   refs.notification.classList.add('visually-hidden');
-    //   return updateMainMarkup(data.results);
-    // } else {
-    //   refs.notification.classList.remove('visually-hidden');
-    // }
+    if (movies.length) {
+      refs.notification.classList.add('visually-hidden');
+      return updateMainMarkup(data.results);
+    } else {
+      refs.notification.classList.remove('visually-hidden');
+    }
   });
-  // createStartMain(currentPage);
-  // updateMurkupBySearch();
-  // scroll(0);
+  scroll(0);
 });
 
 // function updateMurkupBySearch(event) {
