@@ -26,7 +26,6 @@ function createStartMain(page) {
 (function start() {
   createStartMain(1);
 })();
-// console.log(movies);
 
 // refs.input.addEventListener('change', updateMurkupBySearch);
 
@@ -49,7 +48,6 @@ refs.input.addEventListener('change', evt => {
   apiService
     .getMoviesBySearch(searchQuery, page)
     .then(data => {
-      console.log(data);
       searchPagination.setTotalItems(data.total_results - data.total_pages * 8);
       // searchPagination.setItemsPerPage(12);
       searchPagination.movePageTo(1);
@@ -57,7 +55,7 @@ refs.input.addEventListener('change', evt => {
       if (movies.length === 20) {
         movies = changeQuantity(movies, 7);
       }
-      console.log(movies);
+
       updateMainMarkup(movies);
       if (movies.length) {
         hideSortBtns();
@@ -79,12 +77,11 @@ searchPagination.on('afterMove', function (evt) {
   apiService
     .getMoviesBySearch(searchQuery, currentPage)
     .then(data => {
-      console.log(data);
       // let itemCount = data.total_results;
       searchPagination.setTotalItems(data.total_results - data.total_pages * 8);
       // searchPagination.setItemsPerPage(12);
       let movies = formattingData(data.results);
-      console.log(movies);
+
       if (movies.length === 20) {
         movies = changeQuantity(movies, 7);
       }

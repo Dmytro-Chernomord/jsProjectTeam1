@@ -70,7 +70,6 @@ watchedPagination.on('afterMove', function (evt) {
   // watchedPagination.reset();
   // watchedPagination.movePageTo(currentPage);
   // watchedPagination.reset();
-  console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
 
 const searchPagination = new Pagination(refs.searchPaginationContainer, {

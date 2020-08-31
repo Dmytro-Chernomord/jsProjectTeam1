@@ -54,7 +54,7 @@ function generateMovieLibrary(str, page) {
     let allMovies = [];
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
-      console.log(allMovies);
+
       allMovies = formattingDataOneMovie(allMovies);
       createCardMovie(allMovies);
     });
@@ -70,14 +70,6 @@ refs.watchedBtn.addEventListener('click', () => {
   updateAccentBtn();
 });
 function updateAccentBtn() {
-  const test = localStorage.getItem('add-watched');
-  const testJson = JSON.parse(test);
-  const test2 = localStorage.getItem('add-watched');
-  const testJson2 = JSON.parse(test);
-  console.log(test);
-  if (testJson.length === testJson2.length) {
-    // popularSlider();
-  }
   refs.watchedBtn.classList.add('btn--accent');
   refs.queueBtn.classList.remove('btn--accent');
 }
