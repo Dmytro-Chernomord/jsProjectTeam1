@@ -21,7 +21,7 @@ const mainPagination = new Pagination(refs.mainPaginationContainer, {
   // Items per page
   itemsPerPage: 20,
   // Visible pages
-  visiblePages: 3,
+  visiblePages: 5,
   // Current page
   page: 1,
   // center number
