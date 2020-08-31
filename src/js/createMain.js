@@ -53,10 +53,10 @@ refs.input.addEventListener('change', evt => {
       movies = changeQuantity(movies, 7);
     }
     console.log(movies);
-    updateMainMarkup(data.results);
+    updateMainMarkup(movies);
     if (movies.length) {
       refs.notification.classList.add('visually-hidden');
-      return updateMainMarkup(data.results);
+      // return updateMainMarkup(data.results);
     } else {
       refs.notification.classList.remove('visually-hidden');
     }
@@ -77,10 +77,10 @@ searchPagination.on('afterMove', function (evt) {
     if (movies.length === 20) {
       movies = changeQuantity(movies, 7);
     }
-    updateMainMarkup(data.results);
+    updateMainMarkup(movies);
     if (movies.length) {
       refs.notification.classList.add('visually-hidden');
-      return updateMainMarkup(data.results);
+      // return updateMainMarkup(data.results);
     } else {
       refs.notification.classList.remove('visually-hidden');
     }
