@@ -4,10 +4,7 @@
     flex-wrap: wrap;
   }
 }
-//костыль для футера в модальном окне
-.movie-card {
-  height: 77%;
-}
+
 .movies-list-item {
   position: relative;
   border-radius: 5px;
@@ -109,19 +106,47 @@
   display: none;
 }
 
-.info-text {
-  font-size: 32px;
-  line-height: 2;
+.wrap-info-text {
+  font-size: 18px;
+  line-height: 1.5;
   text-align: center;
-  max-width: 500px;
+  width: 100%;
   color: $primary-white;
   position: absolute;
   z-index: 99;
-  top: 200px;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  height: 100%;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  background-color: rgba(48, 0, 0, 0.56);
+  @media screen and (min-width: 450px) {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+    line-height: 2;
+  }
+}
+
+.info-text {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 #info .iframe {
   background-image: linear-gradient(rgba(0, 0, 0, 0.96), rgba(0, 0, 0, 0.06));
+}
+
+iframe#iframe {
+  display: none;
+  pointer-events: none;
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }

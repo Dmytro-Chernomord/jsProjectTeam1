@@ -25,6 +25,7 @@
     line-height: 1.5;
   }
 }
+
 .footer-link {
   text-decoration: underline;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -57,4 +58,12 @@ header {
 footer {
   /* 0 flex-grow, 0 flex-shrink, auto flex-basis */
   flex: 0 0 auto;
+}
+
+.footer-min-library {
+  @media screen and (max-width: 768px) {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
 }

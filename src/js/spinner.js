@@ -22,6 +22,7 @@ function infoShow() {
   refs.watchedPaginationContainer.classList.add('is-none-pagination-library');
   refs.sortBtns.classList.add('visually-hidden');
   refs.container.classList.remove('container');
+  refs.footer.classList.add('footer-min-library');
 }
 
 function infoHide() {
@@ -39,6 +40,7 @@ function infoHide() {
     'is-none-pagination-library',
   );
   refs.sortBtns.classList.remove('visually-hidden');
+  refs.footer.classList.remove('footer-min-library');
   document.querySelector('#container').classList.add('container');
 }
 

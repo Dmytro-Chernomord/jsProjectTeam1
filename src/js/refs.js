@@ -39,4 +39,5 @@ export default {
   swiperWrapper: document.querySelector('.swiper-wrapper'),
   swiperContainer: document.querySelector('swiper-container'),
   modalHome: document.querySelector('#modal-home'),
+  footer: document.querySelector('.footer'),
 };
