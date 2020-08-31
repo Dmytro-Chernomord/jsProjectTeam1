@@ -16,8 +16,8 @@ export default {
     const res = await fetch(url);
     return await res.json();
   },
-  async getMoviesBySearch(search) {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=${this.language}&query=${search}&page=1`;
+  async getMoviesBySearch(search, page = 1) {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=${this.language}&query=${search}&page=${page}`;
     const res = await fetch(url);
     return await res.json();
   },
