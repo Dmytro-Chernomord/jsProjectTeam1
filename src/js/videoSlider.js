@@ -24,7 +24,7 @@ function librarySlider() {
           const videoKey = video.key;
           const markupVideo = `<div class="swiper-slide">
       <iframe class="iframe" width="250" height="140"
-          src="http://www.youtube.com/embed/${videoKey}?enablejsapi=1&rel=0&mute=1&modestbranding=1&showinfo=0&autohide=1"
+          src="https://www.youtube.com/embed/${videoKey}?enablejsapi=1&rel=0&mute=1&modestbranding=1&showinfo=0&autohide=1"
           allow="autoplay; encrypted-media" frameborder="0" onpause allowfullscreen=""></iframe>
   </div>`;
           refs.swiperWrapper.insertAdjacentHTML('beforeend', markupVideo);
@@ -64,8 +64,8 @@ function popularSlider() {
           const videoKey = video.key;
           const markupVideo = `<div class="swiper-slide">
         <iframe class="iframe" width="250" height="140"
-            src="http://www.youtube.com/embed/${videoKey}?enablejsapi=1&rel=0&mute=1&modestbranding=1&showinfo=0&autohide=1"
-            allow="autoplay; encrypted-media" frameborder="0" onpause allowfullscreen=""></iframe>
+            src="https://www.youtube.com/embed/${videoKey}?enablejsapi=1&controls=0&rel=0&mute=1&modestbranding=1&showinfo=0&autohide=1"
+            allow="autoplay; encrypted-media" controls="0" frameborder="0"  onpause allowfullscreen=""></iframe>
     </div>`;
           refs.swiperWrapper.insertAdjacentHTML('beforeend', markupVideo);
           var swiper = new Swiper('.swiper-container', {
