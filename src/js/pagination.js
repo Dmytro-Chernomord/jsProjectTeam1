@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 // import createStartMain from './createMain.js';
-import { createStartMain } from './createMain.js'
+import { createStartMain } from './createMain.js';
 import { updateMarkup } from './library-markup.js';
 import { definitionBtn } from './services.js';
 
