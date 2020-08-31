@@ -1,7 +1,12 @@
 {{#each this}}
 <div class="card-box">
     <div class="box-image">
-        <img class="one-movie-image" src="https://image.tmdb.org/t/p/w400/{{poster_path}}" alt="Poster">
+      {{#if poster_path}}<img class="one-movie-image" src="https://image.tmdb.org/t/p/w400/{{poster_path}}" alt="Poster">
+         {{else}}
+           <img class="list-item-img"
+      src="https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie-1-1-300x450.jpg" alt="Movie"
+      data-id="{{id}}" />
+    {{/if}}
     </div>
     <div class="box-content">
         <h2 class="content-title">{{title}}</h2>
