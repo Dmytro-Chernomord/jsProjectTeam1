@@ -4,7 +4,6 @@
 //   divtheme: document.querySelector('.movie-card'),
 //   label1: document.querySelector('#popular'),
 // };
-// // console.log(refs.label1);
 
 // const Theme = {
 //   LIGHT: 'light-theme',

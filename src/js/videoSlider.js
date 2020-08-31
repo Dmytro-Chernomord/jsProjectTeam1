@@ -97,8 +97,6 @@ function stopMovie() {
 
 // const markupVideo = videoSliderHandelbars(movieArray);
 
-// console.log(markupVideo);
-
 // refs.swiperWrapper.insertAdjacentHTML('beforeend', markupVideo);
 
 // var swiper = new Swiper('.swiper-container', {

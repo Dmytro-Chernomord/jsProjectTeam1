@@ -54,7 +54,7 @@ function generateMovieLibrary(str, page) {
     let allMovies = [];
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
-      console.log(allMovies);
+
       allMovies = formattingDataOneMovie(allMovies);
       createCardMovie(allMovies);
     });
