@@ -11,6 +11,7 @@ function spinnerOn() {
   refs.error.classList.add('visually-hidden');
 }
 function infoShow() {
+  refs.swiperWrapper.classList.add('display-none');
   refs.info.classList.remove('display-none');
   document
     .querySelector('#iframe')
@@ -25,7 +26,10 @@ function infoShow() {
 }
 
 function infoHide() {
+  refs.swiperWrapper.classList.remove('display-none');
+
   refs.info.classList.add('display-none');
+
   document
     .querySelector('#iframe')
     .setAttribute(
