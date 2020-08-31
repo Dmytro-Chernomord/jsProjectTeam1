@@ -40,7 +40,9 @@ function generateMovieLibrary(str, page) {
   librarySlider();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
-  checkTotalItems(obj);
+  if (page === 1) {
+    checkTotalItems(obj);
+  }
 
   let iterator = (page - 1) * 12;
   let counter = obj.length - iterator;
