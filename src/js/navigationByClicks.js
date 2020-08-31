@@ -63,8 +63,8 @@ function onMovieCardClick(event) {
   let clickedItem = event.target;
   if (clickedItem.nodeName === 'UL') return;
   onOpenModal();
+  setTimeout(checkLocalStorage, 400, clickedItem.dataset.id);
   generateOneMovieMarkup(clickedItem.dataset.id);
-  setTimeout(checkLocalStorage, 500, clickedItem.dataset.id);
   checkTrailerKey(clickedItem.dataset.id);
 
   // setTimeout(checkTrailerKey, 100, clickedItem.dataset.id);

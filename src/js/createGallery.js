@@ -3,6 +3,7 @@ import refs from './refs.js';
 
 function createCardMovie(obj) {
   refs.gallery.insertAdjacentHTML('beforeend', movies(obj));
+  console.log();
 }
 
 export { createCardMovie };

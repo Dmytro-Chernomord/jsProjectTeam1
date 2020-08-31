@@ -7,20 +7,21 @@
         <h2 class="content-title">{{title}}</h2>
         <ul class="content-list">
             <li class="content-item">
-                <p class="item-part">Vote / Votes </p>
+                <p class="item-part">Оценка / Голосов </p>
                 <span class="item-data item-data--accent">{{vote_average}}</span><span> / </span>
                 <span class="item-data item-data--accent item-data--grey">{{vote_count}}</span>
                 {{!-- <p class="rating"></p> --}}
             </li>
             <li class="content-item">
-                <p class="item-part">Popularity</p> <span class="item-data">{{popularity}}</span>
+                <p class="item-part">Рейтинг</p> <span class="item-data">{{popularity}}</span>
 
             </li>
             <li class="content-item">
-                <p class="item-part">Original Title</p> <span class="item-data">{{original_title}}</span>
+                <p class="item-part">Оригинальное название</p> <span class="item-data">{{original_title}}</span>
+
             </li>
             <li class="content-item">
-                <p class="item-part">Genre
+                <p class="item-part">Жанр
                 <ul class="genre-list">
                     {{#each genres}}
                     <li class="item-data genre-data">{{this.name}}</li>
@@ -29,17 +30,17 @@
                 </p>
             </li>
         </ul>
-        <h3 class="title-text">About</h3>
+        <h3 class="title-text">Описание</h3>
         <p class="text">{{overview}}</p>
         <div class="box-btn">
             <button id="add-watched" class="btn watch-btn" data-source='add-watched'>
                 {{!-- <div class="spinner-border text-warning spinner" style="width: 20px; height: 20px" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only">Загрузка...</span>
                 </div> --}}
             </button>
             <button id="add-queue" class="btn queue-btn" data-source='add-queue'>
                 {{!-- <div class="spinner-border text-warning spinner" style="width: 20px; height: 20px" role="status">
-                    <span class="sr-only">Loading...</span>
+                    <span class="sr-only">Загрузка...</span>
                 </div> --}}
             </button>
             <button id="trailer" data-id="{{id}}" class="btn trailer-btn" data-source='trailer'><svg class="youtube"
@@ -70,7 +71,7 @@
                                 points="225,177 161,113 124,133 88,154 159,225 201,225 225,201 225,177 161,113 " />
                         </g>
                     </g>
-                </svg>watch trailer</button>
+                </svg>trailer</button>
         </div>
     </div>
 </div>

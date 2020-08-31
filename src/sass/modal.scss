@@ -20,11 +20,18 @@
 }
 
 .modal-card {
+  height: 100%;
   position: relative;
   margin: 0 auto;
   background-color: $primary-white;
   width: 100%;
 }
+
+.header-modal {
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
 .header-container-modal {
   position: relative;
 }
