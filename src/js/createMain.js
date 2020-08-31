@@ -24,7 +24,6 @@ function createStartMain(page) {
 (function start() {
   createStartMain(1);
 })();
-// console.log(movies);
 
 refs.input.addEventListener('change', updateMurkupBySearch);
 

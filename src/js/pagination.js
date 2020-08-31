@@ -68,7 +68,7 @@ watchedPagination.on('afterMove', function (evt) {
   let str = definitionBtn();
   updateMarkup(str, currentPage);
   // watchedPagination.movePageTo(currentPage);//команда для смены страницы(не работает здесь/зацикливает в бесконечность)
-  console.log('Я сообщаю текущую страницу пагинации', currentPage);
+  // console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
 
 export { mainPagination, checkTotalItems, scroll };

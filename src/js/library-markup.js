@@ -68,14 +68,6 @@ refs.watchedBtn.addEventListener('click', () => {
   updateAccentBtn();
 });
 function updateAccentBtn() {
-  const test = localStorage.getItem('add-watched');
-  const testJson = JSON.parse(test);
-  const test2 = localStorage.getItem('add-watched');
-  const testJson2 = JSON.parse(test);
-  console.log(test);
-  if (testJson.length === testJson2.length) {
-    // popularSlider();
-  }
   refs.watchedBtn.classList.add('btn--accent');
   refs.queueBtn.classList.remove('btn--accent');
 }
