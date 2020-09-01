@@ -1,9 +1,11 @@
 import refs from './refs.js';
 import apiService from './apiServices.js';
-import { checkTotalItems } from './pagination.js';
+import { checkTotalItems, watchedPagination } from './pagination.js';
 import { infoShow, infoHide } from './spinner.js';
 import { createCardMovie } from './createGallery.js';
 import { formattingDataOneMovie } from './services';
+import { librarySlider, popularSlider } from './videoSlider.js';
+import { showSortBtns, hideSortBtns } from './createMain.js';
 
 // -----------------слушалель на myLibrary, btn watched, btn queue
 refs.myLib.addEventListener('click', () => {
@@ -20,6 +22,7 @@ refs.queueBtn.addEventListener('click', () => updateMarkup('add-queue'));
 // -------------------------------обновляет разметку
 function updateMarkup(str, page = 1) {
   refs.gallery.innerHTML = '';
+  librarySlider();
   generateMovieLibrary(str, page);
 }
 
@@ -32,9 +35,12 @@ function checkLSlength(el) {
 // --------------------------парсит localStorage и генерит список карточек
 function generateMovieLibrary(str, page) {
   infoHide();
+  hideSortBtns();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
-  checkTotalItems(obj);
+  if (page === 1) {
+    checkTotalItems(obj);
+  }
 
   let iterator = (page - 1) * 12;
   let counter = obj.length - iterator;
@@ -45,6 +51,7 @@ function generateMovieLibrary(str, page) {
     let allMovies = [];
     apiService.getOneMovieInfo(obj[i]).then(data => {
       allMovies.push(data);
+
       allMovies = formattingDataOneMovie(allMovies);
       createCardMovie(allMovies);
     });

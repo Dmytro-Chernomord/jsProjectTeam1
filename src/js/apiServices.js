@@ -1,5 +1,4 @@
 export default {
-  //   searchQuery: '',
   page: 1,
   apiKey: '89b9004c084fb7d0e8ffaadd17cb8254',
   total: 0,
@@ -16,8 +15,8 @@ export default {
     const res = await fetch(url);
     return await res.json();
   },
-  async getMoviesBySearch(search) {
-    const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=${this.language}&query=${search}&page=1`;
+  async getMoviesBySearch(search, page = 1) {
+    const url = `https://api.themoviedb.org/3/search/movie?api_key=${this.apiKey}&language=${this.language}&query=${search}&page=${page}`;
     const res = await fetch(url);
     return await res.json();
   },
@@ -38,13 +37,4 @@ export default {
       this.type = 'upcoming';
     }
   },
-  //   resetPage() {
-  //     this.page = 1;
-  //   },
-  //   get query() {
-  //     return this.searchQuery;
-  //   },
-  //   set query(value) {
-  //     this.searchQuery = value;
-  //   },
 };

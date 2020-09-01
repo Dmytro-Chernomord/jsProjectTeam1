@@ -1,3 +1,9 @@
+.movie-card {
+  min-height: 100%;
+  display: grid;
+  grid-template-rows: 1fr auto;
+}
+
 .content-title {
   margin-top: 30px;
   font-weight: 500;
@@ -18,7 +24,7 @@
     margin-top: 10px;
   }
   & .item-part {
-    width: 70px;
+    width: 120px;
     /* display: block; */
     margin-right: 40px;
     color: $details-secondary-text-color;
@@ -120,4 +126,14 @@
   .one-movie-image {
     max-width: 426px;
   }
+}
+
+.box-btn #trailer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.youtube {
+  margin: 5px;
 }

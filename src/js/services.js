@@ -4,9 +4,17 @@ import { createStartMain } from './createMain';
 
 function formattingData(arr) {
   arr.forEach(element => (element.genre_ids = getGenre(element.genre_ids)));
-  arr.forEach(
-    element => (element.release_date = element.release_date.slice(0, 4)),
-  );
+  arr.forEach(element => {
+    if (!element.release_date) {
+      return;
+    }
+    if (element.release_date.length > 4) {
+      return (element.release_date = element.release_date.slice(0, 4));
+    }
+    if (element.release_date.length === 4) {
+      return element.release_date;
+    }
+  });
   return arr;
 }
 

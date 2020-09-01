@@ -24,6 +24,9 @@ export default {
   watchedPaginationContainer: document.getElementById(
     'tui-pagination-container-watched',
   ),
+  searchPaginationContainer: document.getElementById(
+    'tui-pagination-container-search',
+  ),
   infoText: document.querySelector('.info-text'),
   info: document.querySelector('#info'),
   libraryBtnClose: document.querySelector('#btn-library'),
@@ -35,4 +38,9 @@ export default {
   main: document.querySelector('main'),
   modalText: document.querySelector('.modal-card'),
   modalBG: document.querySelector('.backdrop'),
+  iframe: document.querySelector('iframe'),
+  swiperWrapper: document.querySelector('.swiper-wrapper'),
+  swiperContainer: document.querySelector('swiper-container'),
+  modalHome: document.querySelector('#modal-home'),
+  footer: document.querySelector('.footer'),
 };

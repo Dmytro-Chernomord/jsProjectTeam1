@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import refs from './refs.js';
 // import createStartMain from './createMain.js';
-import { createStartMain } from './createMain.js'
+import { createStartMain } from './createMain.js';
 import { updateMarkup } from './library-markup.js';
 import { definitionBtn } from './services.js';
 
@@ -48,7 +48,7 @@ function checkTotalItems(obj) {
 
 const watchedPagination = new Pagination(refs.watchedPaginationContainer, {
   // Total number of items
-  totalItems: 1,
+  totalItems: 500,
   // Items per page
   itemsPerPage: 12,
   // Visible pages
@@ -67,8 +67,28 @@ watchedPagination.on('afterMove', function (evt) {
   // Функция внизу не создана
   let str = definitionBtn();
   updateMarkup(str, currentPage);
-  // watchedPagination.movePageTo(currentPage);//команда для смены страницы(не работает здесь/зацикливает в бесконечность)
-  console.log('Я сообщаю текущую страницу пагинации', currentPage);
 });
 
-export { mainPagination, checkTotalItems, scroll };
+const searchPagination = new Pagination(refs.searchPaginationContainer, {
+  // Total number of items
+  totalItems: 1000,
+  // Items per page
+  itemsPerPage: 12,
+  // Visible pages
+  visiblePages: 5,
+  // Current page
+  page: 1,
+  // center number
+  centerAlign: true,
+  //default class
+  firstItemClassName: 'tui-first-child',
+  lastItemClassName: 'tui-last-child',
+});
+
+export {
+  mainPagination,
+  checkTotalItems,
+  scroll,
+  watchedPagination,
+  searchPagination,
+};
