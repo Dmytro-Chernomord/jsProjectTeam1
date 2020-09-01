@@ -67,9 +67,6 @@ watchedPagination.on('afterMove', function (evt) {
   // Функция внизу не создана
   let str = definitionBtn();
   updateMarkup(str, currentPage);
-  // watchedPagination.reset();
-  // watchedPagination.movePageTo(currentPage);
-  // watchedPagination.reset();
 });
 
 const searchPagination = new Pagination(refs.searchPaginationContainer, {
@@ -87,13 +84,6 @@ const searchPagination = new Pagination(refs.searchPaginationContainer, {
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
 });
-
-// searchPagination.on('afterMove', function (evt) {
-//   let currentPage = evt.page;
-//   // createStartMain(currentPage);
-//   // updateMurkupBySearch();
-//   // scroll(0);
-// });
 
 export {
   mainPagination,

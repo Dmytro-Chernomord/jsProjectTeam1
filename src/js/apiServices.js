@@ -1,5 +1,4 @@
 export default {
-  //   searchQuery: '',
   page: 1,
   apiKey: '89b9004c084fb7d0e8ffaadd17cb8254',
   total: 0,
@@ -38,13 +37,4 @@ export default {
       this.type = 'upcoming';
     }
   },
-  //   resetPage() {
-  //     this.page = 1;
-  //   },
-  //   get query() {
-  //     return this.searchQuery;
-  //   },
-  //   set query(value) {
-  //     this.searchQuery = value;
-  //   },
 };

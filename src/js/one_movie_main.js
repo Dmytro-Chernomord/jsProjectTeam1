@@ -100,10 +100,6 @@ export const checkLocalStorage = function checkLocalStorage(id) {
     queueBtn.textContent = 'add to queue';
   }
 };
-// function onListenerBtn(id) {
-//   fn1(id)
-//   fn2(id)
-// }
 
 function onListenerBtn(id) {
   let arrWatched = JSON.parse(localStorage.getItem('add-watched'));

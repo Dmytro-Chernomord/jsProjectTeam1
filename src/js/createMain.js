@@ -22,23 +22,18 @@ function createStartMain(page) {
     .finally(() => spinnerOff());
 }
 
-// createStartMain();
 (function start() {
   createStartMain(1);
 })();
 
-// refs.input.addEventListener('change', updateMurkupBySearch);
-
 function updateMainMarkup(arr) {
   refs.gallery.innerHTML = movies(arr);
-  // refs.spinner.classList.add('visually-hidden');
 }
 
 let searchQuery = '';
 let page = 1;
 
 refs.input.addEventListener('change', evt => {
-  // evt.preventDefault();
   showSortBtns();
   searchQuery = evt.target.value;
   if (searchQuery == false) return;
@@ -49,7 +44,6 @@ refs.input.addEventListener('change', evt => {
     .getMoviesBySearch(searchQuery, page)
     .then(data => {
       searchPagination.setTotalItems(data.total_results - data.total_pages * 8);
-      // searchPagination.setItemsPerPage(12);
       searchPagination.movePageTo(1);
       let movies = formattingData(data.results);
       if (movies.length === 20) {
@@ -60,7 +54,6 @@ refs.input.addEventListener('change', evt => {
       if (movies.length) {
         hideSortBtns();
         refs.notification.classList.add('visually-hidden');
-        // return updateMainMarkup(data.results);
       } else {
         refs.notification.classList.remove('visually-hidden');
       }
@@ -70,16 +63,13 @@ refs.input.addEventListener('change', evt => {
 });
 
 searchPagination.on('afterMove', function (evt) {
-  // evt.preventDefault();
   showSortBtns();
   let currentPage = evt.page;
   spinnerOn();
   apiService
     .getMoviesBySearch(searchQuery, currentPage)
     .then(data => {
-      // let itemCount = data.total_results;
       searchPagination.setTotalItems(data.total_results - data.total_pages * 8);
-      // searchPagination.setItemsPerPage(12);
       let movies = formattingData(data.results);
 
       if (movies.length === 20) {
@@ -89,7 +79,6 @@ searchPagination.on('afterMove', function (evt) {
       if (movies.length) {
         hideSortBtns();
         refs.notification.classList.add('visually-hidden');
-        // return updateMainMarkup(data.results);
       } else {
         refs.notification.classList.remove('visually-hidden');
       }
@@ -99,35 +88,6 @@ searchPagination.on('afterMove', function (evt) {
   scroll(0);
 });
 
-// function updateMurkupBySearch(event) {
-//   event.preventDefault();
-//   showSortBtns();
-//   let query = event.target.value;
-//   if (query == false) return;
-//   // event.target.value = '';
-//   spinnerOn();
-//   refs.mainPaginationContainer.classList.add('is-none-pagination');
-//   apiService
-//     .getMoviesBySearch(query)
-//     .then(data => {
-//       let movies = formattingData(data.results);
-//       // if (movies.length === 20) {
-//       //   movies = changeQuantity(movies, 7);
-//       // }
-//       if (movies.length) {
-//         hideSortBtns();
-//         refs.notification.classList.add('visually-hidden');
-//         return updateMainMarkup(data.results);
-//       } else {
-//         refs.notification.classList.remove('visually-hidden');
-//       }
-//     })
-//     .catch(() => errorOn())
-//     .finally(() => {
-//       spinnerOff();
-//     });
-// }
-
 function hideSortBtns() {
   refs.sortBtns.classList.add('visually-hidden');
 }
@@ -136,5 +96,4 @@ function showSortBtns() {
   refs.sortBtns.classList.remove('visually-hidden');
 }
 
-// export default createStartMain;
 export { createStartMain, updateMainMarkup, hideSortBtns, showSortBtns };

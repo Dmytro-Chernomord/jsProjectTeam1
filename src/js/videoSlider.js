@@ -95,19 +95,4 @@ function stopMovie() {
   const stopPlay = target.setAttribute('src', moviePlayUrl);
 }
 
-// const markupVideo = videoSliderHandelbars(movieArray);
-
-// refs.swiperWrapper.insertAdjacentHTML('beforeend', markupVideo);
-
-// var swiper = new Swiper('.swiper-container', {
-//   slidesPerView: 3,
-//   slidesPerColumn: 1,
-//   spaceBetween: 0,
-//   navigation: {
-//     nextEl: '.swiper-button-next',
-//     prevEl: '.swiper-button-prev',
-//   },
-//   //   mousewheel: true,
-//   keyboard: true,
-// });
 export { popularSlider, librarySlider };

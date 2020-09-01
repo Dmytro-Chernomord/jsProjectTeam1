@@ -36,8 +36,6 @@ function checkLSlength(el) {
 function generateMovieLibrary(str, page) {
   infoHide();
   hideSortBtns();
-  //начинает отрисовку в очереди если там 3 и более фильмов, либо популярного
-  // librarySlider();
   let obj = JSON.parse(localStorage.getItem(str));
   checkLSlength(obj);
   if (page === 1) {
@@ -48,7 +46,6 @@ function generateMovieLibrary(str, page) {
   let counter = obj.length - iterator;
   if (counter > 12) {
     counter = 12;
-    // watchedPagination.reset();
   }
   for (let i = iterator; i < counter + iterator; i++) {
     let allMovies = [];
